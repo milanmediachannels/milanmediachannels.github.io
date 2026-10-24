@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilanMediaChannels - Tech & Software News</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFCC00',
+                        brandYellowDark: '#E6B800',
+                        brandGreen: '#059669',
+                        brandGreenDark: '#047857',
+                        mediaSlate: '#0F172A',
+                        darkBg: '#090D16',
+                        darkCard: '#131A29',
+                        darkBorder: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .media-shadow-hover:hover { box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
+        .dark .media-shadow-hover:hover { box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5); }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFCC00; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col antialiased">
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-darkBorder sticky top-0 z-40 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Main Brand Logo -->
+                <a href="#" onclick="filterCategory('all')" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brandYellow via-amber-400 to-brandGreen flex items-center justify-center shadow-md p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-brandYellow font-black text-xl">
+                            M
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">Milan<span class="text-brandGreen">Media</span></span>
+                            <span class="bg-slate-900 text-brandYellow text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-widest uppercase">CHANNELS</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+                            Hardware & Software News Portal
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Category Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1 font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    <button onclick="filterCategory('all')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition text-brandGreen font-black">All News</button>
+                    <button onclick="filterCategory('TechToday')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> TechToday
+                    </button>
+                    <button onclick="filterCategory('Coding with Milan')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandGreen inline-block"></span> Coding With Milan
+                    </button>
+                    <button onclick="filterCategory('AI & Hardware')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">AI & Silicon</button>
+                    <button onclick="filterCategory('Software Engineering')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">DevSecOps</button>
+                </nav>
+
+                <!-- Utility Actions -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search hardware, CVEs, PyTorch..." 
+                            class="w-52 lg:w-64 pl-9 pr-4 py-2 text-xs font-medium bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-brandGreen dark:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Articles">
+                        <i class="fa-solid fa-bookmark text-brandYellow text-sm"></i>
+                        <span id="bookmarkBadge" class="absolute -top-1 -right-1 bg-brandGreen text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <button id="themeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brandYellow transition text-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-brandYellow"></i>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-darkCard border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 text-xs uppercase font-bold">
+            <div class="relative my-2">
+                <input type="text" id="mobileSearchInput" oninput="handleSearch(true)" placeholder="Search news & code..." 
+                    class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400"></i>
+            </div>
+            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All News</button>
+            <button onclick="filterCategory('TechToday'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">TechToday</button>
+            <button onclick="filterCategory('Coding with Milan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandGreen hover:bg-gray-100 dark:hover:bg-slate-800">Coding with Milan</button>
+            <button onclick="filterCategory('AI & Hardware'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">AI & Silicon</button>
+            <button onclick="filterCategory('Software Engineering'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">DevSecOps & Security</button>
+        </div>
+    </header>
+
+    <!-- Main Editorial News Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200 dark:border-slate-800 overflow-x-auto gap-2">
+            <div class="flex items-center space-x-2 shrink-0">
+                <button onclick="filterCategory('all')" class="cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900">
+                    All Stories
+                </button>
+                <button onclick="filterCategory('TechToday')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    TechToday
+                </button>
+                <button onclick="filterCategory('Coding with Milan')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    Coding with Milan
+                </button>
+                <button onclick="filterCategory('AI & Hardware')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    AI Silicon
+                </button>
+                <button onclick="filterCategory('Software Engineering')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    DevSecOps
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Story & Sidebar Grid -->
+        <div id="featuredHeroContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <!-- Dynamic Main Investigation Hero Injected Here -->
+        </div>
+
+        <!-- Section Header for Editorial Feeds -->
+        <div class="flex items-center justify-between mb-6 pt-6 border-t border-gray-200 dark:border-slate-800">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Latest News & Technical Articles</h3>
+            </div>
+        </div>
+
+        <!-- News Cards Grid -->
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Cards Injected Here via JavaScript -->
+        </div>
+
+        <!-- Empty State Search Handler -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-darkCard rounded-2xl border border-dashed border-gray-300 dark:border-slate-800 my-8">
+            <i class="fa-solid fa-magnifying-glass text-4xl text-gray-400 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Matching News Found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try typing a different search keyword such as "PyTorch", "Lithium", or "DevOps".</p>
+            <button onclick="filterCategory('all')" class="mt-4 bg-brandGreen text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-emerald-700 transition">
+                Reset Filter
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Saved Bookmarks Drawer -->
+    <div id="bookmarkDrawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-darkCard border-l border-gray-200 dark:border-slate-800 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-bookmark text-brandYellow"></i>
+                <h3 class="font-black text-sm uppercase tracking-wider">Saved Reading List</h3>
+            </div>
+            <button onclick="toggleBookmarkDrawer()" class="text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        <div id="bookmarkListContainer" class="p-5 flex-1 overflow-y-auto space-y-4">
+            <!-- Bookmarked items injected here -->
+        </div>
+    </div>
+
+    <!-- Long-Form Reader Article Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 hidden opacity-0 transition-opacity duration-300">
+        <div id="modalContainer" class="bg-white dark:bg-darkCard rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-slate-800 transition-transform duration-300 scale-95 flex flex-col">
+            
+            <!-- Modal Header / Cover Image -->
+            <div class="relative h-64 sm:h-96 w-full bg-slate-900 shrink-0">
+                <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                
+                <div class="absolute top-4 right-4 flex items-center space-x-2">
+                    <button id="modalBookmarkBtn" onclick="toggleSaveCurrentArticle()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700" title="Save Article">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                    <button onclick="closeModal()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span id="modalSourceBadge" class="px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider"></span>
+                        <span id="modalCategoryBadge" class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded"></span>
+                    </div>
+                    <h1 id="modalTitle" class="text-2xl sm:text-4xl font-black leading-tight tracking-tight"></h1>
+                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 font-medium">
+                        <span id="modalAuthor"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> Milan Filipović</span>
+                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> Published Recently</span>
+                        <span id="modalReadTime"><i class="fa-solid fa-book-open mr-1"></i> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 sm:p-10 space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed text-sm sm:text-base">
+                
+                <div class="p-4 sm:p-5 bg-gray-100 dark:bg-slate-800/80 border-l-4 border-brandYellow rounded-r-xl font-medium text-slate-900 dark:text-slate-100 italic text-sm sm:text-base">
+                    <p id="modalLeadExcerpt"></p>
+                </div>
+
+                <div id="modalMainBody" class="space-y-4"></div>
+
+                <div id="modalCodeSection" class="hidden my-6">
+                    <div class="flex items-center justify-between bg-slate-900 px-4 py-2 rounded-t-xl text-xs font-mono text-slate-300 border-b border-slate-800">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-terminal text-brandGreen"></i> <span id="codeLangLabel">Code Snippet</span></span>
+                        <button onclick="copyModalCode()" class="hover:text-brandYellow transition text-xs flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy Snippet</span>
+                        </button>
+                    </div>
+                    <pre class="bg-slate-950 p-4 rounded-b-xl overflow-x-auto text-xs sm:text-sm font-mono text-emerald-400 border border-slate-800 leading-relaxed"><code id="modalCodeSnippet"></code></pre>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-brandYellow text-slate-950 font-black flex items-center justify-center text-sm">
+                    M
+                </div>
+                <span class="text-base font-black text-white tracking-tight uppercase">Milan<span class="text-brandGreen">Media</span>Channels</span>
+            </div>
+            <p class="text-slate-500 text-[11px]">© 2026 MilanMediaChannels. Tech & Programming News.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const newsArticles = [
+            {
+                id: 1,
+                title: "PHP2Shell Security Vulnerabilities: Modern DevSecOps Code Audit Analysis",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "7 min read",
+                views: "114K Views",
+                featured: true,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+                excerpt: "Automated code static analyzers highlighted string sanitization vulnerabilities in backend services. Here is an architectural review of continuous quality engineering fixes.",
+                bodyParagraphs: [
+                    "Static security analysis tools powered by semantic code graphs have brought renewed focus to memory allocation and string parsing behaviors in production backend services.",
+                    "In this article, we evaluate how continuous integration pipelines isolate legacy string parser vulnerabilities before changes are merged to production codebases."
+                ],
+                snippet: "// Example String Sanitization Implementation\nfunction sanitize_user_payload(string $input): string {\n    $clean = preg_replace('/[^a-zA-Z0-9_\\-]/', '', $input);\n    if (strlen($clean) > 256) {\n        throw new InvalidArgumentException('Payload length exceeded limit.');\n    }\n    return htmlspecialchars($clean, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');\n}",
+                snippetLang: "PHP / Security Refactor"
+            },
+            {
+                id: 2,
+                title: "PyTorch & TorchNeuron 2.0: Graph Compilation for AI Accelerators",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "5 min read",
+                views: "68K Views",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Walkthrough on lowering tensor graphs for hardware execution using TorchNeuron model tracing.",
+                bodyParagraphs: [
+                    "Compiling deep learning graphs for custom hardware accelerators requires moving past traditional eager execution models. TorchNeuron trace compilation exports computational graphs directly to hardware targets.",
+                    "We examine a benchmark script tracing transformer operations with torch.neuron.trace to optimize inference latency."
+                ],
+                snippet: "import torch\nimport torch_neuron\n\nmodel = MyTransformerModel.from_pretrained('bert-base-uncased')\nmodel.eval()\nexample_inputs = torch.zeros((1, 128), dtype=torch.int64)\n\nneuron_model = torch.neuron.trace(model, example_inputs)\nneuron_model.save('model_neuron.pt')",
+                snippetLang: "Python / PyTorch"
+            },
+            {
+                id: 3,
+                title: "Physical AI & World Simulation Models: Spatial Hardware Trends",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "8 min read",
+                views: "92K Views",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Analyzing physical world models that simulate kinematics, optics, and 3D spatial dynamics.",
+                bodyParagraphs: [
+                    "AI research facilities are expanding beyond text LLMs toward physical world models that accurately simulate kinematics and material optics for spatial computing and robotics."
+                ]
+            },
+            {
+                id: 4,
+                title: "Energy Storage Systems & Microgrid Smart Efficiency Upgrades",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "4 min read",
+                views: "54K Views",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Reviewing bidirectional solid-state energy storage installations for microgrids.",
+                bodyParagraphs: [
+                    "High-density energy storage technology is reaching broader availability for commercial microgrid setups, offering automated load balancing."
+                ]
+            },
+            {
+                id: 5,
+                title: "Continuous Quality Engineering in Modern CI/CD Workflows",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "6 min read",
+                views: "73K Views",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests.",
+                bodyParagraphs: [
+                    "Continuous Quality Engineering combines security scanning, synthetic performance benchmarks, and automated visual regression checks into unified CI pipelines."
+                ],
+                snippet: "name: DevSecOps Gate\non: [push, pull_request]\njobs:\n  audit:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run Security Audit\n        run: npm audit",
+                snippetLang: "YAML / GitHub Actions"
+            },
+            {
+                id: 6,
+                title: "Custom Silicon Benchmarks: Inference Performance per Watt Analysis",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "Recent Report",
+                readTime: "5 min read",
+                views: "81K Views",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
+                bodyParagraphs: [
+                    "Evaluating application-specific silicon hardware benchmarks for neural network batch processing and inference workload latency."
+                ]
+            }
+        ];
+
+        let currentCategory = 'all';
+        let savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks') || '[]');
+        let currentModalArticleId = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedHero();
+            renderNewsGrid(newsArticles);
+            updateBookmarkBadge();
+
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        });
+
+        function renderFeaturedHero() {
+            const container = document.getElementById('featuredHeroContainer');
+            const hero = newsArticles.find(a => a.featured) || newsArticles[0];
+            const trendingList = newsArticles.filter(a => a.id !== hero.id).slice(0, 3);
+
+            container.innerHTML = `
+                <div class="lg:col-span-8">
+                    <div onclick="openArticleModal(${hero.id})" class="cursor-pointer group relative bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md hover:shadow-2xl transition-all duration-300">
+                        <div class="relative h-72 sm:h-96 w-full bg-slate-950 overflow-hidden">
+                            <img src="${hero.image}" alt="${hero.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                            
+                            <div class="absolute top-4 left-4">
+                                <span class="${hero.badgeColor} text-[10px] font-black px-3 py-1 rounded uppercase tracking-wider">
+                                    Featured Story
+                                </span>
+                            </div>
+
+                            <div class="absolute bottom-6 left-6 right-6 text-white">
+                                <div class="flex items-center space-x-2 text-xs font-bold text-brandYellow mb-2">
+                                    <span>${hero.author}</span>
+                                    <span>•</span>
+                                    <span class="text-slate-300">${hero.source}</span>
+                                </div>
+                                <h1 class="text-2xl sm:text-4xl font-black leading-tight tracking-tight text-white group-hover:text-brandYellow transition-colors">
+                                    ${hero.title}
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-darkCard border-t border-gray-100 dark:border-slate-800 flex items-center justify-between">
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-slate-300 line-clamp-2 max-w-2xl leading-relaxed">
+                                ${hero.excerpt}
+                            </p>
+                            <span class="text-xs font-black text-brandGreen group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0 ml-4">
+                                Read Full <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col justify-between space-y-4">
+                    <div class="bg-white dark:bg-darkCard rounded-3xl p-5 border border-gray-200 dark:border-slate-800 shadow-sm flex-1">
+                        <div class="flex items-center justify-between pb-3 mb-4 border-b border-gray-100 dark:border-slate-800">
+                            <h3 class="font-black text-sm uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-fire text-brandGreen"></i> Top Headlines
+                            </h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            ${trendingList.map((item, idx) => `
+                                <div onclick="openArticleModal(${item.id})" class="cursor-pointer group flex items-start space-x-3 pb-3 border-b border-gray-100 dark:border-slate-800/60 last:border-0 last:pb-0">
+                                    <span class="text-lg font-black text-slate-300 dark:text-slate-700 group-hover:text-brandYellow transition-colors">0${idx+1}</span>
+                                    <div>
+                                        <span class="text-[10px] font-bold text-brandGreen uppercase tracking-wider">${item.category}</span>
+                                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2 leading-snug">
+                                            ${item.title}
+                                        </h4>
+                                        <span class="text-[10px] text-gray-400 font-medium mt-1 inline-block">${item.readTime}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderNewsGrid(articles) {
+            const grid = document.getElementById('newsGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (articles.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = articles.map(article => `
+                <article onclick="openArticleModal(${article.id})" class="cursor-pointer group bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 media-shadow-hover transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-slate-950">
+                            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                            
+                            <span class="absolute top-3 left-3 ${article.badgeColor} font-black text-[9px] px-2.5 py-1 rounded uppercase tracking-wider">
+                                ${article.source}
+                            </span>
+
+                            <button onclick="event.stopPropagation(); toggleSaveArticle(${article.id})" class="absolute top-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs backdrop-blur border border-slate-700 transition" title="Save for later">
+                                <i class="${isArticleSaved(article.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>
+                            </button>
+                        </div>
+
+                        <div class="p-5">
+                            <div class="flex items-center justify-between text-[11px] font-semibold text-gray-500 dark:text-slate-400 mb-2">
+                                <span class="text-brandGreen font-bold">${article.category}</span>
+                                <span>${article.readTime}</span>
+                            </div>
+
+                            <h3 class="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2">
+                                ${article.title}
+                            </h3>
+
+                            <p class="text-xs text-gray-600 dark:text-slate-300 mt-2 line-clamp-3 leading-relaxed">
+                                ${article.excerpt}
+                            </p>
+
+                            ${article.snippet ? `
+                                <div class="mt-3 p-2.5 bg-slate-950 text-emerald-400 rounded-lg text-[10px] font-mono border border-slate-800">
+                                    <div class="text-[9px] text-slate-500 uppercase mb-1 flex items-center gap-1">
+                                        <i class="fa-solid fa-code text-brandGreen"></i> Code Snippet
+                                    </div>
+                                    <p class="truncate">${escapeHtml(article.snippet.split('\n')[0])}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-3 bg-gray-50 dark:bg-slate-900/50 border-t border-gray-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
+                        <span class="text-[11px] text-gray-500 dark:text-slate-400 font-medium">
+                            <i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}
+                        </span>
+                        <span class="font-bold text-brandGreen dark:text-brandYellow text-[11px] flex items-center gap-1">
+                            Read Article <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            const pills = document.querySelectorAll('.cat-pill');
+            
+            pills.forEach(pill => {
+                if(pill.innerText.includes(cat) || (cat === 'all' && pill.innerText.includes('All'))) {
+                    pill.className = "cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900";
+                } else {
+                    pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all";
+                }
+            });
+
+            const heroSec = document.getElementById('featuredHeroContainer');
+            if(cat === 'all') {
+                heroSec.classList.remove('hidden');
+                renderNewsGrid(newsArticles);
+            } else {
+                heroSec.classList.add('hidden');
+                const filtered = newsArticles.filter(a => 
+                    a.category.toLowerCase().includes(cat.toLowerCase()) || 
+                    a.source.toLowerCase().includes(cat.toLowerCase())
+                );
+                renderNewsGrid(filtered);
+            }
+        }
+
+        function handleSearch(isMobile = false) {
+            const query = (isMobile ? document.getElementById('mobileSearchInput').value : document.getElementById('searchInput').value).toLowerCase().trim();
+            const heroSec = document.getElementById('featuredHeroContainer');
+
+            if(query === '') {
+                filterCategory(currentCategory);
+                return;
+            }
+
+            heroSec.classList.add('hidden');
+            const searchResults = newsArticles.filter(article => 
+                article.title.toLowerCase().includes(query) || 
+                article.excerpt.toLowerCase().includes(query) ||
+                article.category.toLowerCase().includes(query) ||
+                (article.snippet && article.snippet.toLowerCase().includes(query))
+            );
+
+            renderNewsGrid(searchResults);
+        }
+
+        function openArticleModal(id) {
+            const article = newsArticles.find(a => a.id === id);
+            if (!article) return;
+
+            currentModalArticleId = id;
+
+            document.getElementById('modalImg').src = article.image;
+            document.getElementById('modalTitle').innerText = article.title;
+            document.getElementById('modalCategoryBadge').innerText = article.category;
+            document.getElementById('modalSourceBadge').innerText = article.source;
+            document.getElementById('modalSourceBadge').className = `px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider ${article.badgeColor}`;
+            document.getElementById('modalAuthor').innerHTML = `<i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}`;
+            document.getElementById('modalReadTime').innerHTML = `<i class="fa-solid fa-book-open mr-1"></i> ${article.readTime}`;
+            document.getElementById('modalLeadExcerpt').innerText = article.excerpt;
+
+            const bodyContainer = document.getElementById('modalMainBody');
+            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p class="leading-relaxed font-normal text-slate-700 dark:text-slate-300 text-sm sm:text-base">${p}</p>`).join('');
+
+            const codeSec = document.getElementById('modalCodeSection');
+            if(article.snippet) {
+                document.getElementById('modalCodeSnippet').innerText = article.snippet;
+                document.getElementById('codeLangLabel').innerText = article.snippetLang || 'Code Snippet';
+                codeSec.classList.remove('hidden');
+            } else {
+                codeSec.classList.add('hidden');
+            }
+
+            updateModalBookmarkBtn();
+
+            const modal = document.getElementById('articleModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.add('opacity-0');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 200);
+        }
+
+        function isArticleSaved(id) {
+            return savedBookmarks.some(a => a.id === id);
+        }
+
+        function toggleSaveArticle(id) {
+            const index = savedBookmarks.findIndex(a => a.id === id);
+            if(index > -1) {
+                savedBookmarks.splice(index, 1);
+            } else {
+                const article = newsArticles.find(a => a.id === id);
+                if(article) savedBookmarks.push(article);
+            }
+            localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
+            updateBookmarkBadge();
+            renderNewsGrid(newsArticles.filter(a => currentCategory === 'all' ? true : a.category.includes(currentCategory)));
+            renderBookmarksList();
+        }
+
+        function toggleSaveCurrentArticle() {
+            if(currentModalArticleId) {
+                toggleSaveArticle(currentModalArticleId);
+                updateModalBookmarkBtn();
+            }
+        }
+
+        function updateModalBookmarkBtn() {
+            const btn = document.getElementById('modalBookmarkBtn');
+            if(isArticleSaved(currentModalArticleId)) {
+                btn.innerHTML = `<i class="fa-solid fa-bookmark text-brandYellow"></i>`;
+            } else {
+                btn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
+            }
+        }
+
+        function updateBookmarkBadge() {
+            document.getElementById('bookmarkBadge').innerText = savedBookmarks.length;
+        }
+
+        function toggleBookmarkDrawer() {
+            const drawer = document.getElementById('bookmarkDrawer');
+            drawer.classList.toggle('translate-x-full');
+            if(!drawer.classList.contains('translate-x-full')) {
+                renderBookmarksList();
+            }
+        }
+
+        function renderBookmarksList() {
+            const container = document.getElementById('bookmarkListContainer');
+            if(savedBookmarks.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500 text-center py-8">No saved articles yet.</p>`;
+                return;
+            }
+
+            container.innerHTML = savedBookmarks.map(item => `
+                <div class="p-3 bg-gray-50 dark:bg-slate-800/60 rounded-xl border border-gray-200 dark:border-slate-700 flex items-center justify-between gap-3">
+                    <div onclick="openArticleModal(${item.id}); toggleBookmarkDrawer()" class="cursor-pointer flex-1">
+                        <span class="text-[9px] font-bold text-brandGreen uppercase">${item.source}</span>
+                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${item.title}</h4>
+                    </div>
+                    <button onclick="toggleSaveArticle(${item.id})" class="text-red-500 hover:text-red-700 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function copyModalCode() {
+            const code = document.getElementById('modalCodeSnippet').innerText;
+            const btnText = document.getElementById('copyBtnText');
+            
+            const dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = code;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            btnText.innerText = "Copied!";
+            setTimeout(() => { btnText.innerText = "Copy Snippet"; }, 2000);
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
+</body>
+</html>
