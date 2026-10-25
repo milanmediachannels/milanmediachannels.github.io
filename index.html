@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -195,7 +196,7 @@
         <div id="modalContainer" class="bg-white dark:bg-darkCard rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-slate-800 transition-transform duration-300 scale-95 flex flex-col">
             
             <!-- Modal Header / Cover Image -->
-            <div class="relative h-64 sm:h-96 w-full bg-slate-900 shrink-0">
+            <div class="relative h-64 sm:h-96 w-full bg-slate-950 shrink-0">
                 <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                 
@@ -263,16 +264,16 @@
         const newsArticles = [
             {
                 id: 1,
-                title: "Antropic AI agent or as they call it a Duet ,
-                category: "Artificional Inteligentce",
+                title: "Anthropic AI agent: Claude Duet semi-autonomous workflow agent",
+                category: "Artificial Intelligence",
                 source: "Tech Today",
                 author: "Milan Filipović",
                 date: "10/25/2026",
                 readTime: "7 min read",
                 featured: true,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://pixabay.com/illustrations/ai-generated-robot-hand-brain-8540913/",
-                excerpt: "Claude Duet is Anthropic’s proactive personal AI agent. It extends the Claude AI ecosystem by moving beyond reactive text chats into background, semi-autonomous execution of work across your connected tools.",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Claude Duet is Anthropic's proactive personal AI agent. It extends the Claude AI ecosystem by moving beyond reactive text chats into background, semi-autonomous execution of work across your connected tools.",
                 bodyParagraphs: [
                     "Cloud-Based Virtual Machine: Claude Duet runs on a dedicated cloud virtual machine equipped with its own web browser. This allows it to work continuously on complex, long-running tasks in the background without needing your laptop or phone to stay on.",
                     "Proactive Monitoring & Morning Briefs: Rather than waiting for prompts, Duet can check your connected calendar, emails, and apps every few hours. It identifies upcoming events, unanswered emails, or missing task prerequisites and automatically drafts context-aware prep briefs or follow-ups.",
@@ -281,11 +282,11 @@
                     "Task Automation: It handles both routine admin (e.g., meeting prep, scheduling) and multi-step tasks like building web app prototypes, designing sales forecasts, or compiling analytics dashboards."
                 ],
                 snippet: "// Example String Sanitization Implementation\nfunction sanitize_user_payload(string $input): string {\n    $clean = preg_replace('/[^a-zA-Z0-9_\\-]/', '', $input);\n    if (strlen($clean) > 256) {\n        throw new InvalidArgumentException('Payload length exceeded limit.');\n    }\n    return htmlspecialchars($clean, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');\n}",
-                snippetLang: "Claude Duet"
+                snippetLang: "Claude Duet Setup"
             },
             {
                 id: 2,
-                title: "Jetbrain intergration with ai",
+                title: "JetBrains native IDE integration with AI agents",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
@@ -293,62 +294,51 @@
                 readTime: "5 min read",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://www.istockphoto.com/photo/data-analysis-science-and-big-data-with-ai-technology-analyst-or-scientist-uses-a-gm1979289147-558917489?utm_source=pixabay&utm_medium=affiliate&utm_campaign=sponsored_image&utm_content=srp_topbanner_media&utm_term=ai+coding",
-                excerpt: "JetBrains reported that injecting its native IDE code intelligence into AI coding agents improves overall agent execution efficiency by 20% to 30% across a variety of AI models, agent architectures, and programming tasks.",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "JetBrains reported that injecting its native IDE code intelligence into AI coding agents improves overall agent execution efficiency by 20% to 30% across a variety of AI models.",
                 bodyParagraphs: [
                     "The Problem (Agent Exploration Overhead): Autonomous AI agents typically consume excessive tokens and time attempting to build project context—scanning repositories file-by-file, making incorrect assumptions about dependencies, or guessing type definitions.",
-                    "The JetBrains Solution (IDE Context): JetBrains IDEs maintain deep semantic indexes (ASTs, symbol resolutions, usage tracking, and type definitions). JetBrains routes this exact, pre-indexed IDE intelligence directly to external and internal agents (such as via their JetBrains Air ecosystem and Agent Control Protocol).",
-                    "Fewer Wrong Turns: Agents make fewer missteps during refactoring or multi-file coding tasks because type hierarchies and dependencies are resolved before the agent begins writing code.Lower Token Usage: By avoiding blind codebase scanning, agents require significantly fewer context tokens to achieve working code.Faster Task Execution: Tasks complete 20% to 30% faster on average, regardless of whether the agent relies on Anthropic Claude, OpenAI models, or proprietary agent setups."
+                    "The JetBrains Solution (IDE Context): JetBrains IDEs maintain deep semantic indexes (ASTs, symbol resolutions, usage tracking, and type definitions). JetBrains routes this exact, pre-indexed IDE intelligence directly to external and internal agents.",
+                    "Fewer Wrong Turns: Agents make fewer missteps during refactoring or multi-file coding tasks because type hierarchies and dependencies are resolved before the agent begins writing code."
                 ],
-                snippet: "{
-  "agent_servers": {
-    "Claude Agent": {
-      "command": "/usr/local/bin/claude-agent",
-      "args": ["acp"]
-    },
-    "Internal Migration Agent": {
-      "command": "/opt/company/bin/migration-agent",
-      "args": ["acp"]
-    }
-  }
-}",
+                snippet: "{\n  \"agent_servers\": {\n    \"Claude Agent\": {\n      \"command\": \"/usr/local/bin/claude-agent\",\n      \"args\": [\"acp\"]\n    },\n    \"Internal Migration Agent\": {\n      \"command\": \"/opt/company/bin/migration-agent\",\n      \"args\": [\"acp\"]\n    }\n  }\n}",
                 snippetLang: "JSON"
             },
             {
                 id: 3,
-                title: "The market dynamics reflect a shift in investor sentiment, as tech stocks experience heightened volatility due to macroeconomic pressures and questions around corporate capital allocation.",
+                title: "Market Dynamics Reflect Shift in Investor Sentiment for Tech Capital",
                 category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
-                date: "21/25/2026",
+                date: "10/25/2026",
                 readTime: "8 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://pixabay.com/photos/blur-chart-computer-data-finance-1853262/",
-                excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs..",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
                 bodyParagraphs: [
                     "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
                 ]
             },
             {
                 id: 4,
-                title: "From AI Code Completion to Agentic Coding",
+                title: "From AI Code Completion to Agentic Coding Paradigms",
                 category: "Software Engineering",
                 source: "TechToday",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "10/24/2026",
                 readTime: "4 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://pixabay.com/photos/code-html-digital-coding-web-1076536/",
-                excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents",
+                image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
+                excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
                 bodyParagraphs: [
                     "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using tools like Vercel's v0, Lovable, and Bolt.new."
                 ]
             },
             {
                 id: 5,
-                title: "TypeScript and Rust Continue Rapid Growth",
+                title: "TypeScript and Rust Continue Rapid Global Ecosystem Growth",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
@@ -356,8 +346,8 @@
                 readTime: "6 min read",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://pixabay.com/images/download/x-1841550_1920.jpg",
-                excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests.",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests with modern security auditing.",
                 bodyParagraphs: [
                     "TypeScript has surpassed JavaScript and Python as the most active language by repository contributions on GitHub, driven by the demand for type safety in large codebases and agent-assisted workflows.",
                     "Rust continues its steady expansion, adding over a million new developers annually as industries adopt it to comply with memory-safety guidelines and government cybersecurity mandates."
