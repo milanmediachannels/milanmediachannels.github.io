@@ -263,93 +263,104 @@
         const newsArticles = [
             {
                 id: 1,
-                title: "PHP2Shell Security Vulnerabilities: Modern DevSecOps Code Audit Analysis",
-                category: "Software Engineering",
-                source: "Coding with Milan",
+                title: "Antropic AI agent or as they call it a Duet ,
+                category: "Artificional Inteligentce",
+                source: "Tech Today",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "10/25/2026",
                 readTime: "7 min read",
-                views: "114K Views",
                 featured: true,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-                excerpt: "Automated code static analyzers highlighted string sanitization vulnerabilities in backend services. Here is an architectural review of continuous quality engineering fixes.",
+                image: "https://pixabay.com/illustrations/ai-generated-robot-hand-brain-8540913/",
+                excerpt: "Claude Duet is Anthropic’s proactive personal AI agent. It extends the Claude AI ecosystem by moving beyond reactive text chats into background, semi-autonomous execution of work across your connected tools.",
                 bodyParagraphs: [
-                    "Static security analysis tools powered by semantic code graphs have brought renewed focus to memory allocation and string parsing behaviors in production backend services.",
-                    "In this article, we evaluate how continuous integration pipelines isolate legacy string parser vulnerabilities before changes are merged to production codebases."
+                    "Cloud-Based Virtual Machine: Claude Duet runs on a dedicated cloud virtual machine equipped with its own web browser. This allows it to work continuously on complex, long-running tasks in the background without needing your laptop or phone to stay on.",
+                    "Proactive Monitoring & Morning Briefs: Rather than waiting for prompts, Duet can check your connected calendar, emails, and apps every few hours. It identifies upcoming events, unanswered emails, or missing task prerequisites and automatically drafts context-aware prep briefs or follow-ups.",
+                    "Shared Ecosystem Memory: Duet inherits your existing Claude memories, customized skills, prompt preferences, and app integrations. You interact with it in a persistent, ongoing conversation thread.",
+                    "Marketplace Integrations: Using thousands of connectors in the Claude Marketplace, Duet can work across external business and productivity tools—such as drafting CRM follow-ups in HubSpot, generating marketing materials in Canva, or helping set up and manage Shopify storefronts.",
+                    "Task Automation: It handles both routine admin (e.g., meeting prep, scheduling) and multi-step tasks like building web app prototypes, designing sales forecasts, or compiling analytics dashboards."
                 ],
                 snippet: "// Example String Sanitization Implementation\nfunction sanitize_user_payload(string $input): string {\n    $clean = preg_replace('/[^a-zA-Z0-9_\\-]/', '', $input);\n    if (strlen($clean) > 256) {\n        throw new InvalidArgumentException('Payload length exceeded limit.');\n    }\n    return htmlspecialchars($clean, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');\n}",
-                snippetLang: "PHP / Security Refactor"
+                snippetLang: "Claude Duet"
             },
             {
                 id: 2,
-                title: "PyTorch & TorchNeuron 2.0: Graph Compilation for AI Accelerators",
+                title: "Jetbrain intergration with ai",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "10/25/2026",
                 readTime: "5 min read",
-                views: "68K Views",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Walkthrough on lowering tensor graphs for hardware execution using TorchNeuron model tracing.",
+                image: "https://www.istockphoto.com/photo/data-analysis-science-and-big-data-with-ai-technology-analyst-or-scientist-uses-a-gm1979289147-558917489?utm_source=pixabay&utm_medium=affiliate&utm_campaign=sponsored_image&utm_content=srp_topbanner_media&utm_term=ai+coding",
+                excerpt: "JetBrains reported that injecting its native IDE code intelligence into AI coding agents improves overall agent execution efficiency by 20% to 30% across a variety of AI models, agent architectures, and programming tasks.",
                 bodyParagraphs: [
-                    "Compiling deep learning graphs for custom hardware accelerators requires moving past traditional eager execution models. TorchNeuron trace compilation exports computational graphs directly to hardware targets.",
-                    "We examine a benchmark script tracing transformer operations with torch.neuron.trace to optimize inference latency."
+                    "The Problem (Agent Exploration Overhead): Autonomous AI agents typically consume excessive tokens and time attempting to build project context—scanning repositories file-by-file, making incorrect assumptions about dependencies, or guessing type definitions.",
+                    "The JetBrains Solution (IDE Context): JetBrains IDEs maintain deep semantic indexes (ASTs, symbol resolutions, usage tracking, and type definitions). JetBrains routes this exact, pre-indexed IDE intelligence directly to external and internal agents (such as via their JetBrains Air ecosystem and Agent Control Protocol).",
+                    "Fewer Wrong Turns: Agents make fewer missteps during refactoring or multi-file coding tasks because type hierarchies and dependencies are resolved before the agent begins writing code.Lower Token Usage: By avoiding blind codebase scanning, agents require significantly fewer context tokens to achieve working code.Faster Task Execution: Tasks complete 20% to 30% faster on average, regardless of whether the agent relies on Anthropic Claude, OpenAI models, or proprietary agent setups."
                 ],
-                snippet: "import torch\nimport torch_neuron\n\nmodel = MyTransformerModel.from_pretrained('bert-base-uncased')\nmodel.eval()\nexample_inputs = torch.zeros((1, 128), dtype=torch.int64)\n\nneuron_model = torch.neuron.trace(model, example_inputs)\nneuron_model.save('model_neuron.pt')",
-                snippetLang: "Python / PyTorch"
+                snippet: "{
+  "agent_servers": {
+    "Claude Agent": {
+      "command": "/usr/local/bin/claude-agent",
+      "args": ["acp"]
+    },
+    "Internal Migration Agent": {
+      "command": "/opt/company/bin/migration-agent",
+      "args": ["acp"]
+    }
+  }
+}",
+                snippetLang: "JSON"
             },
             {
                 id: 3,
-                title: "Physical AI & World Simulation Models: Spatial Hardware Trends",
+                title: "The market dynamics reflect a shift in investor sentiment, as tech stocks experience heightened volatility due to macroeconomic pressures and questions around corporate capital allocation.",
                 category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "21/25/2026",
                 readTime: "8 min read",
-                views: "92K Views",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Analyzing physical world models that simulate kinematics, optics, and 3D spatial dynamics.",
+                image: "https://pixabay.com/photos/blur-chart-computer-data-finance-1853262/",
+                excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs..",
                 bodyParagraphs: [
-                    "AI research facilities are expanding beyond text LLMs toward physical world models that accurately simulate kinematics and material optics for spatial computing and robotics."
+                    "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
                 ]
             },
             {
                 id: 4,
-                title: "Energy Storage Systems & Microgrid Smart Efficiency Upgrades",
-                category: "TechToday",
+                title: "From AI Code Completion to Agentic Coding",
+                category: "Software Engineering",
                 source: "TechToday",
                 author: "Milan Filipović",
                 date: "Recent Report",
                 readTime: "4 min read",
-                views: "54K Views",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Reviewing bidirectional solid-state energy storage installations for microgrids.",
+                image: "https://pixabay.com/photos/code-html-digital-coding-web-1076536/",
+                excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents",
                 bodyParagraphs: [
-                    "High-density energy storage technology is reaching broader availability for commercial microgrid setups, offering automated load balancing."
+                    "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using tools like Vercel's v0, Lovable, and Bolt.new."
                 ]
             },
             {
                 id: 5,
-                title: "Continuous Quality Engineering in Modern CI/CD Workflows",
+                title: "TypeScript and Rust Continue Rapid Growth",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "10/25/2026",
                 readTime: "6 min read",
-                views: "73K Views",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                image: "https://pixabay.com/images/download/x-1841550_1920.jpg",
                 excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests.",
                 bodyParagraphs: [
-                    "Continuous Quality Engineering combines security scanning, synthetic performance benchmarks, and automated visual regression checks into unified CI pipelines."
+                    "TypeScript has surpassed JavaScript and Python as the most active language by repository contributions on GitHub, driven by the demand for type safety in large codebases and agent-assisted workflows.",
+                    "Rust continues its steady expansion, adding over a million new developers annually as industries adopt it to comply with memory-safety guidelines and government cybersecurity mandates."
                 ],
                 snippet: "name: DevSecOps Gate\non: [push, pull_request]\njobs:\n  audit:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run Security Audit\n        run: npm audit",
                 snippetLang: "YAML / GitHub Actions"
@@ -360,9 +371,8 @@
                 category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
-                date: "Recent Report",
+                date: "10/24/2026",
                 readTime: "5 min read",
-                views: "81K Views",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
                 image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
