@@ -196,7 +196,7 @@
             
             <!-- Modal Header / Cover Image -->
             <div class="relative h-64 sm:h-96 w-full bg-slate-950 shrink-0">
-                <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover">
+                <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover" onerror="handleImgError(this)">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
                 
                 <div class="absolute top-4 right-4 flex items-center space-x-2">
@@ -260,41 +260,46 @@
 
     <!-- JavaScript Application Logic -->
     <script>
+        // Fallback handler for broken/missing external images
+        function handleImgError(img) {
+            img.onerror = null;
+            img.src = 'https://placehold.co/800x500/0f172a/FFCC00?text=MilanMedia+Tech+News';
+        }
+
         const newsArticles = [
             {
                 id: 1,
                 title: "GlobalFoundries and Siemens Launch AI-Enabled Advanced Facilities Control Centre",
-                category: "Artificial Intelligence",
-                source: "Tech Today",
+                category: "AI & Hardware",
+                source: "TechToday",
                 author: "Milan Filipović",
                 date: "10/26/2026",
                 readTime: "7 min read",
                 featured: true,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://assets.new.siemens.com/siemens/assets/api/uuid:fce06ab1-5289-4ab8-9073-250639657e8f/version:1627033277/width:1280/im2019010181co_300dpi.webp",
-                excerpt: "GlobalFoundries, in collaboration with Siemens",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "GlobalFoundries, in collaboration with Siemens, officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
                 bodyParagraphs: [
-                    "Officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus."
-                ],
-               
+                    "Officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
+                    "The state-of-the-art facility integrates real-time machine learning telemetry with Siemens automation platforms to optimize power grid usage and optimize yield efficiency across 300mm wafer fabrication lines."
+                ]
             },
             {
                 id: 2,
                 title: "The Massive Scale-Up of AI Infrastructure Meets Capital Shortages",
-                category: "AI",
-                source: "Tech Today",
+                category: "AI & Hardware",
+                source: "TechToday",
                 author: "Milan Filipović",
                 date: "10/26/2026",
                 readTime: "5 min read",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://images.pexels.com/photos/5912592/pexels-photo-5912592.jpeg",
-                excerpt: "Fresh market analysis released this week highlights a historic bottleneck: major tech giants (Microsoft, Google, Amazon, Meta) have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Fresh market analysis released this week highlights a historic bottleneck: major tech giants have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
                 bodyParagraphs: [
-                      "However, Goldman Sachs and Morgan Stanley reports indicate that total announced projects exceed $650 billion, pushing up against physical power grid constraints and capital velocity limits."
-                
-                ],
-             
+                    "Fresh market analysis released this week highlights a historic bottleneck: major tech giants (Microsoft, Google, Amazon, Meta) have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+                    "However, Goldman Sachs and Morgan Stanley reports indicate that total announced projects exceed $650 billion, pushing up against physical power grid constraints and capital velocity limits."
+                ]
             },
             {
                 id: 3,
@@ -309,6 +314,7 @@
                 image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
                 excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
                 bodyParagraphs: [
+                    "Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
                     "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
                 ]
             },
@@ -325,7 +331,8 @@
                 image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
                 excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
                 bodyParagraphs: [
-                    "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using tools like Vercel's v0, Lovable, and Bolt.new."
+                    "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
+                    "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using modern developer tooling."
                 ]
             },
             {
@@ -349,7 +356,7 @@
             },
             {
                 id: 6,
-                title: "The Rise of Decision Models (Jev, Strands Decider, and OpenAI Decisions API",
+                title: "The Rise of Decision Models (Jev, Strands Decider, and OpenAI Decisions API)",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
@@ -357,9 +364,10 @@
                 readTime: "5 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://www.pexels.com/photo/computer-monitor-with-openai-website-loading-screen-15863000/",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
                 excerpt: "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
                 bodyParagraphs: [
+                    "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
                     "Evaluating application-specific silicon hardware benchmarks for neural network batch processing and inference workload latency."
                 ]
             }
@@ -388,7 +396,7 @@
                 <div class="lg:col-span-8">
                     <div onclick="openArticleModal(${hero.id})" class="cursor-pointer group relative bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md hover:shadow-2xl transition-all duration-300">
                         <div class="relative h-72 sm:h-96 w-full bg-slate-950 overflow-hidden">
-                            <img src="${hero.image}" alt="${hero.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="${hero.image}" alt="${hero.title}" onerror="handleImgError(this)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                             
                             <div class="absolute top-4 left-4">
@@ -462,50 +470,34 @@
                 <article onclick="openArticleModal(${article.id})" class="cursor-pointer group bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 media-shadow-hover transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="relative h-48 overflow-hidden bg-slate-950">
-                            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <img src="${article.image}" alt="${article.title}" onerror="handleImgError(this)" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                             
                             <span class="absolute top-3 left-3 ${article.badgeColor} font-black text-[9px] px-2.5 py-1 rounded uppercase tracking-wider">
                                 ${article.source}
                             </span>
 
-                            <button onclick="event.stopPropagation(); toggleSaveArticle(${article.id})" class="absolute top-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs backdrop-blur border border-slate-700 transition" title="Save for later">
-                                <i class="${isArticleSaved(article.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>
+                            <button onclick="event.stopPropagation(); toggleSaveArticle(${article.id})" class="absolute top-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm transition border border-slate-700" title="Bookmark">
+                                <i class="${savedBookmarks.includes(article.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark text-xs"></i>
                             </button>
                         </div>
-
                         <div class="p-5">
-                            <div class="flex items-center justify-between text-[11px] font-semibold text-gray-500 dark:text-slate-400 mb-2">
-                                <span class="text-brandGreen font-bold">${article.category}</span>
-                                <span>${article.readTime}</span>
+                            <div class="flex items-center space-x-2 text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+                                <span class="text-brandGreen">${article.category}</span>
+                                <span>•</span>
+                                <span>${article.date}</span>
                             </div>
-
-                            <h3 class="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2">
+                            <h3 class="text-base font-extrabold text-slate-900 dark:text-white group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2 leading-snug">
                                 ${article.title}
                             </h3>
-
-                            <p class="text-xs text-gray-600 dark:text-slate-300 mt-2 line-clamp-3 leading-relaxed">
+                            <p class="text-xs text-gray-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
                                 ${article.excerpt}
                             </p>
-
-                            ${article.snippet ? `
-                                <div class="mt-3 p-2.5 bg-slate-950 text-emerald-400 rounded-lg text-[10px] font-mono border border-slate-800">
-                                    <div class="text-[9px] text-slate-500 uppercase mb-1 flex items-center gap-1">
-                                        <i class="fa-solid fa-code text-brandGreen"></i> Code Snippet
-                                    </div>
-                                    <p class="truncate">${escapeHtml(article.snippet.split('\n')[0])}</p>
-                                </div>
-                            ` : ''}
                         </div>
                     </div>
-
-                    <div class="px-5 py-3 bg-gray-50 dark:bg-slate-900/50 border-t border-gray-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-                        <span class="text-[11px] text-gray-500 dark:text-slate-400 font-medium">
-                            <i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}
-                        </span>
-                        <span class="font-bold text-brandGreen dark:text-brandYellow text-[11px] flex items-center gap-1">
-                            Read Article <i class="fa-solid fa-chevron-right text-[9px]"></i>
-                        </span>
+                    <div class="px-5 pb-5 pt-2 flex items-center justify-between border-t border-gray-100 dark:border-slate-800/60 text-xs font-semibold text-gray-500 dark:text-slate-400">
+                        <span><i class="fa-regular fa-clock mr-1"></i> ${article.readTime}</span>
+                        <span class="text-brandGreen font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Read <i class="fa-solid fa-chevron-right text-[10px]"></i></span>
                     </div>
                 </article>
             `).join('');
@@ -513,48 +505,28 @@
 
         function filterCategory(cat) {
             currentCategory = cat;
-            const pills = document.querySelectorAll('.cat-pill');
             
-            pills.forEach(pill => {
-                if(pill.innerText.includes(cat) || (cat === 'all' && pill.innerText.includes('All'))) {
-                    pill.className = "cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900";
-                } else {
-                    pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all";
-                }
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'dark:bg-white', 'text-white', 'dark:text-slate-900');
+                btn.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
             });
 
-            const heroSec = document.getElementById('featuredHeroContainer');
-            if(cat === 'all') {
-                heroSec.classList.remove('hidden');
+            if (cat === 'all') {
                 renderNewsGrid(newsArticles);
             } else {
-                heroSec.classList.add('hidden');
-                const filtered = newsArticles.filter(a => 
-                    a.category.toLowerCase().includes(cat.toLowerCase()) || 
-                    a.source.toLowerCase().includes(cat.toLowerCase())
-                );
+                const filtered = newsArticles.filter(a => a.category.toLowerCase().includes(cat.toLowerCase()) || a.source.toLowerCase().includes(cat.toLowerCase()));
                 renderNewsGrid(filtered);
             }
         }
 
         function handleSearch(isMobile = false) {
-            const query = (isMobile ? document.getElementById('mobileSearchInput').value : document.getElementById('searchInput').value).toLowerCase().trim();
-            const heroSec = document.getElementById('featuredHeroContainer');
-
-            if(query === '') {
-                filterCategory(currentCategory);
-                return;
-            }
-
-            heroSec.classList.add('hidden');
-            const searchResults = newsArticles.filter(article => 
-                article.title.toLowerCase().includes(query) || 
-                article.excerpt.toLowerCase().includes(query) ||
-                article.category.toLowerCase().includes(query) ||
-                (article.snippet && article.snippet.toLowerCase().includes(query))
+            const query = (isMobile ? document.getElementById('mobileSearchInput').value : document.getElementById('searchInput').value).toLowerCase();
+            const filtered = newsArticles.filter(a => 
+                a.title.toLowerCase().includes(query) || 
+                a.excerpt.toLowerCase().includes(query) ||
+                a.category.toLowerCase().includes(query)
             );
-
-            renderNewsGrid(searchResults);
+            renderNewsGrid(filtered);
         }
 
         function openArticleModal(id) {
@@ -565,23 +537,24 @@
 
             document.getElementById('modalImg').src = article.image;
             document.getElementById('modalTitle').innerText = article.title;
-            document.getElementById('modalCategoryBadge').innerText = article.category;
             document.getElementById('modalSourceBadge').innerText = article.source;
             document.getElementById('modalSourceBadge').className = `px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider ${article.badgeColor}`;
+            document.getElementById('modalCategoryBadge').innerText = article.category;
             document.getElementById('modalAuthor').innerHTML = `<i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}`;
+            document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${article.date}`;
             document.getElementById('modalReadTime').innerHTML = `<i class="fa-solid fa-book-open mr-1"></i> ${article.readTime}`;
             document.getElementById('modalLeadExcerpt').innerText = article.excerpt;
 
             const bodyContainer = document.getElementById('modalMainBody');
-            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p class="leading-relaxed font-normal text-slate-700 dark:text-slate-300 text-sm sm:text-base">${p}</p>`).join('');
+            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p>${p}</p>`).join('');
 
-            const codeSec = document.getElementById('modalCodeSection');
-            if(article.snippet) {
+            const codeSection = document.getElementById('modalCodeSection');
+            if (article.snippet) {
                 document.getElementById('modalCodeSnippet').innerText = article.snippet;
                 document.getElementById('codeLangLabel').innerText = article.snippetLang || 'Code Snippet';
-                codeSec.classList.remove('hidden');
+                codeSection.classList.remove('hidden');
             } else {
-                codeSec.classList.add('hidden');
+                codeSection.classList.add('hidden');
             }
 
             updateModalBookmarkBtn();
@@ -592,45 +565,33 @@
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 container.classList.remove('scale-95');
-                container.classList.add('scale-100');
             }, 10);
-
-            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             const modal = document.getElementById('articleModal');
             const container = document.getElementById('modalContainer');
             modal.classList.add('opacity-0');
-            container.classList.remove('scale-100');
             container.classList.add('scale-95');
-
             setTimeout(() => {
                 modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 200);
-        }
-
-        function isArticleSaved(id) {
-            return savedBookmarks.some(a => a.id === id);
+            }, 300);
         }
 
         function toggleSaveArticle(id) {
-            const index = savedBookmarks.findIndex(a => a.id === id);
-            if(index > -1) {
-                savedBookmarks.splice(index, 1);
+            if (savedBookmarks.includes(id)) {
+                savedBookmarks = savedBookmarks.filter(item => item !== id);
             } else {
-                const article = newsArticles.find(a => a.id === id);
-                if(article) savedBookmarks.push(article);
+                savedBookmarks.push(id);
             }
             localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
             updateBookmarkBadge();
-            renderNewsGrid(newsArticles.filter(a => currentCategory === 'all' ? true : a.category.includes(currentCategory)));
+            renderNewsGrid(currentCategory === 'all' ? newsArticles : newsArticles.filter(a => a.category.includes(currentCategory)));
             renderBookmarksList();
         }
 
         function toggleSaveCurrentArticle() {
-            if(currentModalArticleId) {
+            if (currentModalArticleId) {
                 toggleSaveArticle(currentModalArticleId);
                 updateModalBookmarkBtn();
             }
@@ -638,7 +599,7 @@
 
         function updateModalBookmarkBtn() {
             const btn = document.getElementById('modalBookmarkBtn');
-            if(isArticleSaved(currentModalArticleId)) {
+            if (savedBookmarks.includes(currentModalArticleId)) {
                 btn.innerHTML = `<i class="fa-solid fa-bookmark text-brandYellow"></i>`;
             } else {
                 btn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
@@ -652,44 +613,28 @@
         function toggleBookmarkDrawer() {
             const drawer = document.getElementById('bookmarkDrawer');
             drawer.classList.toggle('translate-x-full');
-            if(!drawer.classList.contains('translate-x-full')) {
-                renderBookmarksList();
-            }
+            renderBookmarksList();
         }
 
         function renderBookmarksList() {
             const container = document.getElementById('bookmarkListContainer');
-            if(savedBookmarks.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 text-center py-8">No saved articles yet.</p>`;
+            if (savedBookmarks.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 text-center py-8">No saved articles yet.</p>`;
                 return;
             }
 
-            container.innerHTML = savedBookmarks.map(item => `
-                <div class="p-3 bg-gray-50 dark:bg-slate-800/60 rounded-xl border border-gray-200 dark:border-slate-700 flex items-center justify-between gap-3">
-                    <div onclick="openArticleModal(${item.id}); toggleBookmarkDrawer()" class="cursor-pointer flex-1">
-                        <span class="text-[9px] font-bold text-brandGreen uppercase">${item.source}</span>
-                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${item.title}</h4>
+            const bookmarkedArticles = newsArticles.filter(a => savedBookmarks.includes(a.id));
+            container.innerHTML = bookmarkedArticles.map(a => `
+                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-slate-800/50 rounded-xl border border-gray-200 dark:border-slate-800">
+                    <div class="cursor-pointer pr-2" onclick="openArticleModal(${a.id}); toggleBookmarkDrawer()">
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2">${a.title}</h4>
+                        <span class="text-[10px] text-gray-400">${a.category}</span>
                     </div>
-                    <button onclick="toggleSaveArticle(${item.id})" class="text-red-500 hover:text-red-700 p-1">
+                    <button onclick="toggleSaveArticle(${a.id})" class="text-red-500 hover:text-red-600 p-1">
                         <i class="fa-solid fa-trash text-xs"></i>
                     </button>
                 </div>
             `).join('');
-        }
-
-        function copyModalCode() {
-            const code = document.getElementById('modalCodeSnippet').innerText;
-            const btnText = document.getElementById('copyBtnText');
-            
-            const dummy = document.createElement('textarea');
-            document.body.appendChild(dummy);
-            dummy.value = code;
-            dummy.select();
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
-
-            btnText.innerText = "Copied!";
-            setTimeout(() => { btnText.innerText = "Copy Snippet"; }, 2000);
         }
 
         function toggleDarkMode() {
@@ -700,8 +645,18 @@
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        function copyModalCode() {
+            const codeText = document.getElementById('modalCodeSnippet').innerText;
+            const textBuffer = document.createElement('textarea');
+            textBuffer.value = codeText;
+            document.body.appendChild(textBuffer);
+            textBuffer.select();
+            document.execCommand('copy');
+            document.body.removeChild(textBuffer);
+
+            const copyBtnText = document.getElementById('copyBtnText');
+            copyBtnText.innerText = 'Copied!';
+            setTimeout(() => { copyBtnText.innerText = 'Copy Snippet'; }, 2000);
         }
     </script>
 </body>
