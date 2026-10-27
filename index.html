@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilanMediaChannels - Tech & Software News</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFCC00',
+                        brandYellowDark: '#E6B800',
+                        brandGreen: '#059669',
+                        brandGreenDark: '#047857',
+                        mediaSlate: '#0F172A',
+                        darkBg: '#090D16',
+                        darkCard: '#131A29',
+                        darkBorder: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .media-shadow-hover:hover { box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
+        .dark .media-shadow-hover:hover { box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5); }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFCC00; }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col antialiased">
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-darkBorder sticky top-0 z-40 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Main Brand Logo -->
+                <a href="#" onclick="filterCategory('all'); return false;" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brandYellow via-amber-400 to-brandGreen flex items-center justify-center shadow-md p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-brandYellow font-black text-xl">
+                            M
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">Milan<span class="text-brandGreen">Media</span></span>
+                            <span class="bg-slate-900 text-brandYellow text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-widest uppercase">CHANNELS</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+                            Hardware & Software News Portal
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Category Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1 font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    <button onclick="filterCategory('all')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition text-brandGreen font-black">All News</button>
+                    <button onclick="filterCategory('TechToday')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> TechToday
+                    </button>
+                    <button onclick="filterCategory('Coding with Milan')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandGreen inline-block"></span> Coding With Milan
+                    </button>
+                    <button onclick="filterCategory('AI & Hardware')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">AI & Silicon</button>
+                    <button onclick="filterCategory('Software Engineering')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">DevSecOps</button>
+                </nav>
+
+                <!-- Utility Actions -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search hardware, CVEs, PyTorch..." 
+                            class="w-52 lg:w-64 pl-9 pr-4 py-2 text-xs font-medium bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-brandGreen dark:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Articles">
+                        <i class="fa-solid fa-bookmark text-brandYellow text-sm"></i>
+                        <span id="bookmarkBadge" class="absolute -top-1 -right-1 bg-brandGreen text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <button id="themeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brandYellow transition text-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-brandYellow"></i>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-darkCard border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 text-xs uppercase font-bold">
+            <div class="relative my-2">
+                <input type="text" id="mobileSearchInput" oninput="handleSearch(true)" placeholder="Search news & code..." 
+                    class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400"></i>
+            </div>
+            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All News</button>
+            <button onclick="filterCategory('TechToday'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">TechToday</button>
+            <button onclick="filterCategory('Coding with Milan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandGreen hover:bg-gray-100 dark:hover:bg-slate-800">Coding with Milan</button>
+            <button onclick="filterCategory('AI & Hardware'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">AI & Silicon</button>
+            <button onclick="filterCategory('Software Engineering'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">DevSecOps & Security</button>
+        </div>
+    </header>
+
+    <!-- Main Editorial News Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- Category Filter Pills -->
+        <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200 dark:border-slate-800 overflow-x-auto gap-2">
+            <div class="flex items-center space-x-2 shrink-0">
+                <button onclick="filterCategory('all')" class="cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900">
+                    All Stories
+                </button>
+                <button onclick="filterCategory('TechToday')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    TechToday
+                </button>
+                <button onclick="filterCategory('Coding with Milan')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    Coding with Milan
+                </button>
+                <button onclick="filterCategory('AI & Hardware')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    AI Silicon
+                </button>
+                <button onclick="filterCategory('Software Engineering')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    DevSecOps
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Story & Sidebar Grid -->
+        <div id="featuredHeroContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <!-- Dynamic Main Investigation Hero Injected Here -->
+        </div>
+
+        <!-- Section Header for Editorial Feeds -->
+        <div class="flex items-center justify-between mb-6 pt-6 border-t border-gray-200 dark:border-slate-800">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Latest News & Technical Articles</h3>
+            </div>
+        </div>
+
+        <!-- News Cards Grid -->
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Cards Injected Here via JavaScript -->
+        </div>
+
+        <!-- Empty State Search Handler -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-darkCard rounded-2xl border border-dashed border-gray-300 dark:border-slate-800 my-8">
+            <i class="fa-solid fa-magnifying-glass text-4xl text-gray-400 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Matching News Found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try typing a different search keyword such as "PyTorch", "Lithium", or "DevOps".</p>
+            <button onclick="filterCategory('all')" class="mt-4 bg-brandGreen text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-emerald-700 transition">
+                Reset Filter
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Saved Bookmarks Drawer -->
+    <div id="bookmarkDrawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-darkCard border-l border-gray-200 dark:border-slate-800 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-bookmark text-brandYellow"></i>
+                <h3 class="font-black text-sm uppercase tracking-wider">Saved Reading List</h3>
+            </div>
+            <button onclick="toggleBookmarkDrawer()" class="text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        <div id="bookmarkListContainer" class="p-5 flex-1 overflow-y-auto space-y-4">
+            <!-- Bookmarked items injected here -->
+        </div>
+    </div>
+
+    <!-- Long-Form Reader Article Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 hidden opacity-0 transition-opacity duration-300">
+        <div id="modalContainer" class="bg-white dark:bg-darkCard rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-slate-800 transition-transform duration-300 scale-95 flex flex-col">
+            
+            <!-- Modal Header / Cover Image -->
+            <div class="relative h-64 sm:h-96 w-full bg-slate-950 shrink-0">
+                <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover" onerror="handleImgError(this)">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                
+                <div class="absolute top-4 right-4 flex items-center space-x-2">
+                    <button id="modalBookmarkBtn" onclick="toggleSaveCurrentArticle()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700" title="Save Article">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                    <button onclick="closeModal()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span id="modalSourceBadge" class="px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider"></span>
+                        <span id="modalCategoryBadge" class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded"></span>
+                    </div>
+                    <h1 id="modalTitle" class="text-2xl sm:text-4xl font-black leading-tight tracking-tight"></h1>
+                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 font-medium">
+                        <span id="modalAuthor"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> Milan Filipović</span>
+                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> Published Recently</span>
+                        <span id="modalReadTime"><i class="fa-solid fa-book-open mr-1"></i> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 sm:p-10 space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed text-sm sm:text-base">
+                
+                <div class="p-4 sm:p-5 bg-gray-100 dark:bg-slate-800/80 border-l-4 border-brandYellow rounded-r-xl font-medium text-slate-900 dark:text-slate-100 italic text-sm sm:text-base">
+                    <p id="modalLeadExcerpt"></p>
+                </div>
+
+                <div id="modalMainBody" class="space-y-4"></div>
+
+                <div id="modalCodeSection" class="hidden my-6">
+                    <div class="flex items-center justify-between bg-slate-900 px-4 py-2 rounded-t-xl text-xs font-mono text-slate-300 border-b border-slate-800">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-terminal text-brandGreen"></i> <span id="codeLangLabel">Code Snippet</span></span>
+                        <button onclick="copyModalCode()" class="hover:text-brandYellow transition text-xs flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy Snippet</span>
+                        </button>
+                    </div>
+                    <pre class="bg-slate-950 p-4 rounded-b-xl overflow-x-auto text-xs sm:text-sm font-mono text-emerald-400 border border-slate-800 leading-relaxed"><code id="modalCodeSnippet"></code></pre>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-brandYellow text-slate-950 font-black flex items-center justify-center text-sm">
+                    M
+                </div>
+                <span class="text-base font-black text-white tracking-tight uppercase">Milan<span class="text-brandGreen">Media</span>Channels</span>
+            </div>
+            <p class="text-slate-500 text-[11px]">© 2026 MilanMediaChannels. Tech & Programming News.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Fallback handler for broken/missing external images
+        function handleImgError(img) {
+            img.onerror = null;
+            img.src = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80';
+        }
+
+        const newsArticles = [
+            {
+                id: 1,
+                title: "GlobalFoundries and Siemens Launch AI-Enabled Advanced Facilities Control Centre",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/26/2026",
+                readTime: "7 min read",
+                featured: true,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "GlobalFoundries, in collaboration with Siemens, officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
+                bodyParagraphs: [
+                    "Officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
+                    "The state-of-the-art facility integrates real-time machine learning telemetry with Siemens automation platforms to optimize power grid usage and optimize yield efficiency across 300mm wafer fabrication lines."
+                ]
+            },
+            {
+                id: 2,
+                title: "The Massive Scale-Up of AI Infrastructure Meets Capital Shortages",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/26/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Fresh market analysis released this week highlights a historic bottleneck: major tech giants have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+                bodyParagraphs: [
+                    "Fresh market analysis released this week highlights a historic bottleneck: major tech giants (Microsoft, Google, Amazon, Meta) have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+                    "However, Goldman Sachs and Morgan Stanley reports indicate that total announced projects exceed $650 billion, pushing up against physical power grid constraints and capital velocity limits."
+                ]
+            },
+            {
+                id: 3,
+                title: "Market Dynamics Reflect Shift in Investor Sentiment for Tech Capital",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/25/2026",
+                readTime: "8 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
+                bodyParagraphs: [
+                    "Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
+                    "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
+                ]
+            },
+            {
+                id: 4,
+                title: "From AI Code Completion to Agentic Coding Paradigms",
+                category: "Software Engineering",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/24/2026",
+                readTime: "4 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
+                excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
+                bodyParagraphs: [
+                    "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
+                    "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using modern developer tooling."
+                ]
+            },
+            {
+                id: 5,
+                title: "TypeScript and Rust Continue Rapid Global Ecosystem Growth",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/25/2026",
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests with modern security auditing.",
+                bodyParagraphs: [
+                    "TypeScript has surpassed JavaScript and Python as the most active language by repository contributions on GitHub, driven by the demand for type safety in large codebases and agent-assisted workflows.",
+                    "Rust continues its steady expansion, adding over a million new developers annually as industries adopt it to comply with memory-safety guidelines and government cybersecurity mandates."
+                ],
+                snippet: "name: DevSecOps Gate\non: [push, pull_request]\njobs:\n  audit:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run Security Audit\n        run: npm audit",
+                snippetLang: "YAML / GitHub Actions"
+            },
+            {
+                id: 6,
+                title: "The Rise of Decision Models (Jev, Strands Decider, and OpenAI Decisions API)",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/26/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
+                bodyParagraphs: [
+                    "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
+                    "Evaluating application-specific silicon hardware benchmarks for neural network batch processing and inference workload latency."
+                ]
+            },
+            {
+                id: 7,
+                title: "TypeScript 5.x Expands Type-Checking Performance",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "4 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Recent updates focus heavily on speed and developer experience across large codebases.",
+                bodyParagraphs: [
+                    "Recent updates focus heavily on speed and developer experience, introducing faster incremental builds and enhanced type-checking optimizations for large-scale monorepos.",
+                    "These developments significantly reduce build times for developers, streamline continuous integration pipelines, and enhance auto-complete response times within modern code editors."
+                ]
+            },
+            {
+                id: 8,
+                title: "AI-Assisted Refactoring Becomes Native in Modern IDEs",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Major code editors are rolling out deeper, context-aware refactoring tools that automatically suggest architectural cleanups.",
+                bodyParagraphs: [
+                    "Major code editors are rolling out deeper, context-aware refactoring tools that automatically suggest architectural cleanups, adhering to specific project design patterns and codebase styles.",
+                    "By analyzing entire repository structures rather than individual files, these tools offer safer, broader modifications that reduce technical debt seamlessly."
+                ]
+            },
+            {
+                id: 9,
+                title: "WebAssembly (Wasm) Components Standard Gains Momentum",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Developers are increasingly adopting the component model to run complex, multi-language modules securely.",
+                bodyParagraphs: [
+                    "Developers are increasingly adopting the component model to run complex, multi-language modules (like Rust, Go, and C++) seamlessly and securely across different backend and browser environments.",
+                    "This standardization unlocks unprecedented interoperability, allowing teams to mix and match languages within a unified sandboxed runtime."
+                ]
+            },
+            {
+                id: 10,
+                title: "AI Infrastructure and Power Demands Shape Data Centers",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Tech giants are heavily investing in specialized energy solutions—including nuclear and advanced renewables—to power massive computing clusters.",
+                bodyParagraphs: [
+                    "Tech giants are heavily investing in specialized energy solutions—including nuclear and advanced renewables—to power the massive computing clusters required for next-generation AI training and inference.",
+                    "This pivot is reshaping data center architecture and driving utility partnerships to secure dedicated, zero-carbon baseload power generation."
+                ]
+            },
+            {
+                id: 11,
+                title: "Quantum Computing Milestone in Error Correction",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Researchers have made significant strides in fault-tolerant quantum computing, successfully demonstrating logical qubits with low error rates.",
+                bodyParagraphs: [
+                    "Researchers have made significant strides in fault-tolerant quantum computing, successfully demonstrating logical qubits with error rates low enough to keep scaling toward practical commercial applications.",
+                    "This breakthrough brings scalable quantum hardware closer to real-world deployment for cryptography, materials science, and complex optimization problems."
+                ]
+            },
+            {
+                id: 12,
+                title: "Regulatory Push for AI Transparency",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "10/27/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Governments worldwide are implementing stricter compliance frameworks requiring companies to watermark AI content and audit data sources.",
+                bodyParagraphs: [
+                    "Governments worldwide are implementing stricter compliance frameworks requiring companies to clearly watermark AI-generated content and audit training data sources for intellectual property and security standards.",
+                    "Organizations are adapting their operational workflows to comply with mandatory risk assessments, transparency logs, and algorithmic accountability standards."
+                ]
+            }
+        ];
+
+        let currentCategory = 'all';
+        let savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks') || '[]');
+        let currentModalArticleId = null;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedHero();
+            renderNewsGrid(newsArticles);
+            updateBookmarkBadge();
+
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        });
+
+        function renderFeaturedHero() {
+            const container = document.getElementById('featuredHeroContainer');
+            const hero = newsArticles.find(a => a.featured) || newsArticles[0];
+            const secondaryArticles = newsArticles.filter(a => a.id !== hero.id).slice(0, 2);
+
+            let html = `
+                <div class="lg:col-span-8 group cursor-pointer" onclick="openModal(${hero.id})">
+                    <div class="relative h-96 sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-slate-800 media-shadow-hover transition-all duration-300">
+                        <img src="${hero.image}" alt="${hero.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                        <div class="absolute bottom-0 p-6 sm:p-8 text-white max-w-3xl">
+                            <div class="flex items-center space-x-2 mb-3">
+                                <span class="px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-wider ${hero.badgeColor}">${hero.source}</span>
+                                <span class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-md">${hero.category}</span>
+                            </div>
+                            <h2 class="text-2xl sm:text-4xl font-black leading-tight tracking-tight mb-3 group-hover:text-brandYellow transition-colors">${hero.title}</h2>
+                            <p class="text-sm text-slate-300 line-clamp-2 mb-4 hidden sm:block">${hero.excerpt}</p>
+                            <div class="flex items-center text-xs text-slate-400 font-medium space-x-4">
+                                <span><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${hero.author}</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> ${hero.date}</span>
+                                <span><i class="fa-solid fa-book-open mr-1"></i> ${hero.readTime}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 flex flex-col space-y-4 justify-between">
+            `;
+
+            secondaryArticles.forEach(item => {
+                html += `
+                    <div onclick="openModal(${item.id})" class="bg-white dark:bg-darkCard border border-gray-200 dark:border-slate-800 rounded-2xl p-5 cursor-pointer media-shadow-hover transition-all flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase ${item.badgeColor}">${item.source}</span>
+                                <span class="text-[10px] text-gray-500 font-semibold">${item.category}</span>
+                            </div>
+                            <h3 class="font-extrabold text-base text-slate-900 dark:text-white line-clamp-2 hover:text-brandGreen transition">${item.title}</h3>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 mt-2">${item.excerpt}</p>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] text-gray-400 mt-4 pt-3 border-t border-gray-100 dark:border-slate-800 font-medium">
+                            <span>${item.date}</span>
+                            <span class="text-brandGreen font-bold flex items-center gap-1">Read Story <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function renderNewsGrid(articles) {
+            const grid = document.getElementById('newsGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (articles.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = articles.map(article => {
+                const isSaved = savedBookmarks.includes(article.id);
+                return `
+                    <article class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 flex flex-col media-shadow-hover transition-all group">
+                        <div class="relative h-48 overflow-hidden cursor-pointer" onclick="openModal(${article.id})">
+                            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="handleImgError(this)">
+                            <div class="absolute top-3 left-3 flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider ${article.badgeColor}">${article.source}</span>
+                            </div>
+                            <button onclick="event.stopPropagation(); toggleSaveBookmark(${article.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-slate-900 text-white flex items-center justify-center backdrop-blur transition border border-slate-700">
+                                <i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark text-xs"></i>
+                            </button>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between cursor-pointer" onclick="openModal(${article.id})">
+                            <div>
+                                <div class="text-[10px] font-bold text-brandGreen uppercase tracking-wider mb-1">${article.category}</div>
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white line-clamp-2 leading-snug group-hover:text-brandGreen transition">${article.title}</h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-2.5 line-clamp-3 leading-relaxed">${article.excerpt}</p>
+                            </div>
+                            <div class="flex items-center justify-between text-[11px] text-gray-400 mt-5 pt-3 border-t border-gray-100 dark:border-slate-800 font-medium">
+                                <div class="flex items-center gap-2">
+                                    <span><i class="fa-regular fa-clock"></i> ${article.date}</span>
+                                </div>
+                                <span class="text-slate-700 dark:text-slate-300 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">Read <i class="fa-solid fa-chevron-right text-[9px]"></i></span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function filterCategory(cat) {
+            currentCategory = cat;
+            
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                if(btn.innerText.toLowerCase().includes(cat.toLowerCase()) || (cat === 'all' && btn.innerText.includes('All'))) {
+                    btn.className = "cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900";
+                } else {
+                    btn.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all";
+                }
+            });
+
+            if (cat === 'all') {
+                renderNewsGrid(newsArticles);
+            } else {
+                const filtered = newsArticles.filter(a => a.category.toLowerCase().includes(cat.toLowerCase()) || a.source.toLowerCase().includes(cat.toLowerCase()));
+                renderNewsGrid(filtered);
+            }
+        }
+
+        function handleSearch(isMobile = false) {
+            const inputId = isMobile ? 'mobileSearchInput' : 'searchInput';
+            const query = document.getElementById(inputId).value.toLowerCase().trim();
+            
+            if (!query) {
+                filterCategory(currentCategory);
+                return;
+            }
+
+            const searchResults = newsArticles.filter(a => 
+                a.title.toLowerCase().includes(query) || 
+                a.excerpt.toLowerCase().includes(query) || 
+                a.category.toLowerCase().includes(query)
+            );
+
+            renderNewsGrid(searchResults);
+        }
+
+        function openModal(id) {
+            const article = newsArticles.find(a => a.id === id);
+            if (!article) return;
+
+            currentModalArticleId = id;
+            document.getElementById('modalImg').src = article.image;
+            document.getElementById('modalSourceBadge').innerText = article.source;
+            document.getElementById('modalSourceBadge').className = `px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider ${article.badgeColor}`;
+            document.getElementById('modalCategoryBadge').innerText = article.category;
+            document.getElementById('modalTitle').innerText = article.title;
+            document.getElementById('modalAuthor').innerHTML = `<i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}`;
+            document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${article.date}`;
+            document.getElementById('modalReadTime').innerHTML = `<i class="fa-solid fa-book-open mr-1"></i> ${article.readTime}`;
+            document.getElementById('modalLeadExcerpt').innerText = article.excerpt;
+
+            const bodyContainer = document.getElementById('modalMainBody');
+            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p>${p}</p>`).join('');
+
+            const codeSection = document.getElementById('modalCodeSection');
+            if (article.snippet) {
+                codeSection.classList.remove('hidden');
+                document.getElementById('codeLangLabel').innerText = article.snippetLang || 'Code Snippet';
+                document.getElementById('modalCodeSnippet').innerText = article.snippet;
+            } else {
+                codeSection.classList.add('hidden');
+            }
+
+            updateModalBookmarkButton();
+
+            const modal = document.getElementById('articleModal');
+            const modalContainer = document.getElementById('modalContainer');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            const modalContainer = document.getElementById('modalContainer');
+            modal.classList.add('opacity-0');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function toggleSaveBookmark(id) {
+            const index = savedBookmarks.indexOf(id);
+            if (index > -1) {
+                savedBookmarks.splice(index, 1);
+            } else {
+                savedBookmarks.push(id);
+            }
+            localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
+            updateBookmarkBadge();
+            renderNewsGrid(newsArticles);
+            if (currentModalArticleId === id) updateModalBookmarkButton();
+            renderBookmarkList();
+        }
+
+        function toggleSaveCurrentArticle() {
+            if (currentModalArticleId) toggleSaveBookmark(currentModalArticleId);
+        }
+
+        function updateModalBookmarkButton() {
+            const btn = document.getElementById('modalBookmarkBtn');
+            const isSaved = savedBookmarks.includes(currentModalArticleId);
+            btn.innerHTML = `<i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>`;
+        }
+
+        function updateBookmarkBadge() {
+            document.getElementById('bookmarkBadge').innerText = savedBookmarks.length;
+        }
+
+        function toggleBookmarkDrawer() {
+            const drawer = document.getElementById('bookmarkDrawer');
+            if (drawer.classList.contains('translate-x-full')) {
+                renderBookmarkList();
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function renderBookmarkList() {
+            const container = document.getElementById('bookmarkListContainer');
+            if (savedBookmarks.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-regular fa-bookmark text-3xl mb-2"></i>
+                        <p class="text-xs font-semibold">No saved articles yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const items = newsArticles.filter(a => savedBookmarks.includes(a.id));
+            container.innerHTML = items.map(item => `
+                <div class="bg-gray-50 dark:bg-slate-800/60 p-3 rounded-xl border border-gray-200 dark:border-slate-700 flex items-center justify-between gap-3">
+                    <div class="cursor-pointer flex-1" onclick="openModal(${item.id}); toggleBookmarkDrawer()">
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2">${item.title}</h4>
+                        <span class="text-[10px] text-brandGreen font-semibold">${item.category}</span>
+                    </div>
+                    <button onclick="toggleSaveBookmark(${item.id})" class="text-red-500 hover:text-red-700 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function copyModalCode() {
+            const code = document.getElementById('modalCodeSnippet').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btnText = document.getElementById('copyBtnText');
+                btnText.innerText = 'Copied!';
+                setTimeout(() => { btnText.innerText = 'Copy Snippet'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
