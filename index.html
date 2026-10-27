@@ -267,111 +267,214 @@
         }
 
         const newsArticles = [
-            {
-                id: 1,
-                title: "GlobalFoundries and Siemens Launch AI-Enabled Advanced Facilities Control Centre",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: "10/26/2026",
-                readTime: "7 min read",
-                featured: true,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-                excerpt: "GlobalFoundries, in collaboration with Siemens, officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
-                bodyParagraphs: [
-                    "Officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
-                    "The state-of-the-art facility integrates real-time machine learning telemetry with Siemens automation platforms to optimize power grid usage and optimize yield efficiency across 300mm wafer fabrication lines."
-                ]
-            },
-            {
-                id: 2,
-                title: "The Massive Scale-Up of AI Infrastructure Meets Capital Shortages",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: "10/26/2026",
-                readTime: "5 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Fresh market analysis released this week highlights a historic bottleneck: major tech giants have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
-                bodyParagraphs: [
-                    "Fresh market analysis released this week highlights a historic bottleneck: major tech giants (Microsoft, Google, Amazon, Meta) have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
-                    "However, Goldman Sachs and Morgan Stanley reports indicate that total announced projects exceed $650 billion, pushing up against physical power grid constraints and capital velocity limits."
-                ]
-            },
-            {
-                id: 3,
-                title: "Market Dynamics Reflect Shift in Investor Sentiment for Tech Capital",
-                category: "TechToday",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: "10/25/2026",
-                readTime: "8 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
-                bodyParagraphs: [
-                    "Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
-                    "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
-                ]
-            },
-            {
-                id: 4,
-                title: "From AI Code Completion to Agentic Coding Paradigms",
-                category: "Software Engineering",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: "10/24/2026",
-                readTime: "4 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
-                excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
-                bodyParagraphs: [
-                    "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
-                    "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using modern developer tooling."
-                ]
-            },
-            {
-                id: 5,
-                title: "TypeScript and Rust Continue Rapid Global Ecosystem Growth",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: "10/25/2026",
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests with modern security auditing.",
-                bodyParagraphs: [
-                    "TypeScript has surpassed JavaScript and Python as the most active language by repository contributions on GitHub, driven by the demand for type safety in large codebases and agent-assisted workflows.",
-                    "Rust continues its steady expansion, adding over a million new developers annually as industries adopt it to comply with memory-safety guidelines and government cybersecurity mandates."
-                ],
-                snippet: "name: DevSecOps Gate\non: [push, pull_request]\njobs:\n  audit:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run Security Audit\n        run: npm audit",
-                snippetLang: "YAML / GitHub Actions"
-            },
-            {
-                id: 6,
-                title: "The Rise of Decision Models (Jev, Strands Decider, and OpenAI Decisions API)",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: "10/26/2026",
-                readTime: "5 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
-                bodyParagraphs: [
-                    "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
-                    "Evaluating application-specific silicon hardware benchmarks for neural network batch processing and inference workload latency."
-                ]
-            }
-        ];
+           [
+    {
+        id: 1,
+        title: "GlobalFoundries and Siemens Launch AI-Enabled Advanced Facilities Control Centre",
+        category: "AI & Hardware",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/26/2026",
+        readTime: "7 min read",
+        featured: true,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+        excerpt: "GlobalFoundries, in collaboration with Siemens, officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
+        bodyParagraphs: [
+            "Officially opened its high-tech Advanced Facilities Control Centre (AFCC) at its Singapore manufacturing campus.",
+            "The state-of-the-art facility integrates real-time machine learning telemetry with Siemens automation platforms to optimize power grid usage and optimize yield efficiency across 300mm wafer fabrication lines."
+        ]
+    },
+    {
+        id: 2,
+        title: "The Massive Scale-Up of AI Infrastructure Meets Capital Shortages",
+        category: "AI & Hardware",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/26/2026",
+        readTime: "5 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Fresh market analysis released this week highlights a historic bottleneck: major tech giants have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+        bodyParagraphs: [
+            "Fresh market analysis released this week highlights a historic bottleneck: major tech giants (Microsoft, Google, Amazon, Meta) have committed to pouring $50 billion to $75 billion annually each into AI infrastructure.",
+            "However, Goldman Sachs and Morgan Stanley reports indicate that total announced projects exceed $650 billion, pushing up against physical power grid constraints and capital velocity limits."
+        ]
+    },
+    {
+        id: 3,
+        title: "Market Dynamics Reflect Shift in Investor Sentiment for Tech Capital",
+        category: "TechToday",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/25/2026",
+        readTime: "8 min read",
+        featured: false,
+        badgeColor: "bg-brandYellow text-slate-950",
+        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Rising Inflation: Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
+        bodyParagraphs: [
+            "Sticky inflation data keeps interest rates higher for longer, which devalues future growth tech earnings and increases debt service costs.",
+            "AI ROI Skepticism: Massive capital expenditures for data centers and GPUs are straining cash flows, making markets question when all this spending will yield real profit margins."
+        ]
+    },
+    {
+        id: 4,
+        title: "From AI Code Completion to Agentic Coding Paradigms",
+        category: "Software Engineering",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/24/2026",
+        readTime: "4 min read",
+        featured: false,
+        badgeColor: "bg-brandYellow text-slate-950",
+        image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
+        excerpt: "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
+        bodyParagraphs: [
+            "AI tools have evolved from generating simple code snippets to acting as autonomous AI agents in full project build environments.",
+            "Developers are increasingly delegating multi-step workflows to agents—such as refactoring legacy codebases, running test suites, or generating React interfaces from natural language prompts using modern developer tooling."
+        ]
+    },
+    {
+        id: 5,
+        title: "TypeScript and Rust Continue Rapid Global Ecosystem Growth",
+        category: "Coding with Milan",
+        source: "Coding with Milan",
+        author: "Milan Filipović",
+        date: "10/25/2026",
+        readTime: "6 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Integrating shift-left automated tests and synthetic load checks directly into repository pull requests with modern security auditing.",
+        bodyParagraphs: [
+            "TypeScript has surpassed JavaScript and Python as the most active language by repository contributions on GitHub, driven by the demand for type safety in large codebases and agent-assisted workflows.",
+            "Rust continues its steady expansion, adding over a million new developers annually as industries adopt it to comply with memory-safety guidelines and government cybersecurity mandates."
+        ],
+        snippet: "name: DevSecOps Gate\non: [push, pull_request]\njobs:\n  audit:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Run Security Audit\n        run: npm audit",
+        snippetLang: "YAML / GitHub Actions"
+    },
+    {
+        id: 6,
+        title: "The Rise of Decision Models (Jev, Strands Decider, and OpenAI Decisions API)",
+        category: "Coding with Milan",
+        source: "Coding with Milan",
+        author: "Milan Filipović",
+        date: "10/26/2026",
+        readTime: "5 min read",
+        featured: false,
+        badgeColor: "bg-brandYellow text-slate-950",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
+        bodyParagraphs: [
+            "Comparing memory bandwidth, latency, and thermal efficiency across accelerator chips.",
+            "Evaluating application-specific silicon hardware benchmarks for neural network batch processing and inference workload latency."
+        ]
+    },
+    {
+        id: 7,
+        title: "TypeScript 5.x Expands Type-Checking Performance",
+        category: "Coding with Milan",
+        source: "Coding with Milan",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "4 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Recent updates focus heavily on speed and developer experience across large codebases.",
+        bodyParagraphs: [
+            "Recent updates focus heavily on speed and developer experience, introducing faster incremental builds and enhanced type-checking optimizations for large-scale monorepos.",
+            "These developments significantly reduce build times for developers, streamline continuous integration pipelines, and enhance auto-complete response times within modern code editors."
+        ]
+    },
+    {
+        id: 8,
+        title: "AI-Assisted Refactoring Becomes Native in Modern IDEs",
+        category: "Coding with Milan",
+        source: "Coding with Milan",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "5 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Major code editors are rolling out deeper, context-aware refactoring tools that automatically suggest architectural cleanups.",
+        bodyParagraphs: [
+            "Major code editors are rolling out deeper, context-aware refactoring tools that automatically suggest architectural cleanups, adhering to specific project design patterns and codebase styles.",
+            "By analyzing entire repository structures rather than individual files, these tools offer safer, broader modifications that reduce technical debt seamlessly."
+        ]
+    },
+    {
+        id: 9,
+        title: "WebAssembly (Wasm) Components Standard Gains Momentum",
+        category: "Coding with Milan",
+        source: "Coding with Milan",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "6 min read",
+        featured: false,
+        badgeColor: "bg-brandYellow text-slate-950",
+        image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Developers are increasingly adopting the component model to run complex, multi-language modules securely.",
+        bodyParagraphs: [
+            "Developers are increasingly adopting the component model to run complex, multi-language modules (like Rust, Go, and C++) seamlessly and securely across different backend and browser environments.",
+            "This standardization unlocks unprecedented interoperability, allowing teams to mix and match languages within a unified sandboxed runtime."
+        ]
+    },
+    {
+        id: 10,
+        title: "AI Infrastructure and Power Demands Shape Data Centers",
+        category: "TechToday",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "5 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Tech giants are heavily investing in specialized energy solutions—including nuclear and advanced renewables—to power massive computing clusters.",
+        bodyParagraphs: [
+            "Tech giants are heavily investing in specialized energy solutions—including nuclear and advanced renewables—to power the massive computing clusters required for next-generation AI training and inference.",
+            "This pivot is reshaping data center architecture and driving utility partnerships to secure dedicated, zero-carbon baseload power generation."
+        ]
+    },
+    {
+        id: 11,
+        title: "Quantum Computing Milestone in Error Correction",
+        category: "TechToday",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "6 min read",
+        featured: false,
+        badgeColor: "bg-brandGreen text-white",
+        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Researchers have made significant strides in fault-tolerant quantum computing, successfully demonstrating logical qubits with low error rates.",
+        bodyParagraphs: [
+            "Researchers have made significant strides in fault-tolerant quantum computing, successfully demonstrating logical qubits with error rates low enough to keep scaling toward practical commercial applications.",
+            "This breakthrough brings scalable quantum hardware closer to real-world deployment for cryptography, materials science, and complex optimization problems."
+        ]
+    },
+    {
+        id: 12,
+        title: "Regulatory Push for AI Transparency",
+        category: "TechToday",
+        source: "TechToday",
+        author: "Milan Filipović",
+        date: "10/27/2026",
+        readTime: "5 min read",
+        featured: false,
+        badgeColor: "bg-brandYellow text-slate-950",
+        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Governments worldwide are implementing stricter compliance frameworks requiring companies to watermark AI content and audit data sources.",
+        bodyParagraphs: [
+            "Governments worldwide are implementing stricter compliance frameworks requiring companies to clearly watermark AI-generated content and audit training data sources for intellectual property and security standards.",
+            "Organizations are adapting their operational workflows to comply with mandatory risk assessments, transparency logs, and algorithmic accountability standards."
+        ]
+    }
+];
 
         let currentCategory = 'all';
         let savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks') || '[]');
