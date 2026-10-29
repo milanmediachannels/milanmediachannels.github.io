@@ -222,7 +222,7 @@
                     <h1 id="modalTitle" class="text-2xl sm:text-4xl font-black leading-tight tracking-tight"></h1>
                     <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 font-medium">
                         <span id="modalAuthor"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> Milan Filipović</span>
-                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> October 28, 2026</span>
+                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> 10/29/2026</span>
                         <span id="modalReadTime"><i class="fa-solid fa-book-open mr-1"></i> 6 min read</span>
                     </div>
                 </div>
@@ -266,54 +266,34 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Dynamically set today's date for articles
-        const todayDate = new Date().toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+        // Hardcoded date set specifically for today: 10/29/2026
+        const todayDate = "10/29/2026";
 
         // 20 FULL ARTICLES: 10 TechToday & 10 Coding with Milan
         const newsArticles = [
-            // ==================== TECH TODAY (10 ARTICLES) ====================
+            // ==================== TECH TODAY (10 NEW ARTICLES - DATED TODAY) ====================
             {
                 id: 1,
-                title: "Anthropic Unveils Claude Duet: Autonomous Background AI Workflows",
-                category: "AI & Hardware",
+                title: "DoorDash Acquires Instacart in $17 Billion Mega-Merger",
+                category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
                 date: todayDate,
-                readTime: "7 min read",
+                readTime: "5 min read",
                 featured: true,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Claude Duet introduces semi-autonomous agentic capabilities operating continuously on cloud virtual machines, executing complex background tasks directly inside connected development ecosystems.",
+                image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80",
+                excerpt: "DoorDash announced an agreement to acquire Instacart in a deal valued at $17 billion. The move combines two of the largest delivery and logistics services in the U.S. into a single giant.",
                 bodyParagraphs: [
-                    "Cloud-Based Agentic Infrastructure: Claude Duet operates inside dedicated cloud sandbox environments equipped with custom browser drivers and API gateways. This architectural shift enables long-running asynchronous execution without reliance on live client connections.",
-                    "Proactive Workspace Monitoring: Beyond basic prompt-response paradigms, Duet analyzes calendar schedules, code repositories, and operational logs to prepare actionable morning briefs, draft PR reviews, and flag pending security vulnerabilities automatically.",
-                    "Shared Memory Ecosystem: Duet leverages persistent vectorized memory architectures across teams. Knowledge gained during individual task execution feeds into organizational context, minimizing repetitive context ingestion.",
-                    "Marketplace Integrations: By integrating over 2,000 standard enterprise connectors, Duet bridges raw code logic with platforms like AWS, Jira, HubSpot, and GitHub."
-                ],
-                snippet: "// Claude Duet MCP Agent Connection Config\n{\n  \"agent_id\": \"duet-prod-01\",\n  \"runtime\": \"cloud-sandbox-v3\",\n  \"capabilities\": [\"browser_automation\", \"repo_write\", \"ast_parse\"],\n  \"memory_store\": \"vector-redis-cluster\"\n}",
-                snippetLang: "JSON Config"
-            },
-            {
-                id: 2,
-                title: "Quantum Supremacy Milestone: 1,000-Logical-Qubit Fault Tolerant System",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "8 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Researchers have achieved groundbreaking fault-tolerant quantum error correction, operating over 1,000 logical qubits at cryogenic temperatures with sub-microsecond latency.",
-                bodyParagraphs: [
-                    "Error Correction Breakthrough: By utilizing surface code topological lattices, the system maintains physical-to-logical qubit redundancy ratios of 100:1, suppressing error rates below critical thresholds.",
-                    "Cryptographic Implications: The breakthrough speeds up timeline projections for breaking legacy RSA key pairs, urging instant migration to Post-Quantum Cryptography (PQC) standards like CRYSTALS-Kyber.",
-                    "Material Science Simulations: Molecular energy state calculation speedups will revolutionize solid-state battery chemistry and catalyst synthesis within the current decade."
+                    "In a landmark consolidation for the delivery economy, DoorDash has officially agreed to acquire Instacart in a transaction valued at $17 billion.",
+                    "The strategic merger unites two dominant players in food delivery and grocery logistics, establishing an unprecedented distribution network spanning restaurants, supermarkets, and national retail chains.",
+                    "Industry analysts point out that combining Instacart's deep grocery integration with DoorDash's expansive last-mile logistics fleet will streamline delivery routes and lower operational overhead across major suburban and urban markets.",
+                    "Regulatory authorities are expected to scrutinize the transaction closely, examining antitrust concerns and potential impacts on merchant fee structures and gig economy worker labor markets."
                 ]
             },
             {
-                id: 3,
-                title: "Silicon Photonic Interconnects Disrupt Data Center Memory Architectures",
+                id: 2,
+                title: "Google Debuts Gemini 4 Carbon",
                 category: "AI & Hardware",
                 source: "TechToday",
                 author: "Milan Filipović",
@@ -321,35 +301,75 @@
                 readTime: "6 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Optical co-packaged optics (CPO) replace copper traces between GPU clusters and memory pools, reducing power consumption by 45% while doubling bandwidth density.",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Google officially launched Gemini 4 Carbon, its latest frontier AI model. Initial benchmark reports show significant jumps in autonomous coding performance and automated vulnerability detection.",
                 bodyParagraphs: [
-                    "Bypassing Copper Limits: As clock frequencies scale beyond 100 GHz, copper trace attenuation causes exponential heat generation. Co-packaged optical engines route lasers directly into silicon dies.",
-                    "CXL 3.1 Memory Pooling: Combined with Compute Express Link protocols, optical interconnects enable petabyte-scale unified memory pools accessible with sub-50ns latency.",
-                    "Hyperscale Data Center Impact: Major cloud vendors report immediate 30% reduction in rack thermal output, directly cutting cooling costs in next-gen AI training clusters."
+                    "Google unveiled its next-generation foundation model, Gemini 4 Carbon, designed specifically to push the boundaries of automated software construction and cybersecurity intelligence.",
+                    "Early benchmark results indicate substantial performance gains in long-context reasoning, precise AST code synthesis, and autonomous zero-day vulnerability identification in low-level systems.",
+                    "Gemini 4 Carbon incorporates new low-latency token streaming architectures alongside built-in guardrails against malicious payload generation.",
+                    "Developers can immediately access Gemini 4 Carbon via Google Cloud Vertex AI, with localized NPU optimization tailored for edge devices."
+                ]
+            },
+            {
+                id: 3,
+                title: "Alphabet Reports Q3 Earnings; Cloud Up Over 100%",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: todayDate,
+                readTime: "4 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Alphabet released its Q3 financial results, reporting revenue of $127.6 billion. Highlighted by massive growth in enterprise infrastructure, Google Cloud revenue doubled year-over-year to $30.7 billion.",
+                bodyParagraphs: [
+                    "Alphabet Inc. published stellar Q3 financial results, delivering total revenue of $127.6 billion driven by accelerating demand for cloud enterprise infrastructure.",
+                    "A key highlight was Google Cloud, which surged over 100% year-over-year to hit $30.7 billion in quarterly revenue, reflecting massive enterprise adoption of custom AI infrastructure and TPU v6 clusters.",
+                    "Chief Executive Sundar Pichai attributed the growth to sustained demand for enterprise generative AI deployments and integrated data analytics capabilities.",
+                    "Capital expenditures remained strong as Alphabet continues expanding global data center capacity to support persistent enterprise AI workloads."
                 ]
             },
             {
                 id: 4,
-                title: "Global Semiconductor Shift: 2nm Gate-All-Around (GAA) Production Yields Hit 75%",
-                category: "AI & Hardware",
+                title: "Microsoft Posts Q1 Revenue of $92.3 Billion",
+                category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
                 date: todayDate,
                 readTime: "5 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Foundries achieve commercial viability on 2-nanometer GAA nodes, delivering 15% performance boosts and 30% power reductions for mobile and server processors.",
+                image: "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Microsoft reported strong fiscal Q1 metrics driven by a 48% surge in Azure growth. Capital expenditures approached $40 billion for the quarter as the company expands its data center infrastructure to meet AI demand.",
                 bodyParagraphs: [
-                    "Nanosheet Technology: Replacing FinFET with stacked horizontal nanosheets allows electrostatic gate control on all four sides of the channel, eliminating current leakage.",
-                    "Backside Power Delivery: High-density routing is achieved by relocating power rails to the backside of the silicon wafer, freeing front layers strictly for signal interconnects.",
-                    "Commercial Rollouts: Smartphone flagship SoCs and enterprise AI acceleration chips will adopt 2nm silicon ahead of Q1 2027 market shipments."
+                    "Microsoft Corp. delivered impressive fiscal Q1 earnings, recording $92.3 billion in quarterly revenue behind sustained momentum across its Intelligent Cloud platform.",
+                    "Azure revenue climbed 48% year-over-year, buoyed by enterprise migrations and rapid integration of Copilot AI services across developer and enterprise productivity stacks.",
+                    "Quarterly capital expenditures approached $40 billion as Microsoft aggressively expands global datacenter footprint and custom silicon capacity to fulfill surging AI compute workloads.",
+                    "CEO Satya Nadella emphasized that AI transformational demand is converting directly into long-term cloud enterprise commitments."
                 ]
             },
             {
                 id: 5,
-                title: "Post-Quantum Cryptography Mandates: Mandatory Migration Guidelines for 2027",
+                title: "Apple Announces First Touchscreen MacBook Pro",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: todayDate,
+                readTime: "4 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Apple expanded its Mac line, featuring thinner chassis profiles, upgraded displays, and the company's first integration of direct touch-screen input on a laptop.",
+                bodyParagraphs: [
+                    "In a historic shift for Mac ergonomics, Apple has officially introduced its first touchscreen MacBook Pro, combining classic macOS workflows with direct touch interaction.",
+                    "The new laptop line features ultra-thin aluminum chassis designs, M4 Max chipsets, and dynamic OLED displays with sub-millisecond touch latency.",
+                    "macOS has been updated with context-aware touch target expansion while retaining full cursor precision for developer terminals and professional creative applications.",
+                    "The line also introduces haptic feedback gestures across the glass panel without sacrificing structural rigidity or display clarity."
+                ]
+            },
+            {
+                id: 6,
+                title: "Autonomous AI Agent Discovers Zero-Day Vulnerabilities in Fusion Software",
                 category: "Software Engineering",
                 source: "TechToday",
                 author: "Milan Filipović",
@@ -358,52 +378,17 @@
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
                 image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Cybersecurity agencies issue final compliance timelines enforcing NIST post-quantum standard adoption across banking, healthcare, and infrastructure applications.",
+                excerpt: "An autonomous security agent named Cipher independently identified four zero-day vulnerabilities inside EPICS Base—the open-source control system running tens of particle accelerators and nuclear fusion experiments globally.",
                 bodyParagraphs: [
-                    "Lattice-Based Encryption: Federal guidelines mandate replacing RSA and ECC algorithms with ML-KEM (Kyber) and ML-DSA (Dilithium) to prevent harvest-now-decrypt-later attacks.",
-                    "TLS 1.4 Draft Requirements: Cloud providers are rolling out hybrid key exchange cipher suites in web servers to maintain backward compatibility while upgrading security.",
-                    "Action Plan for Engineering Teams: Auditing legacy dependencies, cataloging public key usages, and testing PQC-ready SSL handshakes."
-                ]
-            },
-            {
-                id: 6,
-                title: "Solid-State Battery Breakthrough Enables 1,000 km EV Range Benchmark",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "5 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1558441719-6705546e992a?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Sulfide-based solid electrolyte cells pass rigorous thermal runaway tests while supporting ultra-fast 10-minute 80% recharge rates.",
-                bodyParagraphs: [
-                    "Dendrite Prevention: Anode-free lithium metal design with thin protective ceramic coatings suppresses dendrite growth during extreme rapid charging cycles.",
-                    "Volumetric Energy Density: Reaching 500 Wh/kg allows automakers to cut battery pack weight in half while doubling total vehicle travel distance.",
-                    "Manufacturing Scalability: Pilot production lines report scalable roll-to-roll manufacturing compatibility with existing gigafactory tooling."
+                    "An autonomous AI cybersecurity agent named Cipher has independently discovered four previously unknown zero-day memory corruption bugs inside EPICS Base.",
+                    "EPICS Base is the critical open-source distributed control framework utilized worldwide across nuclear fusion reactors, synchrotrons, and high-energy particle accelerators.",
+                    "Cipher generated fully reproducible proof-of-concept exploits before autonomously drafting and submitting secure patch proposals to system maintainers.",
+                    "The milestone underscores both the immense security auditing potential of autonomous AI safety agents and the urgent necessity for proactive patch management in critical scientific infrastructure."
                 ]
             },
             {
                 id: 7,
-                title: "Edge AI Processing: 8-Bit Model Quantization Replaces Cloud API Dependency",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "7 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-                excerpt: "On-device NPU neural execution allows offline 70B parameter LLM inference at 45 tokens per second directly on consumer laptops.",
-                bodyParagraphs: [
-                    "4-Bit & 8-Bit AWQ Quantization: Advanced activation-aware weight quantization preserves model precision while dramatically shrinking memory footprint.",
-                    "Privacy & Zero Latency: Financial and healthcare applications eliminate third-party API data leakage by keeping sensitive embeddings fully localized.",
-                    "NPU Thermal Management: Hardware vendors integrate specialized neural execution tiles that consume under 15 Watts under sustained generation loops."
-                ]
-            },
-            {
-                id: 8,
-                title: "Starlink Direct-to-Cell Expansion Eliminates Global Mobile Dead Zones",
+                title: "South Korean Regulators Fine Google and Apple",
                 category: "TechToday",
                 source: "TechToday",
                 author: "Milan Filipović",
@@ -411,16 +396,56 @@
                 readTime: "4 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Low Earth Orbit satellite constellations achieve full LTE data throughput support for unmodified 4G/5G mobile phones worldwide.",
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Regulators in South Korea levied fines against Apple and Google over continued app store business practice violations under the country's Telecommunications Business Act.",
                 bodyParagraphs: [
-                    "Phased Array Beamforming: Next-generation satellite hardware operates high-gain eNodeB modems in space, overcoming atmospheric signal attenuation.",
-                    "Emergency Response & IoT: Maritime transport, aviation, and rural emergency response networks gain guaranteed low-bandwidth telemetry everywhere on Earth."
+                    "South Korea's Telecommunications Business Commission has issued substantial monetary penalties against Google and Apple following anti-monopoly enforcement investigations.",
+                    "Regulators cited unfair app store practices regarding external payment gateway restrictions and excessive commission structures enforced on mobile application developers.",
+                    "The enforcement action highlights growing global regulatory pressure against dominant mobile platform ecosystems, following similar legislation across Europe and North America.",
+                    "Both tech giants stated they are reviewing the official ruling while defending their platform security and developer investment models."
+                ]
+            },
+            {
+                id: 8,
+                title: "Samsung Reports Historic Q3 Profit Surge Driven by HBM Demand",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: todayDate,
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Samsung reported an operating profit surge for Q3, driven largely by rapid demand for Next-Gen High Bandwidth Memory (HBM4) modules supply for AI accelerators.",
+                bodyParagraphs: [
+                    "Samsung Electronics posted record-setting operating profits for Q3, propelled by insatiable global demand for high-performance AI memory chips.",
+                    "Mass production of next-generation HBM4 memory stacks—designed specifically for hyper-scale AI training hardware—drove the majority of semiconductor division gains.",
+                    "Industry demand for dense 3D vertical stacked DRAM continues to outpace global supply, cementing memory as a critical bottleneck in the AI compute supply chain.",
+                    "Samsung announced plans to expand advanced wafer packaging facility output to satisfy commitments through 2027."
                 ]
             },
             {
                 id: 9,
-                title: "European Cyber Resilience Act Enforces Open Source Security Standards",
+                title: "Anthropic Discloses AI Exploitation Research Capabilities",
+                category: "Software Engineering",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: todayDate,
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Anthropic's internal red team detailed results showing an unreleased frontier AI model capable of independently developing working exploit chains across multiple major operating systems and web browsers.",
+                bodyParagraphs: [
+                    "In a newly published research disclosure, Anthropic revealed that its internal Red Team evaluated an unreleased frontier model capable of synthesizing multi-stage exploit chains.",
+                    "The model demonstrated the ability to chain minor memory leaks into full local privilege escalation vectors across major desktop operating systems without human intervention.",
+                    "Anthropic conducted the evaluations within isolated air-gapped laboratory environments to establish proactive safety thresholds and red-teaming benchmarks.",
+                    "The findings highlight the urgent requirement for automated defensive AI patchers to balance security landscapes against accelerating offensive capabilities."
+                ]
+            },
+            {
+                id: 10,
+                title: "Canonical Restarts Work on Immutable Ubuntu Core Desktop",
                 category: "Software Engineering",
                 source: "TechToday",
                 author: "Milan Filipović",
@@ -428,454 +453,554 @@
                 readTime: "5 min read",
                 featured: false,
                 badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Strict software bill of materials (SBOM) policies mandate immediate vulnerability patch disclosure for all software commercialized in Europe.",
+                image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Canonical announced a renewed roadmap for Ubuntu Core Desktop, an immutable, fully sandboxed version of the distribution intended to eventually become the default desktop experience.",
                 bodyParagraphs: [
-                    "Mandatory Software Bills of Material: Enterprise vendors must sign cryptographic verification attestations for every upstream open-source package.",
-                    "Automated Patch Windows: Critical CVE disclosures trigger strict 24-hour notification windows to downstream infrastructure operators."
-                ]
-            },
-            {
-                id: 10,
-                title: "RISC-V Architecture Gains 25% Market Share in Enterprise Data Centers",
-                category: "AI & Hardware",
-                source: "TechToday",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandYellow text-slate-950",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Open instruction set architecture (ISA) servers challenge traditional x86 and ARM dominance with custom vector extension hardware.",
-                bodyParagraphs: [
-                    "Royalty-Free Customization: Hyperscalers design domain-specific microarchitectures tailored specifically for tensor operations and database acceleration.",
-                    "Ecosystem Maturation: Mainstream Linux distributions offer native 64-bit RISC-V builds, with complete toolchain parity across GCC, LLVM, and Rust."
+                    "Canonical has unveiled an accelerated development roadmap for Ubuntu Core Desktop, an immutable, container-based desktop operating system.",
+                    "The OS leverages read-only system images and strictly sandboxed Snap and container runtimes, rendering base operating system files immune to accidental corruption or malware modification.",
+                    "Developers benefit from atomic transactional updates and instant system rollback capabilities, establishing high reliability for mission-critical developer hardware.",
+                    "Canonical aims to transition Ubuntu Core Desktop into a primary offering for enterprise workstation deployments over coming LTS release cycles."
                 ]
             },
 
             // ==================== CODING WITH MILAN (10 ARTICLES) ====================
             {
                 id: 11,
-                title: "JetBrains Native IDE Integration with AI Coding Agents Achieves 30% Speedup",
-                category: "Coding with Milan",
+                title: "Rust 1.85 Released: Async Closures and New Diagnostic Engine",
+                category: "Software Engineering",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
-                date: todayDate,
-                readTime: "5 min read",
+                date: "10/25/2026",
+                readTime: "6 min read",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
                 image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Injecting pre-indexed AST structural symbol metadata directly into model context windows eliminates agent context discovery overhead.",
+                excerpt: "Rust 1.85 stabilizes native async closures, expands pattern matching capabilities, and dramatically cuts build compilation times for heavy macro dependencies.",
                 bodyParagraphs: [
-                    "Context Indexing Overhead: AI agents waste thousands of prompt tokens re-parsing directory trees and resolving dependency imports. JetBrains IDE server protocols stream exact symbol locations to agents directly.",
-                    "Protocol Specification: Using standard JSON-RPC interface adapters, local language servers provide instant diagnostics, type checks, and reference lookups to autonomous coding tools.",
-                    "Reduced Missteps: Benchmark testing across 500 refactoring pull requests showed a 30% reduction in broken builds when agents consume native IDE AST snapshots."
+                    "The Rust language team has officially released version 1.85, bringing highly anticipated ergonomics enhancements and compiler speed improvements.",
+                    "Async closures are now fully stabilized (`async || {}`), eliminating cumbersome manual `Box::pin` returns and lifetime annotations inside complex async pipelines.",
+                    "The borrow checker diagnostics engine now delivers clearer compiler suggestions for complex lifetimes in multi-threaded Tokio task pools.",
+                    "Macro evaluation speedups yield up to 25% faster cold builds across large workplace monorepos."
                 ],
-                snippet: "{\n  \"jsonrpc\": \"2.0\",\n  \"method\": \"ide/resolveSymbol\",\n  \"params\": {\n    \"symbol\": \"UserService.authenticate\",\n    \"includeCallHierarchy\": true\n  }\n}",
-                snippetLang: "JSON-RPC Protocol"
+                snippet: "// Async Closures in Rust 1.85\nlet process_item = async |item: String| -> Result<(), Error> {\n    let result = fetch_data(&item).await?;\n    save_db(result).await\n};",
+                snippetLang: "Rust Code"
             },
             {
                 id: 12,
-                title: "TypeScript 5.8 Deep Dive: Performance Improvements & Explicit Resource Management",
+                title: "React 19 Server Actions & Optimistic UI Best Practices",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
                 author: "Milan Filipović",
-                date: todayDate,
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1516116211223-4c7141b00287?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Leveraging the using keyword for deterministic resource disposal alongside fast isolated declarations in enterprise monorepos.",
-                bodyParagraphs: [
-                    "Deterministic Cleanups: Disposable objects implement Symbol.dispose or Symbol.asyncDispose to guarantee cleanup when falling out of block scope.",
-                    "Faster Build Times: Isolated declarations enforce type annotations on exported boundaries, allowing parallel un-bundled declaration generation across large monorepos."
-                ],
-                snippet: "class DatabaseConnection implements Disposable {\n  constructor(private url: string) {}\n  [Symbol.dispose]() {\n    console.log('Connection closed automatically');\n  }\n}\n\nfunction processQuery() {\n  using db = new DatabaseConnection('postgres://localhost:5432');\n  // db closes automatically at scope exit\n}",
-                snippetLang: "TypeScript"
-            },
-            {
-                id: 13,
-                title: "Rust 1.85 Edition: Async Closures and Pin-Sensitive Abstractions",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "7 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Mastering native async closure syntaxes and ergonomic lifetime boundaries inside high-throughput asynchronous microservices.",
-                bodyParagraphs: [
-                    "Native Async Closures: Eliminates manual Box<dyn Future> boilerplate when passing asynchronous callbacks into stream processors.",
-                    "Memory Safety Compliance: Rust's memory model continues to replace C++ in enterprise kernel modules and memory-critical infrastructure."
-                ],
-                snippet: "async function execute_task<F>(callback: F) \nwhere \n    F: async Fn(u32) -> String \n{\n    let result = callback(42).await;\n    println!(\"Result: {}\", result);\n}",
-                snippetLang: "Rust"
-            },
-            {
-                id: 14,
-                title: "React 19 Server Components: Architectural Best Practices for Production",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
-                excerpt: "How to structure Server Actions, Use Optimistic state updates, and eliminate client bundle bloat in Next.js App Router applications.",
-                bodyParagraphs: [
-                    "Zero Client Bundle Impact: Server components fetch data directly inside node execution contexts, preventing massive database SDKs from leaking to the client browser.",
-                    "Action State Handling: Combining useActionState and useOptimistic allows instant UI updates before server confirmation roundtrips finish."
-                ],
-                snippet: "'use server';\nimport { revalidatePath } from 'next/cache';\n\nexport async function updateUsername(formData: FormData) {\n  const name = formData.get('name') as string;\n  await db.user.update({ where: { id: 1 }, data: { name } });\n  revalidatePath('/profile');\n}",
-                snippetLang: "React / Server Actions"
-            },
-            {
-                id: 15,
-                title: "Go 1.25 Range-Over-Function Iterators & Arena Memory Allocation",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "5 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Simplifying custom sequence traversal using Go iterators while reducing Garbage Collector pauses with arena allocation pools.",
-                bodyParagraphs: [
-                    "Custom Sequence Iteration: Standardizing iterators allows custom trees, graphs, and channels to be looped over directly using standard range expressions.",
-                    "GC Latency Reduction: Memory arenas bulk-allocate micro-objects, bypassing individual heap collection overhead in high-throughput gRPC services."
-                ],
-                snippet: "package main\nimport \"fmt\"\n\nfunc Backward[T any](s []T) func(func(int, T) bool) {\n    return func(yield func(int, T) bool) {\n        for i := len(s) - 1; i >= 0; i-- {\n            if !yield(i, s[i]) { return }\n        }\n    }\n}",
-                snippetLang: "Go"
-            },
-            {
-                id: 16,
-                title: "PostgreSQL 17 Vector Performance Tuning for RAG Pipelines",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "7 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Optimizing pgvector HNSW indexing parameters for sub-10ms nearest neighbor vector search across millions of embeddings.",
-                bodyParagraphs: [
-                    "HNSW vs IVFFlat Indexing: Hierarchical Navigable Small World graphs provide superior recall accuracy under heavy update concurrency compared to inverted file indexes.",
-                    "Quantization Techniques: Half-precision float16 vector storage cuts index memory requirements in half without loss in semantic retrieval precision."
-                ],
-                snippet: "-- Create optimized HNSW vector index\nCREATE INDEX ON document_embeddings \nUSING hnsw (embedding vector_cosine_ops)\nWITH (m = 16, ef_construction = 64);",
-                snippetLang: "SQL"
-            },
-            {
-                id: 17,
-                title: "Modern Python 3.13: Free-Threaded GIL Removal & JIT Compiler Setup",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Unlocking true multi-threaded CPU parallel execution in Python without process IPC overhead.",
-                bodyParagraphs: [
-                    "Disabling the Global Interpreter Lock: Build-time flags allow CPython threads to execute bytecode in parallel across multiple CPU cores.",
-                    "Copy-on-Write Memory Management: Thread-safe reference counting changes enable high-speed parallel data manipulation in scientific computing scripts."
-                ],
-                snippet: "# Python 3.13 Thread Execution Example\nimport threading\n\ndef compute_heavy_task(n):\n    return sum(i * i for i in range(n))\n\n# True parallel CPU execution in Python 3.13 free-threaded builds\nthreads = [threading.Thread(target=compute_heavy_task, args=(10000000,)) for _ in range(4)]\nfor t in threads: t.start()\nfor t in threads: t.join()",
-                snippetLang: "Python"
-            },
-            {
-                id: 18,
-                title: "Docker Desktop Alternatives: Lightweight Podman & OrbStack Migration",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "5 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Slashing local development memory consumption by 80% while retaining full Docker CLI compatibility.",
-                bodyParagraphs: [
-                    "Rootless Containerization: Podman enforces rootless container execution, dramatically lowering local security exposure vectors.",
-                    "OrbStack Efficiency: macOS developers replace heavy Linux VMs with native micro-hypervisors that start containers in under two seconds."
-                ],
-                snippet: "# Alias docker to podman for seamless transition\nalias docker=podman\npodman run --name redis-local -p 6379:6379 -d redis:alpine",
-                snippetLang: "Bash"
-            },
-            {
-                id: 19,
-                title: "GraphQL vs REST in 2026: The Rise of Automatic Type-Safe RPC APIs",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
-                readTime: "6 min read",
-                featured: false,
-                badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-                excerpt: "How tRPC and Connect-Web are replacing complex GraphQL schemas for full-stack TypeScript and Go developers.",
-                bodyParagraphs: [
-                    "Zero-Build Type Safety: tRPC shares backend TypeScript router types directly with frontend clients, catching API mismatch errors at compile time.",
-                    "Protobuf Ecosystem Integration: Connect-Web brings gRPC simplicity directly into web browsers over standard HTTP/2 and HTTP/3 protocols."
-                ],
-                snippet: "// tRPC Procedure Definition Example\nexport const appRouter = router({\n  getUser: publicProcedure\n    .input(z.object({ id: z.string() }))\n    .query(async ({ input }) => {\n      return await db.user.findById(input.id);\n    }),\n});",
-                snippetLang: "TypeScript"
-            },
-            {
-                id: 20,
-                title: "Building Resilient Microservices with Distributed Event-Driven Saga Patterns",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                author: "Milan Filipović",
-                date: todayDate,
+                date: "10/24/2026",
                 readTime: "8 min read",
                 featured: false,
                 badgeColor: "bg-brandGreen text-white",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-                excerpt: "Implementing compensating transactions across distributed event brokers using Kafka and Temporal workflows.",
+                image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Deep-dive architectural guide on leveraging React 19 Server Actions, useOptimistic, and useFormStatus for instant UI state synchronization.",
                 bodyParagraphs: [
-                    "Choreography vs Orchestration: Why central orchestrators (Temporal) prevent cascading state failures compared to pure event choreography.",
-                    "Compensating Transactions: Structuring rollback functions to maintain eventual database consistency during payments or inventory reservation failures."
+                    "React 19 shifts frontend paradigms by merging server-side data mutations with seamless client-side optimistic state rendering.",
+                    "The `useOptimistic` hook allows developers to immediately reflect user input on-screen while background async server actions confirm database state.",
+                    "If server validation fails, React automatically rolls back the UI state cleanly without requiring complex custom Redux or Zustand state logic.",
+                    "Combining Server Actions with form status tracking eliminates boilerplate spin state management across large applications."
                 ],
-                snippet: "// Compensating Transaction Flow\nasync function processOrderWorkflow(orderId) {\n  const reservation = await reserveInventory(orderId);\n  try {\n    await processPayment(orderId);\n  } catch (err) {\n    await cancelInventoryReservation(reservation.id); // Rollback step\n    throw err;\n  }\n}",
-                snippetLang: "JavaScript"
+                snippet: "// React 19 Optimistic Action Example\nconst [optimisticComments, addOptimisticComment] = useOptimistic(\n  comments,\n  (state, newComment) => [...state, { text: newComment, pending: true }]\n);",
+                snippetLang: "JSX / React 19"
+            },
+            {
+                id: 13,
+                title: "Building High-Throughput Microservices with Go 1.24 Streams",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/22/2026",
+                readTime: "7 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Explore memory-efficient Go 1.24 concurrency patterns utilizing generic ring-buffers, arena allocators, and lock-free channels.",
+                bodyParagraphs: [
+                    "Go 1.24 refines high-concurrency stream handling for cloud microservices processing millions of payloads per second.",
+                    "By combining Go's arena memory allocation package with lock-free channel queues, garbage collection overhead drops by up to 60%.",
+                    "This architecture minimizes CPU cache invalidations in high-frequency trading and live event stream routing setups.",
+                    "We walk through building a production-ready gRPC stream proxy using native Go routines and zero-allocation parsing."
+                ],
+                snippet: "// Go 1.24 Concurrent Ring Buffer\ntype Buffer[T any] struct {\n    items []T\n    head  uint64\n    tail  uint64\n}\nfunc (b *Buffer[T]) Push(item T) { /* Lock-free atomic push */ }",
+                snippetLang: "Go Language"
+            },
+            {
+                id: 14,
+                title: "PostgreSQL 17 Logical Replication & Performance Tuning",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/20/2026",
+                readTime: "9 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Master PostgreSQL 17 failover slot management, parallel query execution plans, and vacuum memory optimizations for petabyte DBs.",
+                bodyParagraphs: [
+                    "PostgreSQL 17 introduces massive upgrades for distributed database scaling, specifically targeting logical replication stability.",
+                    "Failover slot preservation ensures standby nodes seamlessly take over logical replication streams without losing data position or requiring re-syncs.",
+                    "Enhancements to `VACUUM` execution consume significantly less memory while scanning indexes, drastically reducing I/O spikes on high-write OLTP databases.",
+                    "Query planner optimizations now utilize SIMD instructions for faster execution of aggregate functions across JSONB document types."
+                ],
+                snippet: "-- PostgreSQL 17 Logical Replication Slot Creation\nSELECT pg_create_logical_replication_slot(\n    'failover_slot',\n    'pgoutput',\n    failover => true\n);",
+                snippetLang: "SQL / PostgreSQL"
+            },
+            {
+                id: 15,
+                title: "TypeSafe Full-Stack Apps with TypeScript 5.6 & Express 5",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/18/2026",
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1516116211223-48a122638159?auto=format&fit=crop&w=800&q=80",
+                excerpt: "End-to-end type safety pattern using Zod validation schemas, TypeScript 5.6 strict iterator checks, and native Promise handling in Express 5.",
+                bodyParagraphs: [
+                    "Express 5 natively supports rejected Promises in middleware, eliminating the need for boilerplate async wrapper functions.",
+                    "Paired with TypeScript 5.6 and Zod, developers can guarantee type safety from the HTTP request payload down to database layer queries.",
+                    "TypeScript 5.6 introduces stricter iterator checks and enhanced type inference for complex mapped types.",
+                    "This architecture minimizes runtime TypeError exceptions and generates self-documenting API contracts effortlessly."
+                ],
+                snippet: "// Express 5 Async Handler with Zod\napp.post('/api/user', async (req, res) => {\n  const user = UserSchema.parse(req.body);\n  const created = await db.user.create({ data: user });\n  res.json(created);\n});",
+                snippetLang: "TypeScript"
+            },
+            {
+                id: 16,
+                title: "Mastering Docker Multi-Stage Builds & Minimal Alpine Images",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/15/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Reduce container vulnerability footprints and trim production Docker image sizes from 1GB down to under 15MB with scratch and distroless stages.",
+                bodyParagraphs: [
+                    "In production enterprise deployments, smaller container images mean faster CI/CD rollouts, lower storage costs, and minimized security attack surfaces.",
+                    "Multi-stage Docker builds isolate build-time dependencies (like compilers and headers) from the final runtime container image.",
+                    "Utilizing Distroless or minimal Alpine bases strips unnecessary shell binaries and utilities, making system exploitation dramatically harder for attackers.",
+                    "We walk through optimizing a Node.js and C++ native module container pipeline for maximum security and deployment speed."
+                ],
+                snippet: "# Multi-Stage Dockerfile Pattern\nFROM golang:1.24-alpine AS builder\nWORKDIR /app\nCOPY . .\nRUN go build -o server .\n\nFROM scratch\nCOPY --from=builder /app/server /server\nENTRYPOINT [\"/server\"]",
+                snippetLang: "Dockerfile"
+            },
+            {
+                id: 17,
+                title: "Advanced CSS Anchor Positioning and Container Queries",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/12/2026",
+                readTime: "5 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Ditch heavy JavaScript positioning libraries! Learn how native CSS Anchor Positioning and Container Queries solve dynamic UI tooltips and layouts.",
+                bodyParagraphs: [
+                    "CSS Anchor Positioning revolutionizes complex UI elements like tooltips, popovers, and dropdown menus by tethering them directly to DOM target nodes via pure CSS.",
+                    "This eliminates JavaScript scroll-listener overhead and expensive layout recalibrations caused by old positioning libraries.",
+                    "Combined with Container Queries, UI components adapt flexibly based on their immediate parent container width rather than overall viewport dimensions.",
+                    "Modern frontend development now achieves fluid responsiveness with cleaner, zero-dependency stylesheets."
+                ],
+                snippet: "/* CSS Anchor Positioning Example */\n.tooltip {\n  position: absolute;\n  position-anchor: --button-id;\n  top: anchor(bottom);\n  left: anchor(center);\n}",
+                snippetLang: "CSS Styles"
+            },
+            {
+                id: 18,
+                title: "Python 3.13 Free-Threaded (No-GIL) Benchmarks & Migration",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/10/2026",
+                readTime: "7 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Python 3.13 introduces experimental free-threaded execution disabling the GIL. We benchmark true multi-threaded CPU parallel performance across workload types.",
+                bodyParagraphs: [
+                    "The Global Interpreter Lock (GIL) has long constrained Python from scaling CPU-bound computations across multiple CPU cores within a single process.",
+                    "Python 3.13 provides a build mode that disables the GIL entirely, allowing true parallel thread execution for heavy mathematical and AI pre-processing routines.",
+                    "Benchmark results demonstrate near-linear performance scaling across 16 CPU cores for multi-threaded numerical array calculations.",
+                    "We discuss thread safety considerations, C-extension compatibility, and migration strategies for legacy Python codebases."
+                ],
+                snippet: "# Testing Python 3.13 No-GIL Concurrency\nimport threading\n\ndef cpu_heavy_work(n):\n    return sum(i * i for i in range(n))\n\n# Spawns true parallel threads across CPU cores without GIL bottleneck",
+                snippetLang: "Python 3.13"
+            },
+            {
+                id: 19,
+                title: "Building Real-Time Web Apps with WebSockets & Redis Pub/Sub",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/08/2026",
+                readTime: "8 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Architecting a horizontal multi-node real-time chat and notification cluster using Node.js WebSockets, Redis Pub/Sub channels, and Kubernetes.",
+                bodyParagraphs: [
+                    "Single-server WebSocket architectures quickly hit connection bottlenecks when scaling to hundreds of thousands of concurrent real-time client users.",
+                    "By leveraging Redis Pub/Sub as an inter-node message broker, socket events radiate instantly across all running server instances in a Kubernetes cluster.",
+                    "This ensures users remain connected and receive live updates regardless of which specific container pod terminates their persistent WebSocket handshake.",
+                    "We implement connection heartbeat pinging, automatic client reconnect strategies, and backpressure handling to handle high-frequency event spikes."
+                ],
+                snippet: "// Redis Pub/Sub Subscriber Node\nredisSub.subscribe('live-notifications', (message) => {\n  const payload = JSON.parse(message);\n  broadcastToLocalSockets(payload);\n});",
+                snippetLang: "JavaScript Node.js"
+            },
+            {
+                id: 20,
+                title: "GraphQL Subscriptions vs. Server-Sent Events (SSE) in 2026",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "10/05/2026",
+                readTime: "6 min read",
+                featured: false,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "A comprehensive technical comparison evaluating network overhead, HTTP/3 multiplexing, firewalls, and client complexity between SSE and GraphQL streams.",
+                bodyParagraphs: [
+                    "Choosing the optimal real-time streaming protocol depends heavily on unidirectional versus bidirectional communication needs and infrastructure complexity.",
+                    "Server-Sent Events (SSE) operate over standard HTTP, providing seamless HTTP/2 and HTTP/3 multiplexing out of the box with zero special proxy configuration required.",
+                    "GraphQL Subscriptions offer rich schema typing and precise field selection, but introduce stateful WebSocket connections and higher client-side bundle size overhead.",
+                    "We compare real-world memory footprints, reconnect reliability, and firewall traversal rates for production engineering teams choosing an architecture."
+                ],
+                snippet: "// Native Server-Sent Event (SSE) Client\nconst eventSource = new EventSource('/api/live-stream');\neventSource.onmessage = (event) => {\n  const data = JSON.parse(event.data);\n  updateUI(data);\n};",
+                snippetLang: "JavaScript API"
             }
         ];
 
+        // App State Management
         let currentCategory = 'all';
-        let savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks') || '[]');
-        let currentModalArticleId = null;
+        let searchQuery = '';
+        let savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks')) || [];
+        let activeModalArticleId = null;
 
-        window.addEventListener('DOMContentLoaded', () => {
+        // On DOM Load Init Application
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
             renderFeaturedHero();
-            renderNewsGrid(newsArticles);
-            updateBookmarkBadge();
-
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                document.documentElement.classList.add('dark');
-            }
+            renderArticles();
+            updateBookmarkCounter();
         });
 
-        function renderFeaturedHero() {
-            const container = document.getElementById('featuredHeroContainer');
-            const hero = newsArticles.find(a => a.featured) || newsArticles[0];
-            const trendingList = newsArticles.filter(a => a.id !== hero.id).slice(0, 4);
-
-            container.innerHTML = `
-                <div class="lg:col-span-8">
-                    <div onclick="openArticleModal(${hero.id})" class="cursor-pointer group relative bg-white dark:bg-darkCard rounded-3xl overflow-hidden border border-gray-200 dark:border-slate-800 shadow-md hover:shadow-2xl transition-all duration-300">
-                        <div class="relative h-80 sm:h-96 w-full bg-slate-950 overflow-hidden">
-                            <img src="${hero.image}" alt="${hero.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
-                            
-                            <div class="absolute top-4 left-4">
-                                <span class="${hero.badgeColor} text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-wider shadow">
-                                    Featured Lead Investigation
-                                </span>
-                            </div>
-
-                            <div class="absolute bottom-6 left-6 right-6 text-white">
-                                <div class="flex items-center space-x-2 text-xs font-bold text-brandYellow mb-2">
-                                    <span>${hero.author}</span>
-                                    <span>•</span>
-                                    <span class="text-slate-300">${hero.source}</span>
-                                    <span>•</span>
-                                    <span class="text-slate-400">${hero.date}</span>
-                                </div>
-                                <h1 class="text-2xl sm:text-4xl font-black leading-tight tracking-tight text-white group-hover:text-brandYellow transition-colors">
-                                    ${hero.title}
-                                </h1>
-                            </div>
-                        </div>
-                        <div class="p-6 bg-white dark:bg-darkCard border-t border-gray-100 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                            <p class="text-xs sm:text-sm text-gray-600 dark:text-slate-300 line-clamp-2 max-w-2xl leading-relaxed">
-                                ${hero.excerpt}
-                            </p>
-                            <span class="text-xs font-black text-brandGreen group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
-                                Read Full Story <i class="fa-solid fa-arrow-right"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-4 flex flex-col justify-between space-y-4">
-                    <div class="bg-white dark:bg-darkCard rounded-3xl p-5 border border-gray-200 dark:border-slate-800 shadow-sm flex-1">
-                        <div class="flex items-center justify-between pb-3 mb-4 border-b border-gray-100 dark:border-slate-800">
-                            <h3 class="font-black text-sm uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
-                                <i class="fa-solid fa-fire text-brandGreen"></i> Top Headlines
-                            </h3>
-                            <span class="text-[10px] text-gray-400 font-bold uppercase">Updated Live</span>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            ${trendingList.map((item, idx) => `
-                                <div onclick="openArticleModal(${item.id})" class="cursor-pointer group flex items-start space-x-3 pb-3 border-b border-gray-100 dark:border-slate-800/60 last:border-0 last:pb-0">
-                                    <span class="text-base font-black text-slate-400 dark:text-slate-600 group-hover:text-brandYellow transition-colors">0${idx+1}</span>
-                                    <div>
-                                        <span class="text-[9px] font-bold text-brandGreen uppercase tracking-wider">${item.source}</span>
-                                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2 leading-snug">
-                                            ${item.title}
-                                        </h4>
-                                        <span class="text-[10px] text-gray-400 font-medium mt-1 inline-block">${item.readTime}</span>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderNewsGrid(articles) {
-            const grid = document.getElementById('newsGrid');
-            const emptyState = document.getElementById('emptyState');
-            const counter = document.getElementById('countNum');
-
-            counter.innerText = articles.length;
-
-            if (articles.length === 0) {
-                grid.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                return;
+        // Theme Toggle Handler
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
-
-            emptyState.classList.add('hidden');
-
-            grid.innerHTML = articles.map(article => `
-                <article onclick="openArticleModal(${article.id})" class="cursor-pointer group bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-slate-800 media-shadow-hover transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="relative h-48 overflow-hidden bg-slate-950">
-                            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            
-                            <span class="absolute top-3 left-3 ${article.badgeColor} font-black text-[9px] px-2.5 py-1 rounded uppercase tracking-wider shadow">
-                                ${article.source}
-                            </span>
-
-                            <button onclick="event.stopPropagation(); toggleSaveArticle(${article.id})" class="absolute top-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-white w-8 h-8 rounded-full flex items-center justify-center text-xs backdrop-blur border border-slate-700 transition" title="Save for later">
-                                <i class="${isArticleSaved(article.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>
-                            </button>
-                        </div>
-
-                        <div class="p-5">
-                            <div class="flex items-center justify-between text-[11px] font-semibold text-gray-500 dark:text-slate-400 mb-2">
-                                <span class="text-brandGreen font-bold">${article.category}</span>
-                                <span>${article.readTime}</span>
-                            </div>
-
-                            <h3 class="font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-brandGreen dark:group-hover:text-brandYellow transition-colors line-clamp-2">
-                                ${article.title}
-                            </h3>
-
-                            <p class="text-xs text-gray-600 dark:text-slate-300 mt-2 line-clamp-3 leading-relaxed">
-                                ${article.excerpt}
-                            </p>
-
-                            ${article.snippet ? `
-                                <div class="mt-3 p-2.5 bg-slate-950 text-emerald-400 rounded-lg text-[10px] font-mono border border-slate-800">
-                                    <div class="text-[9px] text-slate-500 uppercase mb-1 flex items-center gap-1">
-                                        <i class="fa-solid fa-code text-brandGreen"></i> ${article.snippetLang || 'Code Snippet'}
-                                    </div>
-                                    <p class="truncate font-mono">${escapeHtml(article.snippet.split('\n')[0])}</p>
-                                </div>
-                            ` : ''}
-                        </div>
-                    </div>
-
-                    <div class="px-5 py-3 bg-gray-50 dark:bg-slate-900/50 border-t border-gray-100 dark:border-slate-800/80 flex items-center justify-between text-xs">
-                        <span class="text-[11px] text-gray-500 dark:text-slate-400 font-medium">
-                            <i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}
-                        </span>
-                        <span class="font-bold text-brandGreen dark:text-brandYellow text-[11px] flex items-center gap-1">
-                            Read Article <i class="fa-solid fa-chevron-right text-[9px]"></i>
-                        </span>
-                    </div>
-                </article>
-            `).join('');
         }
 
-        function filterCategory(cat) {
-            currentCategory = cat;
-            const pills = document.querySelectorAll('.cat-pill');
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Navigation & Category Filter logic
+        function filterCategory(category) {
+            currentCategory = category;
             
+            // Highlight Pill UI
+            const pills = document.querySelectorAll('.cat-pill');
             pills.forEach(pill => {
-                if(pill.innerText.includes(cat) || (cat === 'all' && pill.innerText.includes('All'))) {
+                const text = pill.innerText.toLowerCase();
+                if ((category === 'all' && text.includes('all')) || 
+                    (category !== 'all' && text.includes(category.toLowerCase()))) {
                     pill.className = "cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900";
                 } else {
                     pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all";
                 }
             });
 
-            const heroSec = document.getElementById('featuredHeroContainer');
-            if(cat === 'all') {
-                heroSec.classList.remove('hidden');
-                renderNewsGrid(newsArticles);
+            renderFeaturedHero();
+            renderArticles();
+        }
+
+        // Live Search Filter
+        function handleSearch(isMobile = false) {
+            const inputId = isMobile ? 'mobileSearchInput' : 'searchInput';
+            searchQuery = document.getElementById(inputId).value.toLowerCase().trim();
+            renderArticles();
+        }
+
+        // Render Hero Section (Featured Article)
+        function renderFeaturedHero() {
+            const container = document.getElementById('featuredHeroContainer');
+            if (currentCategory !== 'all' && currentCategory !== 'TechToday') {
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+
+            const hero = newsArticles.find(a => a.featured) || newsArticles[0];
+            const isSaved = savedBookmarks.includes(hero.id);
+
+            container.innerHTML = `
+                <div class="lg:col-span-8 bg-slate-950 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col justify-end min-h-[420px] lg:min-h-[480px] border border-slate-800 group media-shadow-hover">
+                    <img src="${hero.image}" alt="${hero.title}" class="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                    
+                    <div class="relative p-6 sm:p-10 z-10">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="${hero.badgeColor} text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded">
+                                ${hero.source}
+                            </span>
+                            <span class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                ${hero.category}
+                            </span>
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight mb-3 cursor-pointer hover:text-brandYellow transition" onclick="openArticleModal(${hero.id})">
+                            ${hero.title}
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-300 line-clamp-2 max-w-2xl mb-6 font-medium">
+                            ${hero.excerpt}
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+                            <div class="flex items-center space-x-4">
+                                <span class="font-bold text-slate-200"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${hero.author}</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> ${hero.date}</span>
+                                <span><i class="fa-solid fa-book-open mr-1"></i> ${hero.readTime}</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="toggleBookmark(${hero.id})" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white transition border border-slate-700" title="Save">
+                                    <i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>
+                                </button>
+                                <button onclick="openArticleModal(${hero.id})" class="bg-brandYellow hover:bg-amber-400 text-slate-950 font-black px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg">
+                                    Read Full Story <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Sidebar Highlights -->
+                <div class="lg:col-span-4 bg-white dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-slate-800 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
+                            <h3 class="font-black text-sm uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-bolt text-brandYellow"></i> Top Headlines Today
+                            </h3>
+                            <span class="text-[10px] bg-brandYellow/10 text-brandYellowDark dark:text-brandYellow font-extrabold px-2 py-0.5 rounded uppercase">Live Feed</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            ${newsArticles.slice(1, 4).map(item => `
+                                <div class="group cursor-pointer pb-3 border-b border-gray-100 dark:border-slate-800/60 last:border-0 last:pb-0" onclick="openArticleModal(${item.id})">
+                                    <div class="flex items-center gap-2 text-[10px] font-bold text-gray-400 mb-1 uppercase">
+                                        <span class="text-brandGreen font-extrabold">${item.source}</span> • <span>${item.date}</span>
+                                    </div>
+                                    <h4 class="text-xs font-extrabold text-slate-900 dark:text-slate-100 group-hover:text-brandYellow transition line-clamp-2">
+                                        ${item.title}
+                                    </h4>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50 p-4 rounded-2xl">
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider block mb-1">Developer Channel</span>
+                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Coding with Milan: 10 Advanced Coding & System Architecture Deep-Dives Active</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Main News Grid Rendering logic
+        function renderArticles() {
+            const grid = document.getElementById('newsGrid');
+            const emptyState = document.getElementById('emptyState');
+            const countNum = document.getElementById('countNum');
+
+            // Filter logic
+            let filtered = newsArticles.filter(item => {
+                const matchesCategory = 
+                    currentCategory === 'all' ? true :
+                    currentCategory === 'TechToday' ? item.source === 'TechToday' :
+                    currentCategory === 'Coding with Milan' ? item.source === 'Coding with Milan' :
+                    item.category.toLowerCase().includes(currentCategory.toLowerCase());
+
+                const matchesSearch = 
+                    searchQuery === '' ? true :
+                    item.title.toLowerCase().includes(searchQuery) ||
+                    item.excerpt.toLowerCase().includes(searchQuery) ||
+                    item.category.toLowerCase().includes(searchQuery) ||
+                    (item.snippet && item.snippet.toLowerCase().includes(searchQuery));
+
+                return matchesCategory && matchesSearch;
+            });
+
+            countNum.innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
             } else {
-                heroSec.classList.add('hidden');
-                const filtered = newsArticles.filter(a => 
-                    a.source.toLowerCase() === cat.toLowerCase() ||
-                    a.category.toLowerCase().includes(cat.toLowerCase())
-                );
-                renderNewsGrid(filtered);
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = filtered.map(item => {
+                const isSaved = savedBookmarks.includes(item.id);
+                return `
+                    <article class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-darkBorder flex flex-col justify-between media-shadow-hover transition-all duration-300">
+                        <div>
+                            <div class="relative h-48 w-full bg-slate-950 overflow-hidden cursor-pointer group" onclick="openArticleModal(${item.id})">
+                                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 left-3 flex items-center space-x-1.5">
+                                    <span class="${item.badgeColor} text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded shadow">
+                                        ${item.source}
+                                    </span>
+                                    <span class="bg-slate-950/80 backdrop-blur text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">
+                                        ${item.category}
+                                    </span>
+                                </div>
+                                <button onclick="event.stopPropagation(); toggleBookmark(${item.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center backdrop-blur transition border border-slate-700" title="Bookmark Article">
+                                    <i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark text-xs"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-5">
+                                <div class="flex items-center space-x-3 text-[11px] text-gray-500 dark:text-slate-400 font-medium mb-2">
+                                    <span><i class="fa-regular fa-clock mr-1"></i> ${item.date}</span>
+                                    <span>•</span>
+                                    <span><i class="fa-solid fa-book-open mr-1"></i> ${item.readTime}</span>
+                                </div>
+                                <h3 class="text-base font-extrabold text-slate-900 dark:text-white leading-snug mb-2 line-clamp-2 cursor-pointer hover:text-brandYellow transition" onclick="openArticleModal(${item.id})">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-xs text-gray-600 dark:text-slate-300 line-clamp-3 leading-relaxed font-normal">
+                                    ${item.excerpt}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-slate-800/80 mt-4">
+                            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-user-pen text-brandGreen mr-1"></i> ${item.author}</span>
+                            <button onclick="openArticleModal(${item.id})" class="text-xs font-black text-brandGreen hover:text-emerald-500 dark:hover:text-brandYellow transition flex items-center gap-1">
+                                Read Article <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Bookmark Storage and Drawer Logic
+        function toggleBookmark(id) {
+            const index = savedBookmarks.indexOf(id);
+            if (index > -1) {
+                savedBookmarks.splice(index, 1);
+            } else {
+                savedBookmarks.push(id);
+            }
+            localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
+            updateBookmarkCounter();
+            renderFeaturedHero();
+            renderArticles();
+            renderBookmarkList();
+
+            // Update modal state if open
+            if (activeModalArticleId === id) {
+                updateModalBookmarkBtn();
             }
         }
 
-        function handleSearch(isMobile = false) {
-            const query = (isMobile ? document.getElementById('mobileSearchInput').value : document.getElementById('searchInput').value).toLowerCase().trim();
-            const heroSec = document.getElementById('featuredHeroContainer');
+        function toggleSaveCurrentArticle() {
+            if (activeModalArticleId) {
+                toggleBookmark(activeModalArticleId);
+            }
+        }
 
-            if(query === '') {
-                filterCategory(currentCategory);
+        function updateBookmarkCounter() {
+            document.getElementById('bookmarkBadge').innerText = savedBookmarks.length;
+        }
+
+        function toggleBookmarkDrawer() {
+            const drawer = document.getElementById('bookmarkDrawer');
+            if (drawer.classList.contains('translate-x-full')) {
+                renderBookmarkList();
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function renderBookmarkList() {
+            const container = document.getElementById('bookmarkListContainer');
+            if (savedBookmarks.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-regular fa-bookmark text-3xl mb-2"></i>
+                        <p class="text-xs font-semibold">No saved articles yet.</p>
+                        <p class="text-[11px] text-gray-500 mt-1">Click the bookmark icon on any card to save it here for offline reading.</p>
+                    </div>
+                `;
                 return;
             }
 
-            heroSec.classList.add('hidden');
-            const searchResults = newsArticles.filter(article => 
-                article.title.toLowerCase().includes(query) || 
-                article.excerpt.toLowerCase().includes(query) ||
-                article.category.toLowerCase().includes(query) ||
-                article.source.toLowerCase().includes(query) ||
-                (article.snippet && article.snippet.toLowerCase().includes(query))
-            );
-
-            renderNewsGrid(searchResults);
+            const savedItems = newsArticles.filter(a => savedBookmarks.includes(a.id));
+            container.innerHTML = savedItems.map(item => `
+                <div class="p-3 bg-gray-50 dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-slate-800 flex items-start justify-between gap-3">
+                    <div class="cursor-pointer flex-1" onclick="openArticleModal(${item.id}); toggleBookmarkDrawer()">
+                        <span class="text-[9px] font-black uppercase tracking-wider text-brandGreen block mb-0.5">${item.source}</span>
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-brandYellow">${item.title}</h4>
+                        <span class="text-[10px] text-gray-400 mt-1 block">${item.date}</span>
+                    </div>
+                    <button onclick="toggleBookmark(${item.id})" class="text-gray-400 hover:text-red-500 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div>
+            `).join('');
         }
 
+        // Modal Reader Logic
         function openArticleModal(id) {
             const article = newsArticles.find(a => a.id === id);
             if (!article) return;
 
-            currentModalArticleId = id;
+            activeModalArticleId = id;
 
             document.getElementById('modalImg').src = article.image;
             document.getElementById('modalTitle').innerText = article.title;
-            document.getElementById('modalCategoryBadge').innerText = article.category;
             document.getElementById('modalSourceBadge').innerText = article.source;
-            document.getElementById('modalSourceBadge').className = `px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider ${article.badgeColor}`;
+            document.getElementById('modalSourceBadge').className = `${article.badgeColor} px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider`;
+            document.getElementById('modalCategoryBadge').innerText = article.category;
             document.getElementById('modalAuthor').innerHTML = `<i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}`;
             document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${article.date}`;
             document.getElementById('modalReadTime').innerHTML = `<i class="fa-solid fa-book-open mr-1"></i> ${article.readTime}`;
             document.getElementById('modalLeadExcerpt').innerText = article.excerpt;
 
+            // Render Body Paragraphs
             const bodyContainer = document.getElementById('modalMainBody');
-            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p class="leading-relaxed font-normal text-slate-700 dark:text-slate-300 text-sm sm:text-base">${p}</p>`).join('');
+            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p class="leading-relaxed font-normal">${p}</p>`).join('');
 
-            const codeSec = document.getElementById('modalCodeSection');
-            if(article.snippet) {
-                document.getElementById('modalCodeSnippet').innerText = article.snippet;
+            // Snippet handling
+            const codeSection = document.getElementById('modalCodeSection');
+            if (article.snippet) {
+                codeSection.classList.remove('hidden');
                 document.getElementById('codeLangLabel').innerText = article.snippetLang || 'Code Snippet';
-                codeSec.classList.remove('hidden');
+                document.getElementById('modalCodeSnippet').innerText = article.snippet;
             } else {
-                codeSec.classList.add('hidden');
+                codeSection.classList.add('hidden');
             }
 
             updateModalBookmarkBtn();
 
+            // Display Modal smoothly
             const modal = document.getElementById('articleModal');
             const container = document.getElementById('modalContainer');
             modal.classList.remove('hidden');
@@ -888,9 +1013,16 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function updateModalBookmarkBtn() {
+            const btn = document.getElementById('modalBookmarkBtn');
+            const isSaved = savedBookmarks.includes(activeModalArticleId);
+            btn.innerHTML = `<i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>`;
+        }
+
         function closeModal() {
             const modal = document.getElementById('articleModal');
             const container = document.getElementById('modalContainer');
+            
             modal.classList.add('opacity-0');
             container.classList.remove('scale-100');
             container.classList.add('scale-95');
@@ -898,100 +1030,30 @@
             setTimeout(() => {
                 modal.classList.add('hidden');
                 document.body.style.overflow = 'auto';
-            }, 200);
+                activeModalArticleId = null;
+            }, 300);
         }
 
-        function isArticleSaved(id) {
-            return savedBookmarks.some(a => a.id === id);
-        }
-
-        function toggleSaveArticle(id) {
-            const index = savedBookmarks.findIndex(a => a.id === id);
-            if(index > -1) {
-                savedBookmarks.splice(index, 1);
-            } else {
-                const article = newsArticles.find(a => a.id === id);
-                if(article) savedBookmarks.push(article);
-            }
-            localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
-            updateBookmarkBadge();
-            renderNewsGrid(newsArticles.filter(a => currentCategory === 'all' ? true : a.source.toLowerCase() === currentCategory.toLowerCase() || a.category.toLowerCase().includes(currentCategory.toLowerCase())));
-            renderBookmarksList();
-        }
-
-        function toggleSaveCurrentArticle() {
-            if(currentModalArticleId) {
-                toggleSaveArticle(currentModalArticleId);
-                updateModalBookmarkBtn();
-            }
-        }
-
-        function updateModalBookmarkBtn() {
-            const btn = document.getElementById('modalBookmarkBtn');
-            if(isArticleSaved(currentModalArticleId)) {
-                btn.innerHTML = `<i class="fa-solid fa-bookmark text-brandYellow"></i>`;
-            } else {
-                btn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
-            }
-        }
-
-        function updateBookmarkBadge() {
-            document.getElementById('bookmarkBadge').innerText = savedBookmarks.length;
-        }
-
-        function toggleBookmarkDrawer() {
-            const drawer = document.getElementById('bookmarkDrawer');
-            drawer.classList.toggle('translate-x-full');
-            if(!drawer.classList.contains('translate-x-full')) {
-                renderBookmarksList();
-            }
-        }
-
-        function renderBookmarksList() {
-            const container = document.getElementById('bookmarkListContainer');
-            if(savedBookmarks.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 text-center py-8">No saved articles yet.</p>`;
-                return;
-            }
-
-            container.innerHTML = savedBookmarks.map(item => `
-                <div class="p-3 bg-gray-50 dark:bg-slate-800/60 rounded-xl border border-gray-200 dark:border-slate-700 flex items-center justify-between gap-3">
-                    <div onclick="openArticleModal(${item.id}); toggleBookmarkDrawer()" class="cursor-pointer flex-1">
-                        <span class="text-[9px] font-bold text-brandGreen uppercase">${item.source}</span>
-                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${item.title}</h4>
-                    </div>
-                    <button onclick="toggleSaveArticle(${item.id})" class="text-red-500 hover:text-red-700 p-1">
-                        <i class="fa-solid fa-trash text-xs"></i>
-                    </button>
-                </div>
-            `).join('');
-        }
-
+        // Copy Code Snippet Handler
         function copyModalCode() {
             const code = document.getElementById('modalCodeSnippet').innerText;
-            const btnText = document.getElementById('copyBtnText');
-            
-            const dummy = document.createElement('textarea');
-            document.body.appendChild(dummy);
-            dummy.value = code;
-            dummy.select();
+            const tempInput = document.createElement('textarea');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
             document.execCommand('copy');
-            document.body.removeChild(dummy);
+            document.body.removeChild(tempInput);
 
-            btnText.innerText = "Copied!";
-            setTimeout(() => { btnText.innerText = "Copy Snippet"; }, 2000);
-        }
-
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
+            const copyBtnText = document.getElementById('copyBtnText');
+            copyBtnText.innerText = 'Copied!';
+            setTimeout(() => {
+                copyBtnText.innerText = 'Copy Snippet';
+            }, 2000);
         }
 
         function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
         }
     </script>
 </body>
