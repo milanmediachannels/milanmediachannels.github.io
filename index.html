@@ -3,7 +3,7 @@
 <head>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="7aae530d-745c-4b8c-a911-440fb4f7d76e"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MilanMediaChannels - Tech & Software News</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,12 +66,12 @@
             <div class="flex items-center space-x-3 overflow-hidden">
                 <span class="bg-brandGreen text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shrink-0">LATEST RELEASES</span>
                 <p class="truncate text-slate-400">
-                    <span class="text-brandYellow font-semibold">November 2026 Updates:</span> Deep search coverage, new MCP protocol tools, and autonomous developer workflows published.
+                    <span class="text-brandYellow font-semibold">November 3, 2026 Edition:</span> Deep search coverage, new MCP protocol tools, and autonomous developer workflows published.
                 </p>
             </div>
             <div class="hidden sm:flex items-center space-x-4 shrink-0 text-slate-400">
                 <span><i class="fa-solid fa-signal text-brandGreen mr-1"></i> Live Portal</span>
-                <span><i class="fa-solid fa-clock mr-1"></i> Updated Today</span>
+                <span><i class="fa-solid fa-clock mr-1"></i> Updated Today (Nov 3, 2026)</span>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
                     </div>
 
-                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Articles">
+                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Reading List">
                         <i class="fa-solid fa-bookmark text-brandYellow text-sm"></i>
                         <span id="bookmarkBadge" class="absolute -top-1 -right-1 bg-brandGreen text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
                     </button>
@@ -257,7 +257,7 @@
                     <h1 id="modalTitle" class="text-2xl sm:text-4xl font-black leading-tight tracking-tight"></h1>
                     <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 font-medium">
                         <span id="modalAuthor"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> Milan Filipović</span>
-                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> 11/02/2026</span>
+                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> 11/03/2026</span>
                         <span id="modalReadTime"><i class="fa-solid fa-book-open mr-1"></i> 5 min read</span>
                     </div>
                 </div>
@@ -301,455 +301,311 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // ALL ARTICLES ARRAY: TechToday & Coding with Milan
-        // Contains 20 Detailed Articles with full body content, dates, categories, snippets, and live upvote counts
-       export const articles = [
-    // ==================== TODAY'S BREAKING ARTICLES (NOV 3, 2026) ====================
-    {
-        id: 301,
-        title: "OpenAI Pivots Compute Resources from Video Synthesis to Codex Engineering Agents",
-        category: "Software Engineering",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/03/2026",
-        readTime: "6 min read",
-        featured: true,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-        excerpt: "In a strategic reallocation of GPU capacity, OpenAI has wound down experimental video generation endpoints to back multi-agent coding engines and repository-scale reasoning.",
-        bodyParagraphs: [
-            "OpenAI announced a major infrastructure reallocation today, redirecting thousands of high-performance accelerator clusters from generative video synthesis toward their next-generation Codex agentic platform.",
-            "The decision highlights a broader industry push toward high-ROI enterprise developer tools. With weekly active software engineers on autonomous agent platforms quadrupling over the past quarter, foundation model providers are prioritizing low-latency code reasoning over consumer creative media.",
-            "Engineers using the upgraded Codex CLI and cloud sandbox environments will gain access to persistent memory threads, multi-file refactoring engines, and native integration with open Model Context Protocol (MCP) servers."
-        ]
-    },
-    {
-        id: 302,
-        title: "World-Model AI Startup Secures $1B Seed Round for Embodied Physical Reasoning",
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/03/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Pioneering researchers are moving past pure text models, raising $1 billion to construct physics-grounded 'world simulation engines' for autonomous robotics.",
-        bodyParagraphs: [
-            "Advanced Machine Intelligence (AMI) closed a record-setting $1 billion seed financing round today to build foundation models focused explicitly on spatial physics, 3D world dynamics, and physical manipulation.",
-            "While large language models (LLMs) continue to dominate enterprise software, AI researchers argue that true robotic autonomy requires systems capable of predicting force, spatial collisions, and real-time environment physics.",
-            "The venture plans to deploy its physical reasoning foundation models into industrial robotics, medical microsurgery, and automated manufacturing setups throughout the coming year."
-        ]
-    },
-    {
-        id: 303,
-        title: "Claude Code Introduces Strict Governance Guardrails for Game Synthesis & Copyrighted Logic",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/03/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Anthropic's CLI agent update introduces strict policy filters preventing agents from generating unauthorized clones of proprietary software games and protected IP.",
-        bodyParagraphs: [
-            "Anthropic rolled out a security and policy patch for Claude Code today, adding automated safeguards that detect and block prompts attempting to replicate existing proprietary video games and trade-secret algorithms.",
-            "The rule update comes as enterprise software organizations demand tighter intellectual property protection and origin tracking for AI-assisted pull requests.",
-            "Developers can configure local policy boundary files to customize these compliance rules while ensuring core code refactoring and test-suite generation remain unaffected."
-        ],
-        snippet: "// Claude Code CLI Configuration for Enterprise Safety Filters\nimport { Configuration } from '@anthropic-ai/claude-code';\n\nexport const config = new Configuration({\n  guardrails: {\n    preventIPCloning: true,\n    enforceStrictASTValidation: true,\n    allowedLicenseTypes: ['MIT', 'Apache-2.0']\n  }\n});",
-        snippetLang: "TypeScript / Claude Code Config"
-    },
+        // Full Article Data Source (15 Articles) with all likes reset to 0
+        const newsArticles = [
+            // ==================== NOV 3, 2026 (TODAY) ====================
+            {
+                id: 301,
+                title: "OpenAI Pivots Compute Resources from Video Synthesis to Codex Engineering Agents",
+                category: "Software Engineering",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: true,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "In a strategic reallocation of GPU capacity, OpenAI has wound down experimental video generation endpoints to back multi-agent coding engines and repository-scale reasoning.",
+                bodyParagraphs: [
+                    "OpenAI announced a major infrastructure reallocation today, redirecting thousands of high-performance accelerator clusters from generative video synthesis toward their next-generation Codex agentic platform.",
+                    "The decision highlights a broader industry push toward high-ROI enterprise developer tools. With weekly active software engineers on autonomous agent platforms quadrupling over the past quarter, foundation model providers are prioritizing low-latency code reasoning over consumer creative media.",
+                    "Engineers using the upgraded Codex CLI and cloud sandbox environments will gain access to persistent memory threads, multi-file refactoring engines, and native integration with open Model Context Protocol (MCP) servers."
+                ]
+            },
+            {
+                id: 302,
+                title: "World-Model AI Startup Secures $1B Seed Round for Embodied Physical Reasoning",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Pioneering researchers are moving past pure text models, raising $1 billion to construct physics-grounded 'world simulation engines' for autonomous robotics.",
+                bodyParagraphs: [
+                    "Advanced Machine Intelligence (AMI) closed a record-setting $1 billion seed financing round today to build foundation models focused explicitly on spatial physics, 3D world dynamics, and physical manipulation.",
+                    "While large language models (LLMs) continue to dominate enterprise software, AI researchers argue that true robotic autonomy requires systems capable of predicting force, spatial collisions, and real-time environment physics.",
+                    "The venture plans to deploy its physical reasoning foundation models into industrial robotics, medical microsurgery, and automated manufacturing setups throughout the coming year."
+                ]
+            },
+            {
+                id: 303,
+                title: "Claude Code Introduces Strict Governance Guardrails for Game Synthesis & Copyrighted Logic",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Anthropic's CLI agent update introduces strict policy filters preventing agents from generating unauthorized clones of proprietary software games and protected IP.",
+                bodyParagraphs: [
+                    "Anthropic rolled out a security and policy patch for Claude Code today, adding automated safeguards that detect and block prompts attempting to replicate existing proprietary video games and trade-secret algorithms.",
+                    "The rule update comes as enterprise software organizations demand tighter intellectual property protection and origin tracking for AI-assisted pull requests.",
+                    "Developers can configure local policy boundary files to customize these compliance rules while ensuring core code refactoring and test-suite generation remain unaffected."
+                ],
+                snippet: "// Claude Code CLI Configuration for Enterprise Safety Filters\nimport { Configuration } from '@anthropic-ai/claude-code';\n\nexport const config = new Configuration({\n  guardrails: {\n    preventIPCloning: true,\n    enforceStrictASTValidation: true,\n    allowedLicenseTypes: ['MIT', 'Apache-2.0']\n  }\n});",
+                snippetLang: "TypeScript / Claude Code Config"
+            },
+            {
+                id: 101,
+                title: "China's Humanoid Robotics Shift Focus to AI Brain Systems",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Having mastered physical balance and athletic movement, Chinese robotics hubs in Beijing and Shanghai are pivoting toward vision-language-action (VLA) foundation models.",
+                bodyParagraphs: [
+                    "With bipedal backflips, high-speed sprinting, and obstacle navigation now treated as solved hardware benchmarks, China's leading robotics developers are reallocating core R&D capital toward cognitive spatial engines.",
+                    "Instead of relying on scripted motion pathways, new embodied AI architectures synthesize real-time camera feeds and tactile sensor arrays, enabling humanoid units to generalize tasks across unpredictable assembly lines and household settings.",
+                    "Government-backed innovation centers and private startups are building massive synthetic dataset pipelines to accelerate continuous reinforcement learning, positioning embodied intelligence as the primary competitive battleground for late 2026."
+                ]
+            },
+            {
+                id: 102,
+                title: "Microsoft Issues Record 1,461 Security Patches as AI Flaw Bots Ramp Up",
+                category: "Software Engineering",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Autonomous security auditing agents are surfacing zero-day vulnerabilities at unprecedented speeds, triggering Microsoft's largest single patch release to date.",
+                bodyParagraphs: [
+                    "Microsoft deployed a record 1,461 security patches in its latest monthly update, primarily resolving edge-case vulnerabilities discovered by autonomous AI auditing agents running continuous fuzzing loops.",
+                    "The rapid acceleration of automated bug discovery presents a double-edged sword: while security teams identify flaws faster than ever, SecOps engineers face immense pressure to validate and deploy patches before bad actors reverse-engineer the advisories.",
+                    "Cybersecurity leaders are advising enterprise IT departments to adopt continuous automated regression suites to maintain stability under this accelerated patch cadence."
+                ]
+            },
+            {
+                id: 103,
+                title: "AI Compute Energy Deficit Pushes Tech Giants Toward Nuclear PPA Deals",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Hyperscale data center growth is constrained by electrical grid interconnect capacity, accelerating long-term clean energy contracts with nuclear and geothermal suppliers.",
+                bodyParagraphs: [
+                    "As multi-gigawatt cluster deployments become standard for frontier AI models, major tech operators are facing severe electrical grid interconnect delays, shifting the primary data center bottleneck from silicon supply to power access.",
+                    "To secure uninterrupted, low-carbon baseload electricity, hyperscalers are executing multi-decade Power Purchase Agreements (PPAs) directly with small modular reactor (SMR) operators and deep geothermal startups.",
+                    "Financial analysts project that proximity to high-capacity energy generation will remain a key determinant of cloud infrastructure expansion through the end of the decade."
+                ]
+            },
+            {
+                id: 104,
+                title: "OpenAI Secures Multi-Billion Dollar Deal for Dedicated AI Chips",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "4 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "To diversify its computing infrastructure, OpenAI has finalized custom silicon procurement contracts to lower token generation costs and cut inference latency.",
+                bodyParagraphs: [
+                    "OpenAI has finalized multi-billion dollar agreements for specialized application-specific integrated circuits (ASICs) designed to supplement its GPU fleets.",
+                    "The partnership underscores a broader industry focus on optimizing unit economics and reducing time-to-first-token as real-time voice and vision agent workloads scale globally.",
+                    "Industry observers expect specialized transformer accelerators to handle an increasing proportion of production inference traffic throughout 2026."
+                ]
+            },
+            {
+                id: 105,
+                title: "Biological Computing Co. Debuts 'Mischief 1' Low-Cost Video AI",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Inspired by biological energy efficiency, Biological Computing Co. launched an image-to-video model reducing generation overhead to fractions of a cent.",
+                bodyParagraphs: [
+                    "San Francisco-based Biological Computing Co. announced the general availability of 'Mischief 1', an optimized image-to-video neural engine engineered for minimal compute overhead.",
+                    "By incorporating architectural patterns modeled on biological neural efficiency, the framework slashes processing demands, reducing rendering costs to $0.005 per generated second.",
+                    "The release offers budget-conscious creative studios and automated media pipelines an accessible alternative to compute-heavy video diffusion models."
+                ]
+            },
+            {
+                id: 201,
+                title: "VoidMob Releases Open-Source MCP Server for Mobile & SMS Agents",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "An open-source Model Context Protocol server now enables autonomous agents to interact with cellular networks, mobile proxies, and SMS verification layers.",
+                bodyParagraphs: [
+                    "VoidMob has introduced an open-source Model Context Protocol (MCP) server, offering standardized tool integrations for AI agents requiring cellular and mobile capabilities.",
+                    "The protocol allows LLM-driven agents to request residential mobile proxies, provision temporary eSIM profiles, and programmatically handle two-factor authentication flows.",
+                    "To safeguard agent operations, the server incorporates strict budget quotas, permission boundaries, and sandbox controls to prevent unintended network usage."
+                ],
+                snippet: "// Register VoidMob Cellular Tools with MCP Server\nimport { MCPServer } from '@mcp/sdk';\n\nconst server = new MCPServer({ name: 'voidmob-cellular' });\nserver.addTool({\n  name: 'provision_esim',\n  description: 'Provisions temporary data eSIM for agent tasks',\n  execute: async (args) => await voidmob.createSession(args.region)\n});",
+                snippetLang: "TypeScript / MCP Protocol"
+            },
+            {
+                id: 202,
+                title: "Coforge Introduces Autonomous Software Factory for Parallel Dev",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "7 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "A multi-agent coordination architecture distributes feature development, test synthesis, and security reviews across specialized AI units running in parallel.",
+                bodyParagraphs: [
+                    "Coforge launched its Autonomous Software Factory, an orchestration framework that assigns distinct software lifecycle steps to specialized sub-agents working concurrently.",
+                    "Rather than relying on a single large context window, the platform decouples tasks: developer agents implement core functionality while dedicated auditing agents run linting, security scans, and test suite generation in real time.",
+                    "Each agent operates within an isolated containerized environment enforced by strict policy controls."
+                ],
+                snippet: "# Autonomous Agent Coordination Pipeline Definition\npipeline:\n  agents:\n    - role: Developer\n      task: Implement REST Endpoint\n    - role: Tester\n      task: Generate PyTest Suite\n    - role: Auditor\n      task: Check SonarQube Compliance",
+                snippetLang: "YAML / Factory Config"
+            },
+            {
+                id: 203,
+                title: "Infini-AI-Lab Releases 'Hermit' Adapter Framework for AI Agents",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Hermit v0.1.0 allows developers to customize LLM coding agent behaviors without modifying base model weights or rebuilding core execution harnesses.",
+                bodyParagraphs: [
+                    "Researchers at Infini-AI-Lab released 'Hermit', an open-source middleware harness designed to simplify how development teams adapt AI coding agents to custom workflows.",
+                    "Hermit introduces modular hook adapters, enabling developers to inject enterprise guardrails, custom tools, and prompt sanitization without modifying underlying LLM weights or modifying core editor plugins.",
+                    "The abstraction layer reduces the overhead of adapting off-the-shelf coding assistants to complex, legacy enterprise codebases."
+                ],
+                snippet: "# Hermit Adapter Wrapper Implementation\nfrom hermit import HarnessAdapter, AgentRunner\n\nadapter = HarnessAdapter(target_framework='cursor-agent')\n@adapter.hook('pre_execution')\ndef sanitize_prompts(context):\n    return context.apply_enterprise_guardrails()",
+                snippetLang: "Python / Hermit SDK"
+            },
+            {
+                id: 204,
+                title: "Enterprise AI Lifecycle & Token Governance Tools Take Over IDPs",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Internal Developer Platforms are integrating real-time token telemetry and automated agent process teardowns to manage cloud software budgets.",
+                bodyParagraphs: [
+                    "Internal Developer Platforms (IDPs) are incorporating real-time token tracking and automated session management to prevent unexpected cloud API cost spikes from autonomous coding workflows.",
+                    "Engineering managers can define team-level usage caps, configure auto-termination policies for runaway agent loops, and track the origin of agentic commits.",
+                    "This centralized management layer helps enterprise tech organizations balance developer productivity with predictable operational spending."
+                ],
+                snippet: "// Token Limit Policy Middleware\nexport function enforceAgentTokenCap(session, maxTokens = 500000) {\n  if (session.totalTokensUsed > maxTokens) {\n    session.pauseExecution();\n    throw new Error('Agent token quota exceeded. Manager approval required.');\n  }\n}",
+                snippetLang: "JavaScript / DevSecOps"
+            },
+            {
+                id: 205,
+                title: "Deduplication & Triage Tooling Solves the AI Bug Report Overload",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "7 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Open-source maintainers are adopting automated triage workflows and PoC validation bots to process influxes of AI-generated security disclosures.",
+                bodyParagraphs: [
+                    "With automated AI scanners continuously analyzing open-source repositories, project maintainers have faced a surge of low-priority and duplicate issue submissions.",
+                    "To manage triage overhead, organizations are implementing automated gatekeepers that require a runnable Proof-of-Concept (PoC) in an isolated sandbox before issuing a formal vulnerability report.",
+                    "These verification pipelines help maintainers filter out unverified noise and focus effort on valid, reproducible security vulnerabilities."
+                ],
+                snippet: "# GitHub Actions Workflow for PoC Verification\nname: Verify Bug Report\non:\n  issues:\n    types: [opened]\njobs:\n  run-poc-sandbox:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Validate PoC Reproducibility\n        run: python .github/scripts/poc_runner.py --issue ${{ github.event.issue.number }}",
+                snippetLang: "YAML / GitHub Actions"
+            },
 
-    // ==================== RECENT ARTICLES (NOV 2, 2026) ====================
-    {
-        id: 101,
-        title: "China's Humanoid Robotics Shift Focus to AI Brain Systems",
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Having mastered physical balance and athletic movement, Chinese robotics hubs in Beijing and Shanghai are pivoting toward vision-language-action (VLA) foundation models.",
-        bodyParagraphs: [
-            "With bipedal backflips, high-speed sprinting, and obstacle navigation now treated as solved hardware benchmarks, China's leading robotics developers are reallocating core R&D capital toward cognitive spatial engines.",
-            "Instead of relying on scripted motion pathways, new embodied AI architectures synthesize real-time camera feeds and tactile sensor arrays, enabling humanoid units to generalize tasks across unpredictable assembly lines and household settings.",
-            "Government-backed innovation centers and private startups are building massive synthetic dataset pipelines to accelerate continuous reinforcement learning, positioning embodied intelligence as the primary competitive battleground for late 2026."
-        ]
-    },
-    {
-        id: 102,
-        title: "Microsoft Issues Record 1,461 Security Patches as AI Flaw Bots Ramp Up",
-        category: "Software Engineering",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Autonomous security auditing agents are surfacing zero-day vulnerabilities at unprecedented speeds, triggering Microsoft's largest single patch release to date.",
-        bodyParagraphs: [
-            "Microsoft deployed a record 1,461 security patches in its latest monthly update, primarily resolving edge-case vulnerabilities discovered by autonomous AI auditing agents running continuous fuzzing loops.",
-            "The rapid acceleration of automated bug discovery presents a double-edged sword: while security teams identify flaws faster than ever, SecOps engineers face immense pressure to validate and deploy patches before bad actors reverse-engineer the advisories.",
-            "Cybersecurity leaders are advising enterprise IT departments to adopt continuous automated regression suites to maintain stability under this accelerated patch cadence."
-        ]
-    },
-    {
-        id: 103,
-        title: "AI Compute Energy Deficit Pushes Tech Giants Toward Nuclear PPA Deals",
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Hyperscale data center growth is constrained by electrical grid interconnect capacity, accelerating long-term clean energy contracts with nuclear and geothermal suppliers.",
-        bodyParagraphs: [
-            "As multi-gigawatt cluster deployments become standard for frontier AI models, major tech operators are facing severe electrical grid interconnect delays, shifting the primary data center bottleneck from silicon supply to power access.",
-            "To secure uninterrupted, low-carbon baseload electricity, hyperscalers are executing multi-decade Power Purchase Agreements (PPAs) directly with small modular reactor (SMR) operators and deep geothermal startups.",
-            "Financial analysts project that proximity to high-capacity energy generation will remain a key determinant of cloud infrastructure expansion through the end of the decade."
-        ]
-    },
-    {
-        id: 104,
-        title: "OpenAI Secures Multi-Billion Dollar Deal for Dedicated AI Chips",
-        category: "TechToday",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "4 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-        excerpt: "To diversify its computing infrastructure, OpenAI has finalized custom silicon procurement contracts to lower token generation costs and cut inference latency.",
-        bodyParagraphs: [
-            "OpenAI has finalized multi-billion dollar agreements for specialized application-specific integrated circuits (ASICs) designed to supplement its GPU fleets.",
-            "The partnership underscores a broader industry focus on optimizing unit economics and reducing time-to-first-token as real-time voice and vision agent workloads scale globally.",
-            "Industry observers expect specialized transformer accelerators to handle an increasing proportion of production inference traffic throughout 2026."
-        ]
-    },
-    {
-        id: 105,
-        title: "Biological Computing Co. Debuts 'Mischief 1' Low-Cost Video AI",
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Inspired by biological energy efficiency, Biological Computing Co. launched an image-to-video model reducing generation overhead to fractions of a cent.",
-        bodyParagraphs: [
-            "San Francisco-based Biological Computing Co. announced the general availability of 'Mischief 1', an optimized image-to-video neural engine engineered for minimal compute overhead.",
-            "By incorporating architectural patterns modeled on biological neural efficiency, the framework slashes processing demands, reducing rendering costs to $0.005 per generated second.",
-            "The release offers budget-conscious creative studios and automated media pipelines an accessible alternative to compute-heavy video diffusion models."
-        ]
-    },
-    {
-        id: 201,
-        title: "VoidMob Releases Open-Source MCP Server for Mobile & SMS Agents",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-        excerpt: "An open-source Model Context Protocol server now enables autonomous agents to interact with cellular networks, mobile proxies, and SMS verification layers.",
-        bodyParagraphs: [
-            "VoidMob has introduced an open-source Model Context Protocol (MCP) server, offering standardized tool integrations for AI agents requiring cellular and mobile capabilities.",
-            "The protocol allows LLM-driven agents to request residential mobile proxies, provision temporary eSIM profiles, and programmatically handle two-factor authentication flows.",
-            "To safeguard agent operations, the server incorporates strict budget quotas, permission boundaries, and sandbox controls to prevent unintended network usage."
-        ],
-        snippet: "// Register VoidMob Cellular Tools with MCP Server\nimport { MCPServer } from '@mcp/sdk';\n\nconst server = new MCPServer({ name: 'voidmob-cellular' });\nserver.addTool({\n  name: 'provision_esim',\n  description: 'Provisions temporary data eSIM for agent tasks',\n  execute: async (args) => await voidmob.createSession(args.region)\n});",
-        snippetLang: "TypeScript / MCP Protocol"
-    },
-    {
-        id: 202,
-        title: "Coforge Introduces Autonomous Software Factory for Parallel Dev",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "7 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-        excerpt: "A multi-agent coordination architecture distributes feature development, test synthesis, and security reviews across specialized AI units running in parallel.",
-        bodyParagraphs: [
-            "Coforge launched its Autonomous Software Factory, an orchestration framework that assigns distinct software lifecycle steps to specialized sub-agents working concurrently.",
-            "Rather than relying on a single large context window, the platform decouples tasks: developer agents implement core functionality while dedicated auditing agents run linting, security scans, and test suite generation in real time.",
-            "Each agent operates within an isolated containerized environment enforced by strict policy controls."
-        ],
-        snippet: "# Autonomous Agent Coordination Pipeline Definition\npipeline:\n  agents:\n    - role: Developer\n      task: Implement REST Endpoint\n    - role: Tester\n      task: Generate PyTest Suite\n    - role: Auditor\n      task: Check SonarQube Compliance",
-        snippetLang: "YAML / Factory Config"
-    },
-    {
-        id: 203,
-        title: "Infini-AI-Lab Releases 'Hermit' Adapter Framework for AI Agents",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Hermit v0.1.0 allows developers to customize LLM coding agent behaviors without modifying base model weights or rebuilding core execution harnesses.",
-        bodyParagraphs: [
-            "Researchers at Infini-AI-Lab released 'Hermit', an open-source middleware harness designed to simplify how development teams adapt AI coding agents to custom workflows.",
-            "Hermit introduces modular hook adapters, enabling developers to inject enterprise guardrails, custom tools, and prompt sanitization without modifying underlying LLM weights or modifying core editor plugins.",
-            "The abstraction layer reduces the overhead of adapting off-the-shelf coding assistants to complex, legacy enterprise codebases."
-        ],
-        snippet: "# Hermit Adapter Wrapper Implementation\nfrom hermit import HarnessAdapter, AgentRunner\n\nadapter = HarnessAdapter(target_framework='cursor-agent')\n@adapter.hook('pre_execution')\ndef sanitize_prompts(context):\n    return context.apply_enterprise_guardrails()",
-        snippetLang: "Python / Hermit SDK"
-    },
-    {
-        id: 204,
-        title: "Enterprise AI Lifecycle & Token Governance Tools Take Over IDPs",
-        category: "Software Engineering",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Internal Developer Platforms are integrating real-time token telemetry and automated agent process teardowns to manage cloud software budgets.",
-        bodyParagraphs: [
-            "Internal Developer Platforms (IDPs) are incorporating real-time token tracking and automated session management to prevent unexpected cloud API cost spikes from autonomous coding workflows.",
-            "Engineering managers can define team-level usage caps, configure auto-termination policies for runaway agent loops, and track the origin of agentic commits.",
-            "This centralized management layer helps enterprise tech organizations balance developer productivity with predictable operational spending."
-        ],
-        snippet: "// Token Limit Policy Middleware\nexport function enforceAgentTokenCap(session, maxTokens = 500000) {\n  if (session.totalTokensUsed > maxTokens) {\n    session.pauseExecution();\n    throw new Error('Agent token quota exceeded. Manager approval required.');\n  }\n}",
-        snippetLang: "JavaScript / DevSecOps"
-    },
-    {
-        id: 205,
-        title: "Deduplication & Triage Tooling Solves the AI Bug Report Overload",
-        category: "Software Engineering",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/02/2026",
-        readTime: "7 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Open-source maintainers are adopting automated triage workflows and PoC validation bots to process influxes of AI-generated security disclosures.",
-        bodyParagraphs: [
-            "With automated AI scanners continuously analyzing open-source repositories, project maintainers have faced a surge of low-priority and duplicate issue submissions.",
-            "To manage triage overhead, organizations are implementing automated gatekeepers that require a runnable Proof-of-Concept (PoC) in an isolated sandbox before issuing a formal vulnerability report.",
-            "These verification pipelines help maintainers filter out unverified noise and focus effort on valid, reproducible security vulnerabilities."
-        ],
-        snippet: "# GitHub Actions Workflow for PoC Verification\nname: Verify Bug Report\non:\n  issues:\n    types: [opened]\njobs:\n  run-poc-sandbox:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Validate PoC Reproducibility\n        run: python .github/scripts/poc_runner.py --issue ${{ github.event.issue.number }}",
-        snippetLang: "YAML / GitHub Actions"
-    },
+            // ==================== ARCHIVED ARTICLES (NOV 1, 2026) ====================
+            {
+                id: 1,
+                title: "Binance Replenishing $6.3B Lost to Record Security Breach",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/01/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Binance confirmed 90% of user balances impacted by a DevOps key security breach have been restored via reserve funds, with full services resuming.",
+                bodyParagraphs: [
+                    "Binance reported that over 90% of user balances affected by a major security incident targeting internal DevOps key management infrastructure have been successfully restored.",
+                    "The exchange confirmed that corporate reserves and emergency asset funds (SAFU) were allocated to cover shortfalls without compromising user account balances.",
+                    "Deposit and withdrawal operations have fully resumed alongside upgraded multi-party computation (MPC) security protocols."
+                ]
+            },
+            {
+                id: 2,
+                title: "Big Tech's AI Infrastructure Capex Faces Investor Pressure",
+                category: "TechToday",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/01/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Recent tech earnings reports reflect robust cloud growth counterbalanced by expanding capital expenditure on AI hardware and facility buildouts.",
+                bodyParagraphs: [
+                    "Quarterly earnings disclosures across leading tech hyperscalers indicate strong cloud revenue growth alongside record multi-billion dollar capital expenditure commitments for AI facility expansions.",
+                    "Wall Street analysts continue to seek detailed ROI horizons as data center construction, power acquisition, and chip depreciation costs continue to scale.",
+                    "Despite market scrutiny, tech executives reaffirmed that long-term infrastructure investment remains essential to support enterprise demand."
+                ]
+            }
+        ];
 
-    // ==================== ARCHIVED / OLDER ARTICLES (NOV 1, 2026) ====================
-    {
-        id: 1,
-        title: "Binance Replenishing $6.3B Lost to Record Security Breach",
-        category: "TechToday",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Binance confirmed 90% of user balances impacted by a DevOps key security breach have been restored via reserve funds, with full services resuming.",
-        bodyParagraphs: [
-            "Binance reported that over 90% of user balances affected by a major security incident targeting internal DevOps key management infrastructure have been successfully restored.",
-            "The exchange confirmed that corporate reserves and emergency asset funds (SAFU) were allocated to cover shortfalls without compromising user account balances.",
-            "Deposit and withdrawal operations have fully resumed alongside upgraded multi-party computation (MPC) security protocols."
-        ]
-    },
-    {
-        id: 2,
-        title: "Big Tech's AI Infrastructure Capex Faces Investor Pressure",
-        category: "TechToday",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Recent tech earnings reports reflect robust cloud growth counterbalanced by expanding capital expenditure on AI hardware and facility buildouts.",
-        bodyParagraphs: [
-            "Quarterly earnings disclosures across leading tech hyperscalers indicate strong cloud revenue growth alongside record multi-billion dollar capital expenditure commitments for AI facility expansions.",
-            "Wall Street analysts continue to seek detailed ROI horizons as data center construction, power acquisition, and chip depreciation costs continue to scale.",
-            "Despite market scrutiny, tech executives reaffirmed that long-term infrastructure investment remains essential to support enterprise demand."
-        ]
-    },
-    {
-        id: 3,
-        title: "Intel Acquires Classiq for $2.3B in Quantum Tech Play",
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Intel has completed a $2.3 billion transaction to acquire quantum software developer Classiq, combining hardware manufacturing with software algorithm synthesis.",
-        bodyParagraphs: [
-            "Intel has completed its acquisition of quantum software specialist Classiq in a transaction valued at $2.3 billion in cash and equity.",
-            "The acquisition aims to pair Intel's cryogenic silicon qubit development with Classiq's circuit synthesis and optimization platform.",
-            "Industry analysts view the acquisition as a key step in building integrated software and hardware stacks for hybrid classical-quantum computing environments."
-        ]
-    },
-    {
-        id: 5,
-        title: 'Neuralink Launches First Commercial Product "Telepathy"',
-        category: "AI & Hardware",
-        source: "TechToday",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandYellow text-slate-950",
-        image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Neuralink introduced 'Telepathy', its first commercial brain-computer interface focused on hands-free digital device interaction for assistive use.",
-        bodyParagraphs: [
-            "Neuralink announced the commercial availability of 'Telepathy', a brain-computer interface system designed for assistive control of computing devices.",
-            "The implantable sensor converts neural activity into direct digital input, enabling hands-free navigation across desktop and mobile platforms.",
-            "Early clinical trials demonstrated improved input rates and precision control for individuals with severe mobility impairments."
-        ]
-    },
-    {
-        id: 11,
-        title: "AI Agents Now Initiate Over 40% of GitHub PRs",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "6 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Ecosystem metrics reveal autonomous AI coding agents now account for over 40% of public GitHub pull requests across major open-source projects.",
-        bodyParagraphs: [
-            "Metrics across public source repositories show that over 40% of pull requests are now initiated by autonomous software agents operating within developer workflows.",
-            "Development teams are increasingly orchestrating dedicated agents to handle routine tasks such as code refactoring, test coverage additions, and dependency updates.",
-            "This shift has driven widespread adoption of multi-agent execution engines and automated pull request review automation."
-        ],
-        snippet: "// Agentic Workflow Auto-PR Hook\nexport async function handleAgentPR(agentSession) {\n  const changes = await agentSession.generatePatch();\n  if (await agentSession.verifyTestsPassed()) {\n    return await github.createPullRequest({ branch: agentSession.branch, changes });\n  }\n}",
-        snippetLang: "TypeScript / GitHub Actions"
-    },
-    {
-        id: 12,
-        title: "Rise of Model Context Protocol (MCP) in IDEs",
-        category: "Software Engineering",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "7 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Development organizations are standardizing on Model Context Protocol to manage external tool integrations and terminal permissions within IDEs.",
-        bodyParagraphs: [
-            "The Model Context Protocol (MCP) has established itself as an open standard for connecting code editors with database schemas, terminal utilities, and enterprise API tools.",
-            "By establishing uniform interaction standards, security teams can define clear permission parameters for AI assistants operating inside internal development environments.",
-            "Major IDE providers have integrated native support for MCP servers across their editor builds."
-        ],
-        snippet: "// MCP Server Capabilities Definition\n{\n  \"protocolVersion\": \"2026-01-01\",\n  \"capabilities\": {\n    \"tools\": {\n      \"queryDatabase\": { \"readOnly\": true },\n      \"executeTerminal\": { \"requireApproval\": true }\n    }\n  }\n}",
-        snippetLang: "JSON / MCP Schema"
-    },
-    {
-        id: 13,
-        title: "Cursor Flags Compromised Claude Code Extension",
-        category: "Software Engineering",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Security engineers flagged a typosquatted package mimicking popular AI coding extensions in third-party developer marketplaces.",
-        bodyParagraphs: [
-            "Security researchers uncovered a malicious extension attempting to typosquat legitimate AI coding tool integrations within open plugin registries.",
-            "The flag targeted code designed to extract local API keys and environment variables from unverified dev setups.",
-            "The incident highlights the importance of package verification, cryptographic signing, and strict supply chain security when installing IDE extensions."
-        ]
-    },
-    {
-        id: 16,
-        title: "Shift Toward Model Distillation & On-Device Small LLMs",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "7 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Engineering teams are adopting small distilled models locally to perform real-time linting, basic completions, and rapid syntax checks off-grid.",
-        bodyParagraphs: [
-            "To reduce latency and cut cloud API spending, engineering teams are increasingly deploying compact, distilled Small Language Models (SLMs) on developer workstations.",
-            "Runtimes like Ollama enable sub-3B parameter models to execute on workstation hardware, performing fast inline completions and local linting with complete data privacy.",
-            "Larger cloud-hosted LLMs are reserved for high-complexity tasks like multi-file refactoring and architectural analysis."
-        ],
-        snippet: "# Run local quantized distilled model via Ollama CLI\nollama run codellama:7b-instruct-q4_K_M --prompt \"Fix syntax error in Rust impl block\"",
-        snippetLang: "Bash / CLI"
-    },
-    {
-        id: 18,
-        title: "Team-Level AI Coding Guidelines Become Mandatory",
-        category: "Coding with Milan",
-        source: "Coding with Milan",
-        author: "Milan Filipović",
-        date: "11/01/2026",
-        readTime: "5 min read",
-        featured: false,
-        likes: 0,
-        badgeColor: "bg-brandGreen text-white",
-        image: "https://images.unsplash.com/photo-1516116211223-48a122638159?auto=format&fit=crop&w=800&q=80",
-        excerpt: "Organizations are instituting shared repository rules files to standardize AI coding assistant outputs and maintain consistent code standards.",
-        bodyParagraphs: [
-            "To maintain architectural consistency across large teams, tech organizations are adopting version-controlled repository rules files (such as `.cursorrules` or `.agentrules`).",
-            "These shared configuration files establish explicit guidelines for project structure, formatting conventions, and approved software dependencies across AI coding tools.",
-            "Standardizing assistant instructions helps prevent code fragmentation and enforces engineering standards across enterprise codebases."
-        ],
-        snippet: "# Example .cursorrules Configuration\n[style]\nprefer_functional = true\nstrict_type_checking = true\n\n[architecture]\nuse_repository_pattern = true\nforbidden_imports = [\"lodash\"]",
-        snippetLang: "TOML / Config"
-    }
-];
-
-        // Application State Variables
+        // Global State Variables
         let currentCategory = 'all';
         let searchQuery = '';
         
@@ -760,16 +616,15 @@
             savedBookmarks = [];
         }
 
+        // Reset user likes to empty state
         let userLikes = {};
         try {
-            userLikes = JSON.parse(localStorage.getItem('milan_likes')) || {};
-        } catch(e) {
-            userLikes = {};
-        }
+            localStorage.removeItem('milan_likes');
+        } catch(e) {}
 
         let activeModalArticleId = null;
 
-        // Initialize App on DOM Content Loaded
+        // Initialize Application
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             updateCounts();
@@ -788,7 +643,7 @@
             document.querySelectorAll('.coding-article-count').forEach(el => el.innerText = codingCount);
         }
 
-        // Theme Toggle Handler
+        // Theme Toggle
         function initTheme() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -860,7 +715,7 @@
             }
         }
 
-        // Hero Main Article Rendering
+        // Hero Section Render
         function renderFeaturedHero() {
             const container = document.getElementById('featuredHeroContainer');
             if (currentCategory !== 'all' && currentCategory !== 'TechToday') {
@@ -946,13 +801,13 @@
 
                     <div class="mt-6 pt-4 border-t border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50 p-4 rounded-2xl">
                         <span class="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider block mb-1">Developer Channel</span>
-                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Coding with Milan: 10 Autonomous Coding, MCP Architecture & DevSecOps Articles Active</p>
+                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Coding with Milan: Autonomous Coding, MCP Architecture & DevSecOps Articles Active</p>
                     </div>
                 </div>
             `;
         }
 
-        // Render Cards Grid
+        // Render Articles Grid
         function renderArticles() {
             const grid = document.getElementById('newsGrid');
             const emptyState = document.getElementById('emptyState');
@@ -1038,7 +893,7 @@
             }).join('');
         }
 
-        // Bookmark Logic
+        // Bookmarks Logic
         function toggleBookmark(id) {
             const index = savedBookmarks.indexOf(id);
             if (index > -1) {
@@ -1108,7 +963,7 @@
             `).join('');
         }
 
-        // Article Modal Open/Close Logic
+        // Modal Logic
         function openArticleModal(id) {
             const article = newsArticles.find(a => a.id === id);
             if (!article) return;
@@ -1188,7 +1043,6 @@
             }, 300);
         }
 
-        // Copy Code Snippet Handler
         function copyModalCode() {
             const code = document.getElementById('modalCodeSnippet').innerText;
             const tempInput = document.createElement('textarea');
