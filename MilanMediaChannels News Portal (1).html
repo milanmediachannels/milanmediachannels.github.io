@@ -1,0 +1,976 @@
+<!-- Chosen Palette: Media Slate, Dark Card & Vibrant Gold/Emerald Accent -->
+<!-- Application Structure Plan: Single-page responsive editorial news application with category navigation, real-time query filtering, bookmark drawer, and expanded modal view for developer code snippets and long-form articles. -->
+<!-- Visualization & Content Choices: Structured HTML/Tailwind CSS cards, interactive state management in vanilla JS, custom code snippet blocks with copy capability, and smooth accessibility transitions. -->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="7aae530d-745c-4b8c-a911-440fb4f7d76e"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilanMediaChannels - Tech & Software News</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFCC00',
+                        brandYellowDark: '#E6B800',
+                        brandGreen: '#059669',
+                        brandGreenDark: '#047857',
+                        mediaSlate: '#0F172A',
+                        darkBg: '#090D16',
+                        darkCard: '#131A29',
+                        darkBorder: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .media-shadow-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .media-shadow-hover:hover { box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.15); transform: translateY(-3px); }
+        .dark .media-shadow-hover:hover { box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6); }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFCC00; }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-slate-950 text-slate-300 text-[11px] py-1.5 px-4 border-b border-slate-800 font-medium">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 overflow-hidden">
+                <span class="bg-brandGreen text-white text-[9px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider shrink-0">LATEST RELEASES</span>
+                <p class="truncate text-slate-400">
+                    <span class="text-brandYellow font-semibold">November 5, 2026 Edition:</span> GPT-6.1 Sol multi-agent patterns, 1.4nm Silicon Roadmap, Rust JetStream mesh, and Tencent Hy4 benchmarks live.
+                </p>
+            </div>
+            <div class="hidden sm:flex items-center space-x-4 shrink-0 text-slate-400">
+                <span><i class="fa-solid fa-signal text-brandGreen mr-1"></i> Live Portal</span>
+                <span><i class="fa-solid fa-clock mr-1"></i> Updated Today (Nov 5, 2026)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-darkBorder sticky top-0 z-40 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Main Brand Logo -->
+                <a href="#" onclick="filterCategory('all'); return false;" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brandYellow via-amber-400 to-brandGreen flex items-center justify-center shadow-md p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-brandYellow font-black text-xl">
+                            M
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">Milan<span class="text-brandGreen">Media</span></span>
+                            <span class="bg-slate-900 text-brandYellow text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-widest uppercase">CHANNELS</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+                            Hardware, Software & Developer News Portal
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Category Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1 font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    <button onclick="filterCategory('all')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition text-brandGreen font-black">
+                        All News (<span class="total-article-count">0</span>)
+                    </button>
+                    <button onclick="filterCategory('TechToday')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> TechToday (<span class="techtoday-article-count">0</span>)
+                    </button>
+                    <button onclick="filterCategory('Coding with Milan')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandGreen inline-block"></span> Coding with Milan (<span class="coding-article-count">0</span>)
+                    </button>
+                    <button onclick="filterCategory('AI & Hardware')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">AI & Hardware</button>
+                    <button onclick="filterCategory('Software Engineering')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">DevSecOps</button>
+                </nav>
+
+                <!-- Utility Actions -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search AI, GPT-6.1, Rust, Silicon..." 
+                            class="w-56 lg:w-72 pl-9 pr-4 py-2 text-xs font-medium bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-brandGreen dark:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Reading List">
+                        <i class="fa-solid fa-bookmark text-brandYellow text-sm"></i>
+                        <span id="bookmarkBadge" class="absolute -top-1 -right-1 bg-brandGreen text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <button id="themeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brandYellow transition text-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-brandYellow"></i>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-darkCard border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 text-xs uppercase font-bold">
+            <div class="relative my-2">
+                <input type="text" id="mobileSearchInput" oninput="handleSearch(true)" placeholder="Search articles & code..." 
+                    class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400"></i>
+            </div>
+            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All News (<span class="total-article-count">0</span>)</button>
+            <button onclick="filterCategory('TechToday'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">TechToday (<span class="techtoday-article-count">0</span>)</button>
+            <button onclick="filterCategory('Coding with Milan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandGreen hover:bg-gray-100 dark:hover:bg-slate-800">Coding with Milan (<span class="coding-article-count">0</span>)</button>
+            <button onclick="filterCategory('AI & Hardware'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">AI & Hardware</button>
+            <button onclick="filterCategory('Software Engineering'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">DevSecOps & Security</button>
+        </div>
+    </header>
+
+    <!-- Main Editorial News Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- Category Filter Pills & Stats Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-4 border-b border-gray-200 dark:border-slate-800 gap-4">
+            <div class="flex items-center space-x-2 overflow-x-auto shrink-0 pb-1 md:pb-0">
+                <button onclick="filterCategory('all')" class="cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900">
+                    All Stories (<span class="total-article-count">0</span>)
+                </button>
+                <button onclick="filterCategory('TechToday')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    TechToday (<span class="techtoday-article-count">0</span>)
+                </button>
+                <button onclick="filterCategory('Coding with Milan')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    Coding with Milan (<span class="coding-article-count">0</span>)
+                </button>
+                <button onclick="filterCategory('AI & Hardware')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    AI & Hardware
+                </button>
+                <button onclick="filterCategory('Software Engineering')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    DevSecOps
+                </button>
+            </div>
+            
+            <div id="articleCounter" class="text-xs font-bold text-gray-500 dark:text-slate-400">
+                Showing <span id="countNum" class="text-brandGreen font-extrabold">0</span> articles
+            </div>
+        </div>
+
+        <!-- Featured Story & Sidebar Grid -->
+        <div id="featuredHeroContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <!-- Dynamic Main Investigation Hero Injected Here -->
+        </div>
+
+        <!-- Section Header for Editorial Feeds -->
+        <div class="flex items-center justify-between mb-6 pt-6 border-t border-gray-200 dark:border-slate-800">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Top Headlines & Developer Articles</h3>
+                <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 font-medium">Original reporting, deep-dives, code examples, software updates, and live community upvotes.</p>
+            </div>
+        </div>
+
+        <!-- News Cards Grid -->
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Cards Injected Here via JavaScript -->
+        </div>
+
+        <!-- Empty State Search Handler -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-darkCard rounded-2xl border border-dashed border-gray-300 dark:border-slate-800 my-8">
+            <i class="fa-solid fa-magnifying-glass text-4xl text-gray-400 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Matching News Found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try typing a different search keyword such as "GPT-6.1", "Tencent", "Rust", "Android", or "Silicon".</p>
+            <button onclick="filterCategory('all')" class="mt-4 bg-brandGreen text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-emerald-700 transition">
+                Reset Filter & View All Articles
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Saved Bookmarks Drawer -->
+    <div id="bookmarkDrawer" class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-darkCard border-l border-gray-200 dark:border-slate-800 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 bg-slate-950 text-white flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-bookmark text-brandYellow"></i>
+                <h3 class="font-black text-sm uppercase tracking-wider">Saved Reading List</h3>
+            </div>
+            <button onclick="toggleBookmarkDrawer()" class="text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+        <div id="bookmarkListContainer" class="p-5 flex-1 overflow-y-auto space-y-4">
+            <!-- Bookmarked items injected here -->
+        </div>
+    </div>
+
+    <!-- Long-Form Reader Article Modal -->
+    <div id="articleModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 hidden opacity-0 transition-opacity duration-300">
+        <div id="modalContainer" class="bg-white dark:bg-darkCard rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-slate-800 transition-transform duration-300 scale-95 flex flex-col">
+            
+            <!-- Modal Header / Cover Image -->
+            <div class="relative h-64 sm:h-96 w-full bg-slate-950 shrink-0">
+                <img id="modalImg" src="" alt="Cover Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                
+                <div class="absolute top-4 right-4 flex items-center space-x-2 z-10">
+                    <button id="modalLikeBtn" onclick="toggleModalLike()" class="bg-slate-950/80 hover:bg-slate-900 text-white px-3 h-10 rounded-full flex items-center justify-center gap-1.5 backdrop-blur-md transition border border-slate-700 text-xs font-bold" title="Like Article">
+                        <i id="modalLikeIcon" class="fa-regular fa-heart text-red-500"></i> <span id="modalLikeCount">0</span>
+                    </button>
+                    <button id="modalBookmarkBtn" onclick="toggleSaveCurrentArticle()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700" title="Save Article">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </button>
+                    <button onclick="closeModal()" class="bg-slate-950/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition border border-slate-700">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span id="modalSourceBadge" class="px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider"></span>
+                        <span id="modalCategoryBadge" class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded"></span>
+                    </div>
+                    <h1 id="modalTitle" class="text-2xl sm:text-4xl font-black leading-tight tracking-tight"></h1>
+                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-3 font-medium">
+                        <span id="modalAuthor"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> Milan Filipović</span>
+                        <span id="modalDate"><i class="fa-regular fa-clock mr-1"></i> 11/05/2026</span>
+                        <span id="modalReadTime"><i class="fa-solid fa-book-open mr-1"></i> 5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 sm:p-10 space-y-6 text-gray-800 dark:text-gray-200 leading-relaxed text-sm sm:text-base">
+                
+                <div class="p-4 sm:p-5 bg-gray-100 dark:bg-slate-800/80 border-l-4 border-brandYellow rounded-r-xl font-medium text-slate-900 dark:text-slate-100 italic text-sm sm:text-base">
+                    <p id="modalLeadExcerpt"></p>
+                </div>
+
+                <div id="modalMainBody" class="space-y-4"></div>
+
+                <div id="modalCodeSection" class="hidden my-6">
+                    <div class="flex items-center justify-between bg-slate-900 px-4 py-2.5 rounded-t-xl text-xs font-mono text-slate-300 border-b border-slate-800">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-terminal text-brandGreen"></i> <span id="codeLangLabel">Code Snippet</span></span>
+                        <button onclick="copyModalCode()" class="hover:text-brandYellow transition text-xs flex items-center gap-1">
+                            <i class="fa-regular fa-copy"></i> <span id="copyBtnText">Copy Snippet</span>
+                        </button>
+                    </div>
+                    <pre class="bg-slate-950 p-4 rounded-b-xl overflow-x-auto text-xs sm:text-sm font-mono text-emerald-400 border border-slate-800 leading-relaxed"><code id="modalCodeSnippet"></code></pre>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-7 h-7 rounded-lg bg-brandYellow text-slate-950 font-black flex items-center justify-center text-sm">
+                    M
+                </div>
+                <span class="text-base font-black text-white tracking-tight uppercase">Milan<span class="text-brandGreen">Media</span>Channels</span>
+            </div>
+            <p class="text-slate-500 text-[11px]">© 2026 MilanMediaChannels. TechToday & Coding with Milan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Full Article Data Source with Nov 5, 2026 updates
+        const newsArticles = [
+            // ==================== NOV 5, 2026 (NEW ARTICLES) ====================
+            {
+                id: 501,
+                title: "Pharma CEOs Push Back on AI Cancer Cure Hype From Tech Leaders",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "7 min read",
+                featured: true,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Pharmaceutical leaders warn that computational power cannot overcome fundamental biological challenges and long-term clinical trial validation requirements.",
+                bodyParagraphs: [
+                    "Top pharmaceutical executives voiced concerted skepticism regarding sweeping AI-driven medical breakthrough timelines promised by tech conglomerates during this week's industry briefings.",
+                    "Industry leaders emphasized that cancer represents thousands of distinct cellular mutations with complex adaptive resistance mechanisms that cannot be solved purely through pattern recognition.",
+                    "While AI tools dramatically accelerate molecular target identification and initial candidate screening, clinical safety validation and trial phases remain constrained by human biological timelines."
+                ]
+            },
+            {
+                id: 502,
+                title: "DevRev Leverages GPT-6.1 Sol for Multi-Agent Enterprise Support Infrastructure",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+                excerpt: "DevRev unveiled its dual-agent architecture separating root-cause technical troubleshooting from high-speed ticket routing using extended thinking modes.",
+                bodyParagraphs: [
+                    "DevRev deployed a production multi-agent system powered by GPT-6.1 Sol, separating diagnostic tasks between specialized 'Computer' and 'Operator' agent roles.",
+                    "The Computer agent handles deep technical analysis by allocating extended reasoning token budgets for log parsing and code debugging, while the Operator agent processes workflow routing with sub-second latency.",
+                    "Early operational telemetry indicates the dual-agent architecture resolves 78% of tier-one support tickets autonomously with an average resolution speed increase of 43%."
+                ],
+                snippet: "// GPT-6.1 Sol Dual-Agent Orchestration Config\nimport { AgentOrchestrator } from '@devrev/sdk';\n\nconst orchestrator = new AgentOrchestrator({\n  computer: {\n    model: 'gpt-6.1-sol',\n    thinkingMode: 'extended',\n    tokenBudget: 32000,\n    task: 'deep-diagnostics'\n  },\n  operator: {\n    model: 'gpt-6.1-sol',\n    thinkingMode: 'fast-inference',\n    task: 'workflow-routing'\n  }\n});",
+                snippetLang: "TypeScript / DevRev Orchestrator"
+            },
+            {
+                id: 503,
+                title: "Tencent Officially Launches Hy4 AI Model for High-Density Financial Analytics",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Tencent rolled out its Hy4 foundation model on enterprise cloud infrastructure, targeting automated quantitative modeling and real-time risk compliance.",
+                bodyParagraphs: [
+                    "Tencent officially made its Hy4 foundation model available across its enterprise cloud platform today, built explicitly for high-frequency financial modeling and regulatory auditing.",
+                    "The model incorporates localized financial knowledge graphs and structured multi-table analysis engines to eliminate numerical hallucination risks in complex ledger evaluations.",
+                    "Enterprise partners across banking and fintech sectors are integrating Hy4 to automate complex portfolio stress testing and real-time fraud pattern detection."
+                ]
+            },
+            {
+                id: 504,
+                title: "Riemann Computing Details Technical Architecture of 13.1B Reasoning Model",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "7 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Riemann Computing published architecture specifications for its mid-scale 13.1B model, achieving frontier-level benchmark scores in structured logic.",
+                bodyParagraphs: [
+                    "Riemann Computing published comprehensive technical documentation for its 13.1-billion parameter transformer architecture, demonstrating how optimized attention mechanisms cut memory bandwidth requirements.",
+                    "By targeting the 10B-20B parameter range, the model balances inference latency with extended step-by-step reasoning capabilities suitable for self-hosted developer toolchains.",
+                    "The open paper outlines custom layer configurations and dataset filtering steps engineered to prevent memory degradation during multi-turn coding sessions."
+                ],
+                snippet: "# Riemann 13.1B Reasoning Evaluation Runner\nfrom riemann_eval import Evaluator, BenchmarkSuite\n\neval_suite = BenchmarkSuite(target='structured-reasoning')\nmodel = Evaluator.load_checkpoint('riemann-13b-v1-fp16')\n\nresults = eval_suite.run(model, memory_bandwidth_limit='16GB')\nprint(f'Pass@1 Logic Score: {results.pass_at_1:.2%}')",
+                snippetLang: "Python / Riemann SDK"
+            },
+            {
+                id: 505,
+                title: "NVIDIA & TSMC Announce 1.4nm Quantum-Silicon Hybrid Lithography Roadmap",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                excerpt: "A joint semiconductor initiative unveils A14 node production target dates, enabling high-density interconnects for exascale cluster nodes.",
+                bodyParagraphs: [
+                    "NVIDIA and TSMC revealed joint technological milestones for 1.4-nanometer (A14) silicon node fabrication, scheduling initial risk production for late 2027.",
+                    "The process combines extreme ultraviolet (EUV) double-patterning with integrated optical interconnects, enabling direct chiplet-to-chiplet photonic data transfer at sub-picosecond latencies.",
+                    "Semiconductor engineers highlight that photonics integration will alleviate thermal throttling constraints in next-generation GPU server racks."
+                ]
+            },
+            {
+                id: 506,
+                title: "Building Real-Time Multi-Agent Event Mesh with Rust and NATS JetStream",
+                category: "Software Engineering",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/05/2026",
+                readTime: "8 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "How to construct zero-copy event streaming pipelines for distributed LLM agent nodes with strict latency constraints.",
+                bodyParagraphs: [
+                    "As multi-agent systems move into production, standard HTTP REST endpoints introduce unacceptable overhead for real-time state synchronization across distributed worker nodes.",
+                    "Leveraging Rust and NATS JetStream allows engineering teams to construct fault-tolerant, high-concurrency event buses capable of handling millions of agent state updates per second.",
+                    "This guide provides full implementation patterns for defining consumer streams, idempotency keys, and sub-millisecond agent backpressure handlers."
+                ],
+                snippet: "// Rust & NATS JetStream Agent Mesh Consumer\nuse async_nats::jetstream;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>> {\n    let client = async_nats::connect(\"nats://127.0.0.1:4222\").await?;\n    let js = jetstream::new(client);\n    let stream = js.get_stream(\"AGENT_EVENTS\").await?;\n    \n    println!(\"Connected to Agent Mesh JetStream!\");\n    Ok(())\n}",
+                snippetLang: "Rust / NATS Mesh"
+            },
+
+            // ==================== NOV 4, 2026 ====================
+            {
+                id: 301,
+                title: "Google Rolls Out Massive Security Patch for Android",
+                category: "Software Engineering",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/04/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Google has released its November security updates for Android, fixing over 200 vulnerabilities including critical system execution flaws.",
+                bodyParagraphs: [
+                    "Google deployed its November security patch set for Android, addressing over 200 security vulnerabilities across kernel, system, and framework components.",
+                    "The security update resolves multiple severe remote code execution vulnerabilities that could allow unauthorized privilege escalation without requiring user interaction.",
+                    "Enterprise device administrators are urged to apply the security baseline patches immediately across all managed fleet devices."
+                ]
+            },
+            {
+                id: 303,
+                title: "Global Digital Transformation Market Reaches New $5T Projection",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/04/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Accelerated by hybrid cloud strategies, enterprise 5G, and edge AI compute, global digital transformation investments expand rapidly.",
+                bodyParagraphs: [
+                    "Driven by edge computing, hybrid cloud adoption, and agentic AI integration, enterprise spending on infrastructure modernizations continues to hit record levels.",
+                    "A market study published this week projects sector expansion toward $5 trillion by 2030 as global enterprises prioritize software agility and supply chain automation.",
+                    "DevOps and Cloud Architecture teams are receiving increased budget allocations to migrate legacy microservices into self-healing cloud infrastructure."
+                ]
+            },
+
+            // ==================== NOV 3, 2026 ====================
+            {
+                id: 302,
+                title: "World-Model AI Startup Secures $1B Seed Round for Physical Reasoning",
+                category: "AI & Hardware",
+                source: "TechToday",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "5 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandYellow text-slate-950",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Pioneering researchers are moving past pure text models, raising $1 billion to construct physics-grounded world simulation engines.",
+                bodyParagraphs: [
+                    "Advanced Machine Intelligence (AMI) closed a record-setting $1 billion seed financing round today to build foundation models focused explicitly on spatial physics and world dynamics.",
+                    "While large language models (LLMs) continue to dominate enterprise text tasks, robotics engineers emphasize that physical manipulation requires models predicting force and collisions in real time.",
+                    "The venture plans to deploy its physical reasoning engines directly into industrial robotics and micro-manufacturing automation."
+                ]
+            },
+            {
+                id: 201,
+                title: "VoidMob Releases Open-Source MCP Server for Mobile & SMS Agents",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                author: "Milan Filipović",
+                date: "11/03/2026",
+                readTime: "6 min read",
+                featured: false,
+                likes: 0,
+                badgeColor: "bg-brandGreen text-white",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "An open-source Model Context Protocol server now enables autonomous agents to interact with cellular networks and SMS verification layers.",
+                bodyParagraphs: [
+                    "VoidMob has introduced an open-source Model Context Protocol (MCP) server, offering standardized tool integrations for AI agents requiring mobile proxy access.",
+                    "The protocol allows LLM-driven agents to provision temporary eSIM profiles and programmatically verify authentication challenges.",
+                    "To safeguard operations, the server incorporates budget quotas and sandbox limits preventing unintended cellular data consumption."
+                ],
+                snippet: "// Register VoidMob Cellular Tools with MCP Server\nimport { MCPServer } from '@mcp/sdk';\n\nconst server = new MCPServer({ name: 'voidmob-cellular' });\nserver.addTool({\n  name: 'provision_esim',\n  description: 'Provisions temporary data eSIM for agent tasks',\n  execute: async (args) => await voidmob.createSession(args.region)\n});",
+                snippetLang: "TypeScript / MCP Protocol"
+            }
+        ];
+
+        // Global State Variables
+        let currentCategory = 'all';
+        let searchQuery = '';
+        
+        let savedBookmarks = [];
+        try {
+            savedBookmarks = JSON.parse(localStorage.getItem('milan_bookmarks')) || [];
+        } catch(e) {
+            savedBookmarks = [];
+        }
+
+        let userLikes = {};
+        try {
+            userLikes = JSON.parse(localStorage.getItem('milan_likes')) || {};
+        } catch(e) {
+            userLikes = {};
+        }
+
+        let activeModalArticleId = null;
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            updateCounts();
+            renderFeaturedHero();
+            renderArticles();
+            updateBookmarkCounter();
+        });
+
+        function updateCounts() {
+            const total = newsArticles.length;
+            const techTodayCount = newsArticles.filter(a => a.source === 'TechToday').length;
+            const codingCount = newsArticles.filter(a => a.source === 'Coding with Milan').length;
+
+            document.querySelectorAll('.total-article-count').forEach(el => el.innerText = total);
+            document.querySelectorAll('.techtoday-article-count').forEach(el => el.innerText = techTodayCount);
+            document.querySelectorAll('.coding-article-count').forEach(el => el.innerText = codingCount);
+        }
+
+        // Theme Toggle
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Category Filter Logic
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            const pills = document.querySelectorAll('.cat-pill');
+            pills.forEach(pill => {
+                const text = pill.innerText.toLowerCase();
+                if ((category === 'all' && text.includes('all')) || 
+                    (category !== 'all' && text.includes(category.toLowerCase()))) {
+                    pill.className = "cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900";
+                } else {
+                    pill.className = "cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all";
+                }
+            });
+
+            renderFeaturedHero();
+            renderArticles();
+        }
+
+        // Search Filter Logic
+        function handleSearch(isMobile = false) {
+            const inputId = isMobile ? 'mobileSearchInput' : 'searchInput';
+            searchQuery = document.getElementById(inputId).value.toLowerCase().trim();
+            renderArticles();
+        }
+
+        // Upvote / Like Handler
+        function toggleLike(id, event) {
+            if (event) event.stopPropagation();
+
+            const article = newsArticles.find(a => a.id === id);
+            if (!article) return;
+
+            if (userLikes[id]) {
+                delete userLikes[id];
+                article.likes -= 1;
+            } else {
+                userLikes[id] = true;
+                article.likes += 1;
+            }
+
+            try {
+                localStorage.setItem('milan_likes', JSON.stringify(userLikes));
+            } catch(e) {}
+
+            renderFeaturedHero();
+            renderArticles();
+
+            if (activeModalArticleId === id) {
+                updateModalLikeBtn();
+            }
+        }
+
+        // Hero Section Render
+        function renderFeaturedHero() {
+            const container = document.getElementById('featuredHeroContainer');
+            if (currentCategory !== 'all' && currentCategory !== 'TechToday') {
+                container.classList.add('hidden');
+                return;
+            }
+            container.classList.remove('hidden');
+
+            const hero = newsArticles.find(a => a.featured) || newsArticles[0];
+            const isSaved = savedBookmarks.includes(hero.id);
+            const isLiked = !!userLikes[hero.id];
+
+            container.innerHTML = `
+                <div class="lg:col-span-8 bg-slate-950 rounded-3xl overflow-hidden shadow-2xl relative flex flex-col justify-end min-h-[420px] lg:min-h-[480px] border border-slate-800 group media-shadow-hover">
+                    <img src="${hero.image}" alt="${hero.title}" class="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                    
+                    <div class="relative p-6 sm:p-10 z-10">
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="${hero.badgeColor} text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded">
+                                ${hero.source}
+                            </span>
+                            <span class="bg-white/20 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                                ${hero.category}
+                            </span>
+                            <span class="bg-red-500/20 text-red-300 backdrop-blur text-[10px] font-extrabold px-2 py-0.5 rounded flex items-center gap-1">
+                                <i class="fa-solid fa-fire text-red-400"></i> Top Nov 5 Story
+                            </span>
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight mb-3 cursor-pointer hover:text-brandYellow transition" onclick="openArticleModal(${hero.id})">
+                            ${hero.title}
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-300 line-clamp-2 max-w-2xl mb-6 font-medium">
+                            ${hero.excerpt}
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+                            <div class="flex items-center space-x-4">
+                                <span class="font-bold text-slate-200"><i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${hero.author}</span>
+                                <span><i class="fa-regular fa-clock mr-1"></i> ${hero.date}</span>
+                                <span><i class="fa-solid fa-book-open mr-1"></i> ${hero.readTime}</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="toggleLike(${hero.id}, event)" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white transition border border-slate-700 flex items-center gap-1.5 text-xs font-bold" title="Like">
+                                    <i class="${isLiked ? 'fa-solid text-red-500' : 'fa-regular'} fa-heart"></i>
+                                    <span>${hero.likes}</span>
+                                </button>
+                                <button onclick="toggleBookmark(${hero.id})" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white transition border border-slate-700" title="Save">
+                                    <i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>
+                                </button>
+                                <button onclick="openArticleModal(${hero.id})" class="bg-brandYellow hover:bg-amber-400 text-slate-950 font-black px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg">
+                                    Read Full Story <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Sidebar Highlights -->
+                <div class="lg:col-span-4 bg-white dark:bg-darkCard rounded-3xl p-6 border border-gray-200 dark:border-slate-800 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-100 dark:border-slate-800">
+                            <h3 class="font-black text-sm uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-bolt text-brandYellow"></i> Nov 5 Headlines
+                            </h3>
+                            <span class="text-[10px] bg-brandYellow/10 text-brandYellowDark dark:text-brandYellow font-extrabold px-2 py-0.5 rounded uppercase">Live Feed</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            ${newsArticles.slice(1, 4).map(item => `
+                                <div class="group cursor-pointer pb-3 border-b border-gray-100 dark:border-slate-800/60 last:border-0 last:pb-0" onclick="openArticleModal(${item.id})">
+                                    <div class="flex items-center justify-between text-[10px] font-bold text-gray-400 mb-1 uppercase">
+                                        <div><span class="text-brandGreen font-extrabold">${item.source}</span> • <span>${item.date}</span></div>
+                                        <span class="text-red-500 flex items-center gap-0.5"><i class="fa-solid fa-heart text-[9px]"></i> ${item.likes}</span>
+                                    </div>
+                                    <h4 class="text-xs font-extrabold text-slate-900 dark:text-slate-100 group-hover:text-brandYellow transition line-clamp-2">
+                                        ${item.title}
+                                    </h4>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-100 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50 p-4 rounded-2xl">
+                        <span class="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider block mb-1">Developer Channel</span>
+                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Coding with Milan: DevRev GPT-6.1 Sol, Riemann 13.1B & Rust JetStream Articles Active</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Articles Grid
+        function renderArticles() {
+            const grid = document.getElementById('newsGrid');
+            const emptyState = document.getElementById('emptyState');
+            const countNum = document.getElementById('countNum');
+
+            let filtered = newsArticles.filter(item => {
+                const matchesCategory = 
+                    currentCategory === 'all' ? true :
+                    currentCategory === 'TechToday' ? item.source === 'TechToday' :
+                    currentCategory === 'Coding with Milan' ? item.source === 'Coding with Milan' :
+                    item.category.toLowerCase().includes(currentCategory.toLowerCase());
+
+                const matchesSearch = 
+                    searchQuery === '' ? true :
+                    item.title.toLowerCase().includes(searchQuery) ||
+                    item.excerpt.toLowerCase().includes(searchQuery) ||
+                    item.category.toLowerCase().includes(searchQuery) ||
+                    (item.snippet && item.snippet.toLowerCase().includes(searchQuery));
+
+                return matchesCategory && matchesSearch;
+            });
+
+            countNum.innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            grid.innerHTML = filtered.map(item => {
+                const isSaved = savedBookmarks.includes(item.id);
+                const isLiked = !!userLikes[item.id];
+                return `
+                    <article class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-gray-200 dark:border-darkBorder flex flex-col justify-between media-shadow-hover transition-all duration-300">
+                        <div>
+                            <div class="relative h-48 w-full bg-slate-950 overflow-hidden cursor-pointer group" onclick="openArticleModal(${item.id})">
+                                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute top-3 left-3 flex items-center space-x-1.5">
+                                    <span class="${item.badgeColor} text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded shadow">
+                                        ${item.source}
+                                    </span>
+                                    <span class="bg-slate-950/80 backdrop-blur text-white text-[9px] font-bold px-2 py-0.5 rounded uppercase">
+                                        ${item.category}
+                                    </span>
+                                </div>
+                                <button onclick="event.stopPropagation(); toggleBookmark(${item.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center backdrop-blur transition border border-slate-700" title="Bookmark Article">
+                                    <i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark text-xs"></i>
+                                </button>
+                            </div>
+
+                            <div class="p-5">
+                                <div class="flex items-center justify-between text-[11px] text-gray-500 dark:text-slate-400 font-medium mb-2">
+                                    <div class="flex items-center space-x-2">
+                                        <span><i class="fa-regular fa-clock mr-1"></i> ${item.date}</span>
+                                        <span>•</span>
+                                        <span><i class="fa-solid fa-book-open mr-1"></i> ${item.readTime}</span>
+                                    </div>
+                                    <button onclick="toggleLike(${item.id}, event)" class="flex items-center gap-1 font-bold ${isLiked ? 'text-red-500' : 'text-gray-400 hover:text-red-500'} transition">
+                                        <i class="${isLiked ? 'fa-solid' : 'fa-regular'} fa-heart text-xs"></i>
+                                        <span>${item.likes}</span>
+                                    </button>
+                                </div>
+                                <h3 class="text-base font-extrabold text-slate-900 dark:text-white leading-snug mb-2 line-clamp-2 cursor-pointer hover:text-brandYellow transition" onclick="openArticleModal(${item.id})">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-xs text-gray-600 dark:text-slate-300 line-clamp-3 leading-relaxed font-normal">
+                                    ${item.excerpt}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-gray-100 dark:border-slate-800/80 mt-4">
+                            <span class="text-[11px] font-bold text-slate-500 dark:text-slate-400"><i class="fa-solid fa-user-pen text-brandGreen mr-1"></i> ${item.author}</span>
+                            <button onclick="openArticleModal(${item.id})" class="text-xs font-black text-brandGreen hover:text-emerald-500 dark:hover:text-brandYellow transition flex items-center gap-1">
+                                Read Article <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Bookmarks Logic
+        function toggleBookmark(id) {
+            const index = savedBookmarks.indexOf(id);
+            if (index > -1) {
+                savedBookmarks.splice(index, 1);
+            } else {
+                savedBookmarks.push(id);
+            }
+            try {
+                localStorage.setItem('milan_bookmarks', JSON.stringify(savedBookmarks));
+            } catch(e) {}
+            
+            updateBookmarkCounter();
+            renderFeaturedHero();
+            renderArticles();
+            renderBookmarkList();
+
+            if (activeModalArticleId === id) {
+                updateModalBookmarkBtn();
+            }
+        }
+
+        function toggleSaveCurrentArticle() {
+            if (activeModalArticleId) {
+                toggleBookmark(activeModalArticleId);
+            }
+        }
+
+        function updateBookmarkCounter() {
+            document.getElementById('bookmarkBadge').innerText = savedBookmarks.length;
+        }
+
+        function toggleBookmarkDrawer() {
+            const drawer = document.getElementById('bookmarkDrawer');
+            if (drawer.classList.contains('translate-x-full')) {
+                renderBookmarkList();
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function renderBookmarkList() {
+            const container = document.getElementById('bookmarkListContainer');
+            if (savedBookmarks.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-regular fa-bookmark text-3xl mb-2"></i>
+                        <p class="text-xs font-semibold">No saved articles yet.</p>
+                        <p class="text-[11px] text-gray-500 mt-1">Click the bookmark icon on any card to save it here for reading later.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const savedItems = newsArticles.filter(a => savedBookmarks.includes(a.id));
+            container.innerHTML = savedItems.map(item => `
+                <div class="p-3 bg-gray-50 dark:bg-slate-900 rounded-xl border border-gray-200 dark:border-slate-800 flex items-start justify-between gap-3">
+                    <div class="cursor-pointer flex-1" onclick="openArticleModal(${item.id}); toggleBookmarkDrawer()">
+                        <span class="text-[9px] font-black uppercase tracking-wider text-brandGreen block mb-0.5">${item.source}</span>
+                        <h4 class="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 hover:text-brandYellow">${item.title}</h4>
+                        <span class="text-[10px] text-gray-400 mt-1 block">${item.date}</span>
+                    </div>
+                    <button onclick="toggleBookmark(${item.id})" class="text-gray-400 hover:text-red-500 p-1">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Modal Logic
+        function openArticleModal(id) {
+            const article = newsArticles.find(a => a.id === id);
+            if (!article) return;
+
+            activeModalArticleId = id;
+
+            document.getElementById('modalImg').src = article.image;
+            document.getElementById('modalTitle').innerText = article.title;
+            document.getElementById('modalSourceBadge').innerText = article.source;
+            document.getElementById('modalSourceBadge').className = `${article.badgeColor} px-2.5 py-1 rounded text-[10px] font-black uppercase tracking-wider`;
+            document.getElementById('modalCategoryBadge').innerText = article.category;
+            document.getElementById('modalAuthor').innerHTML = `<i class="fa-solid fa-user-pen text-brandYellow mr-1"></i> ${article.author}`;
+            document.getElementById('modalDate').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${article.date}`;
+            document.getElementById('modalReadTime').innerHTML = `<i class="fa-solid fa-book-open mr-1"></i> ${article.readTime}`;
+            document.getElementById('modalLeadExcerpt').innerText = article.excerpt;
+
+            const bodyContainer = document.getElementById('modalMainBody');
+            bodyContainer.innerHTML = article.bodyParagraphs.map(p => `<p class="leading-relaxed font-normal">${p}</p>`).join('');
+
+            const codeSection = document.getElementById('modalCodeSection');
+            if (article.snippet) {
+                codeSection.classList.remove('hidden');
+                document.getElementById('codeLangLabel').innerText = article.snippetLang || 'Code Snippet';
+                document.getElementById('modalCodeSnippet').innerText = article.snippet;
+            } else {
+                codeSection.classList.add('hidden');
+            }
+
+            updateModalBookmarkBtn();
+            updateModalLikeBtn();
+
+            const modal = document.getElementById('articleModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateModalBookmarkBtn() {
+            const btn = document.getElementById('modalBookmarkBtn');
+            const isSaved = savedBookmarks.includes(activeModalArticleId);
+            btn.innerHTML = `<i class="${isSaved ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i>`;
+        }
+
+        function updateModalLikeBtn() {
+            const article = newsArticles.find(a => a.id === activeModalArticleId);
+            if (!article) return;
+            const isLiked = !!userLikes[activeModalArticleId];
+            
+            document.getElementById('modalLikeCount').innerText = article.likes;
+            document.getElementById('modalLikeIcon').className = `${isLiked ? 'fa-solid' : 'fa-regular'} fa-heart text-red-500`;
+        }
+
+        function toggleModalLike() {
+            if (activeModalArticleId) {
+                toggleLike(activeModalArticleId);
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.add('opacity-0');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+                activeModalArticleId = null;
+            }, 300);
+        }
+
+        function copyModalCode() {
+            const code = document.getElementById('modalCodeSnippet').innerText;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const copyBtnText = document.getElementById('copyBtnText');
+            copyBtnText.innerText = 'Copied!';
+            setTimeout(() => {
+                copyBtnText.innerText = 'Copy Snippet';
+            }, 2000);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
