@@ -4,7 +4,7 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="7aae530d-745c-4b8c-a911-440fb4f7d76e"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilanMediaChannels - Today's Tech News, Hardware, Startups & Code Insights (Nov 10, 2026)</title>
+    <title>MilanMediaChannels - Developer Insights, Hardware & Daily Tech Breakdown</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -64,10 +64,10 @@
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-3 overflow-hidden">
                 <span class="bg-brandGreen text-white text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider shrink-0 flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> LIVE JOURNAL • NOV 10, 2026
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> DAILY JOURNAL • NOV 2026
                 </span>
                 <p class="truncate text-slate-300">
-                    <span class="text-brandYellow font-semibold">Today's 30 Breaking Stories:</span> GPT-5.5 Enterprise, Claude 4 Opus, Rust 1.88, React 19 Server Actions & Apple Silicon Updates.
+                    <span class="text-brandYellow font-semibold">Today's Headlines:</span> Anthropic Claude Fable 5.2, Conductor Cloud Sunset, Nvidia $200B valuation drop & APT security patches.
                 </p>
             </div>
             <!-- Social Quick Links -->
@@ -106,7 +106,7 @@
                             <span class="bg-slate-900 text-brandYellow text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-widest uppercase">CHANNELS</span>
                         </div>
                         <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase">
-                            Tech News, Software Architecture & Live Media
+                            Handcrafted Developer Stories & Tech Digest
                         </p>
                     </div>
                 </a>
@@ -116,25 +116,23 @@
                     <button onclick="filterCategory('all')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition text-brandGreen font-black">
                         All Stories (<span class="total-article-count">0</span>)
                     </button>
-                    <button onclick="filterCategory('TodayTech')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
-                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> TodayTech (<span class="techtoday-article-count">0</span>)
-                    </button>
                     <button onclick="filterCategory('Coding with Milan')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
                         <span class="w-2 h-2 rounded-full bg-brandGreen inline-block"></span> Coding with Milan (<span class="coding-article-count">0</span>)
                     </button>
-                    <button onclick="filterCategory('AI & Hardware')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">AI & Hardware</button>
-                    <button onclick="filterCategory('Startups')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition">Startups & VC</button>
+                    <button onclick="filterCategory('TodayTech')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> Tech Today (<span class="techtoday-article-count">0</span>)
+                    </button>
                 </nav>
 
                 <!-- Utility Actions -->
                 <div class="flex items-center space-x-3">
                     <div class="relative hidden sm:block">
-                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search GPT-5.5, Rust, React..." 
+                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search Claude, Nvidia, APT, Node.js..." 
                             class="w-56 lg:w-72 pl-9 pr-4 py-2 text-xs font-medium bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-brandGreen dark:text-white transition-all">
                         <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
                     </div>
 
-                    <a href="#appDownloadSection" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-brandGreen hover:text-brandYellow transition text-xs font-semibold relative flex items-center gap-1" title="Get Mobile App & PWA">
+                    <a href="#appDownloadSection" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-brandGreen hover:text-brandYellow transition text-xs font-semibold relative flex items-center gap-1" title="Get Mobile App">
                         <i class="fa-solid fa-mobile-screen-button text-sm"></i>
                         <span class="hidden xl:inline text-[11px] font-bold">App</span>
                     </a>
@@ -163,12 +161,9 @@
                     class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none">
                 <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400"></i>
             </div>
-            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All News (<span class="total-article-count">0</span>)</button>
-            <button onclick="filterCategory('TodayTech'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">TodayTech (<span class="techtoday-article-count">0</span>)</button>
+            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All Stories (<span class="total-article-count">0</span>)</button>
             <button onclick="filterCategory('Coding with Milan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandGreen hover:bg-gray-100 dark:hover:bg-slate-800">Coding with Milan (<span class="coding-article-count">0</span>)</button>
-            <button onclick="filterCategory('AI & Hardware'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">AI & Hardware</button>
-            <button onclick="filterCategory('Startups'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">Startups & VC</button>
-            <a href="#appDownloadSection" onclick="toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-emerald-500 hover:bg-gray-100 dark:hover:bg-slate-800"><i class="fa-solid fa-mobile-screen mr-1"></i> Mobile App & iOS PWA Guide</a>
+            <button onclick="filterCategory('TodayTech'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">Tech Today (<span class="techtoday-article-count">0</span>)</button>
             
             <div class="pt-3 border-t border-gray-200 dark:border-slate-800 space-y-2 normal-case font-medium">
                 <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Connect With Us</div>
@@ -177,12 +172,6 @@
                 </a>
                 <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:text-red-500 py-1">
                     <i class="fa-brands fa-youtube text-red-500 text-sm"></i> YouTube: @TodayTech-l9z
-                </a>
-                <a href="https://x.com/milanmediachann" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:text-sky-400 py-1">
-                    <i class="fa-brands fa-x-twitter text-sm"></i> X: @milanmediachann
-                </a>
-                <a href="https://www.instagram.com/milanmediachannels/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:text-pink-500 py-1">
-                    <i class="fa-brands fa-instagram text-pink-500 text-sm"></i> Instagram: @milanmediachannels
                 </a>
             </div>
         </div>
@@ -200,10 +189,10 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h2 class="text-lg font-black text-white tracking-tight">Milan Filipović</h2>
-                        <span class="bg-brandGreen text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">FOUNDER & EDITOR</span>
+                        <span class="bg-brandGreen text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">CREATOR & TECH EDITOR</span>
                     </div>
                     <p class="text-xs text-slate-300 mt-0.5 max-w-xl leading-relaxed">
-                        Welcome to MilanMediaChannels! Today is <strong id="currentDateDisplay">Tuesday, November 10, 2026</strong>. Explore all 30 breaking articles published today spanning AI, hardware, startups, and advanced software engineering.
+                        Hey there! Welcome to MilanMediaChannels. We break down the biggest tech shifts into easy-to-read stories—from deep coding agent security risks to major industry shakeups.
                     </p>
                 </div>
             </div>
@@ -216,7 +205,7 @@
                 </a>
                 <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" 
                    class="bg-slate-800 hover:bg-slate-700 text-brandYellow border border-slate-700 font-black text-xs px-4 py-2 rounded-xl transition flex items-center gap-2 shadow-lg">
-                    <i class="fa-brands fa-youtube text-red-500 text-base"></i> TodayTech Channel
+                    <i class="fa-brands fa-youtube text-red-500 text-base"></i> Tech Today Channel
                 </a>
             </div>
         </div>
@@ -231,22 +220,16 @@
                 <button onclick="filterCategory('all')" class="cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900">
                     All Stories (<span class="total-article-count">0</span>)
                 </button>
-                <button onclick="filterCategory('TodayTech')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
-                    TodayTech (<span class="techtoday-article-count">0</span>)
-                </button>
                 <button onclick="filterCategory('Coding with Milan')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
                     Coding with Milan (<span class="coding-article-count">0</span>)
                 </button>
-                <button onclick="filterCategory('AI & Hardware')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
-                    AI & Hardware
-                </button>
-                <button onclick="filterCategory('Startups')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
-                    Startups & VC
+                <button onclick="filterCategory('TodayTech')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    Tech Today (<span class="techtoday-article-count">0</span>)
                 </button>
             </div>
             
             <div id="articleCounter" class="text-xs font-bold text-gray-500 dark:text-slate-400">
-                Showing <span id="countNum" class="text-brandGreen font-extrabold">0</span> articles for Nov 10, 2026
+                Showing <span id="countNum" class="text-brandGreen font-extrabold">0</span> curated stories
             </div>
         </div>
 
@@ -259,16 +242,16 @@
         <section class="mb-12 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-4 border-b border-slate-800 gap-4">
                 <div>
-                    <span class="bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">Official Video Channels</span>
-                    <h3 class="text-2xl font-black text-white tracking-tight mt-1">Watch Latest Tutorials & News Breakdowns</h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Subscribe to Coding With Milan and TodayTech for video deep-dives.</p>
+                    <span class="bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">Video Corner</span>
+                    <h3 class="text-2xl font-black text-white tracking-tight mt-1">Catch Up on Video Breakdowns</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Prefer watching over reading? Check out our latest videos on both channels.</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-2">
-                        <i class="fa-brands fa-youtube"></i> Sub Coding Channel
+                        <i class="fa-brands fa-youtube"></i> Coding Channel
                     </a>
                     <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-2 border border-slate-700">
-                        <i class="fa-brands fa-youtube text-red-500"></i> Sub TodayTech
+                        <i class="fa-brands fa-youtube text-red-500"></i> Tech Today
                     </a>
                 </div>
             </div>
@@ -281,9 +264,9 @@
                             <span class="text-xs font-extrabold text-red-500 flex items-center gap-1.5"><i class="fa-brands fa-youtube"></i> Coding With Milan</span>
                             <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">@CodingWithMilan-r1x</span>
                         </div>
-                        <h4 class="text-base font-bold text-white mb-2">Hands-on Software Tutorials & Code Architecture</h4>
+                        <h4 class="text-base font-bold text-white mb-2">Hands-on Developer Guides & Code Walkthroughs</h4>
                         <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-                            Deep dives into modern Web Development, Rust 1.88, React 19 Server Actions, PyTorch activation steering, and scalable distributed microservices.
+                            Practical insights on developer tooling, agent runtimes, Spring Boot upgrades, build tools, and securing your dev environment.
                         </p>
                     </div>
                     <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-red-600 text-white font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-2">
@@ -295,12 +278,12 @@
                 <div class="bg-slate-900/90 rounded-2xl p-5 border border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition">
                     <div>
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-xs font-extrabold text-brandYellow flex items-center gap-1.5"><i class="fa-brands fa-youtube text-red-500"></i> TodayTech</span>
+                            <span class="text-xs font-extrabold text-brandYellow flex items-center gap-1.5"><i class="fa-brands fa-youtube text-red-500"></i> Tech Today</span>
                             <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">@TodayTech-l9z</span>
                         </div>
-                        <h4 class="text-base font-bold text-white mb-2">Daily Tech News, Hardware & Industry Trends</h4>
+                        <h4 class="text-base font-bold text-white mb-2">Everyday Tech News & Industry Analysis</h4>
                         <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-                            Stay up-to-date with daily technology news, GPT-5.5 releases, semiconductor breakthroughs, and enterprise cloud software rollouts.
+                            Stay up-to-date with big tech IPOs, AI regulation updates, cybersecurity incidents, and major hardware shifts.
                         </p>
                     </div>
                     <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-brandYellow hover:text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-2">
@@ -313,8 +296,8 @@
         <!-- Section Header for Editorial Feeds -->
         <div class="flex items-center justify-between mb-6 pt-4 border-t border-gray-200 dark:border-slate-800">
             <div>
-                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Today's 30 Tech Headlines & Developer Articles</h3>
-                <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 font-medium">Curated coverage for November 10, 2026: 20 Tech/AI/Hardware & 10 Coding tutorials.</p>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Latest Stories & News Reads</h3>
+                <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 font-medium">Explore key updates across developer tools and tech industry trends.</p>
             </div>
         </div>
 
@@ -326,27 +309,26 @@
         <!-- Empty State Search Handler -->
         <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-darkCard rounded-2xl border border-dashed border-gray-300 dark:border-slate-800 my-8">
             <i class="fa-solid fa-magnifying-glass text-4xl text-gray-400 mb-3"></i>
-            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Matching News Found</h3>
-            <p class="text-xs text-gray-500 mt-1">Try typing a different search keyword such as "GPT-5.5", "Rust", "Claude", "Tesla", or "React".</p>
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Stories Match Your Search</h3>
+            <p class="text-xs text-gray-500 mt-1">Try searching for key terms like "Claude", "Nvidia", "APT", "Node", or "Chrome".</p>
             <button onclick="filterCategory('all')" class="mt-4 bg-brandGreen text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-emerald-700 transition">
-                Reset Filter & View All Articles
+                Show All Stories
             </button>
         </div>
 
-        <!-- App Downloads & iOS PWA Tutorial Hub Section -->
+        <!-- App Downloads & Mobile Setup -->
         <section id="appDownloadSection" class="mt-16 bg-slate-950 rounded-3xl p-6 sm:p-10 border border-slate-800 text-white shadow-2xl relative overflow-hidden">
-            <!-- Decorative Accent Blur -->
             <div class="absolute -right-20 -top-20 w-80 h-80 bg-brandGreen/20 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-brandYellow/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="relative z-10">
                 <div class="max-w-3xl mb-8">
                     <span class="bg-brandYellow text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase tracking-wider">
-                        MilanMediaChannels Mobile Ecosystem
+                        Take Us With You
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-black mt-3 tracking-tight">Experience MilanMedia Channels on Mobile</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 tracking-tight">Read MilanMedia Channels on Mobile</h2>
                     <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
-                        Stay connected with real-time push updates, full offline reader support, video digests, and code snippet copying directly on your smartphone.
+                        Stay connected on the move with offline reading support and crisp rendering on any smartphone.
                     </p>
                 </div>
 
@@ -361,16 +343,16 @@
                                         <i class="fa-brands fa-android"></i>
                                     </div>
                                     <div>
-                                        <h3 class="font-extrabold text-base text-white">Android Native App</h3>
+                                        <h3 class="font-extrabold text-base text-white">Android App</h3>
                                         <span class="text-[11px] text-slate-400 font-mono">Package: MilanMediaChannels.apk</span>
                                     </div>
                                 </div>
                                 <span class="bg-emerald-500/20 text-emerald-400 text-[9px] font-black px-2.5 py-1 rounded uppercase">
-                                    v1.0.4 APK
+                                    Official APK
                                 </span>
                             </div>
                             <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                                Download the official Android binary directly from our verified GitHub release repository. Supports smooth swipe navigation, dark mode, and low data usage.
+                                Grab the official Android app directly from our GitHub release page for smooth reading and quick navigation.
                             </p>
                         </div>
                         <div class="pt-4 border-t border-slate-800">
@@ -378,9 +360,8 @@
                                target="_blank" 
                                rel="noopener noreferrer" 
                                class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-900/40">
-                                <i class="fa-solid fa-download text-sm"></i> Download Android APK (GitHub)
+                                <i class="fa-solid fa-download text-sm"></i> Download Android APK
                             </a>
-                            <p class="text-[10px] text-slate-500 text-center mt-2">Direct download hosted on GitHub | Verified Safe</p>
                         </div>
                     </div>
 
@@ -393,38 +374,32 @@
                                         <i class="fa-brands fa-apple"></i>
                                     </div>
                                     <div>
-                                        <h3 class="font-extrabold text-base text-white">iOS PWA Guide (iPhone & iPad)</h3>
-                                        <span class="text-[11px] text-slate-400 font-mono">Progressive Web App</span>
+                                        <h3 class="font-extrabold text-base text-white">iPhone & iPad Quick Setup</h3>
+                                        <span class="text-[11px] text-slate-400 font-mono">Web App Setup</span>
                                     </div>
                                 </div>
                                 <span class="bg-brandYellow/20 text-brandYellow text-[9px] font-black px-2.5 py-1 rounded uppercase">
-                                    No App Store Needed
+                                    Fast & Easy
                                 </span>
                             </div>
                             <p class="text-xs text-slate-300 leading-relaxed mb-3">
-                                Apple iOS users can install MilanMediaChannels as a full-featured web app with full screen view and offline access in 3 quick steps:
+                                You can save this website directly to your iPhone home screen in a few taps:
                             </p>
 
-                            <!-- 3 Step Tutorial -->
                             <ol class="space-y-2 text-xs text-slate-300 mb-4 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800 font-medium">
                                 <li class="flex items-start gap-2.5">
                                     <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</span>
-                                    <span>Open <strong>Safari</strong> on your iPhone/iPad and visit this site.</span>
+                                    <span>Open this site in <strong>Safari</strong> on your device.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</span>
-                                    <span>Tap the <strong>Share</strong> button <i class="fa-solid fa-share-nodes text-brandYellow"></i> in your Safari toolbar.</span>
+                                    <span>Tap the <strong>Share</strong> button <i class="fa-solid fa-share-nodes text-brandYellow"></i> in your browser menu.</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
                                     <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</span>
-                                    <span>Scroll down and tap <strong>"Add to Home Screen"</strong>.</span>
+                                    <span>Choose <strong>"Add to Home Screen"</strong> and you're good to go!</span>
                                 </li>
                             </ol>
-                        </div>
-                        <div class="pt-2 border-t border-slate-800">
-                            <button onclick="triggerPwaPrompt()" class="w-full bg-slate-800 hover:bg-slate-700 text-brandYellow font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-2 border border-slate-700">
-                                <i class="fa-solid fa-circle-info"></i> Instant App Installation Tips
-                            </button>
                         </div>
                     </div>
 
@@ -447,7 +422,7 @@
     <div id="bookmarkDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white dark:bg-darkCard border-l border-gray-200 dark:border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col">
         <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-slate-800">
             <h3 class="font-black text-lg text-slate-900 dark:text-white flex items-center gap-2">
-                <i class="fa-solid fa-bookmark text-brandYellow"></i> Saved Articles
+                <i class="fa-solid fa-bookmark text-brandYellow"></i> Saved Reading List
             </h3>
             <button onclick="toggleBookmarkDrawer()" class="text-gray-400 hover:text-white p-2 text-xl">
                 <i class="fa-solid fa-xmark"></i>
@@ -476,538 +451,520 @@
                         <span class="text-xl font-black text-white tracking-tighter uppercase">Milan<span class="text-brandGreen">Media</span> Channels</span>
                     </div>
                     <p class="text-slate-400 leading-relaxed max-w-md">
-                        MilanMediaChannels delivers fast tech news, software developer articles, AI system breakdowns, defense tech investments, and code architecture walkthroughs daily.
+                        Bringing you approachable, clear tech reporting and real-world developer tools updates. Made for curious engineers and tech enthusiasts alike.
                     </p>
                 </div>
                 <div>
                     <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Explore Channels</h4>
                     <ul class="space-y-2">
                         <li><a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" class="hover:text-white transition">Coding With Milan (YouTube)</a></li>
-                        <li><a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" class="hover:text-white transition">TodayTech News (YouTube)</a></li>
+                        <li><a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" class="hover:text-white transition">Tech Today (YouTube)</a></li>
                         <li><a href="https://x.com/milanmediachann" target="_blank" class="hover:text-white transition">X / Twitter Updates</a></li>
                         <li><a href="https://www.instagram.com/milanmediachannels/" target="_blank" class="hover:text-white transition">Instagram Feed</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Mobile & Downloads</h4>
+                    <h4 class="font-extrabold text-white uppercase text-xs tracking-wider mb-3">Mobile & App</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://github.com/milanmediachannels/Milanmediachannelsapps/blob/64e6a1e8be2c9a89fefdb3bf6911310460991113/MilanMediaChannelsapp.apk" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1.5"><i class="fa-brands fa-android text-emerald-500"></i> Android APK Release</a></li>
-                        <li><a href="#appDownloadSection" class="hover:text-brandYellow transition flex items-center gap-1.5"><i class="fa-brands fa-apple text-brandYellow"></i> iOS PWA Setup Guide</a></li>
+                        <li><a href="https://github.com/milanmediachannels/Milanmediachannelsapps/blob/64e6a1e8be2c9a89fefdb3bf6911310460991113/MilanMediaChannelsapp.apk" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1.5"><i class="fa-brands fa-android text-emerald-500"></i> Direct Android APK Download</a></li>
                     </ul>
                 </div>
             </div>
             <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
-                <p>&copy; 2026 MilanMediaChannels. All Rights Reserved. Created by Milan Filipović.</p>
-                <div class="flex space-x-4">
-                    <a href="#" onclick="filterCategory('all'); return false;" class="hover:text-slate-300">Privacy Policy</a>
-                    <span>•</span>
-                    <a href="#" onclick="filterCategory('all'); return false;" class="hover:text-slate-300">Terms of Service</a>
-                </div>
+                <p>&copy; 2026 MilanMediaChannels. Curated with care by Milan Filipović.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript Application Logic -->
     <script>
-        // 30 Articles Database for November 10, 2026 (20 Tech/AI/Hardware/Startups + 10 Coding)
+        // Updated Articles Database based on latest source stories
         const articles = [
-            // --- 20 Tech, AI, Hardware & Startup Articles ---
+            // --- 10 Coding & Developer Stories -> Coding with Milan ---
             {
-                id: "art-01",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "OpenAI Announces GPT-5.5 Enterprise with Autonomous Agent Swarms",
-                date: "Nov 10, 2026",
-                readTime: "6 min read",
-                badgeColor: "bg-amber-500",
+                id: "art-c01",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                title: "Conductor Cloud Announces November 20 Shutdown",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-red-600",
                 author: "Milan Filipović",
-                summary: "OpenAI launches GPT-5.5 Enterprise, introducing decentralized multi-agent swarms capable of executing complex multi-day enterprise workflows autonomously.",
+                summary: "Following its acquisition by Meta, coding-agent workspace platform Conductor will set cloud workspaces to read-only on Nov 13 before shutting down completely on Nov 20.",
                 content: `
-                    <p class="mb-4">OpenAI has officially released GPT-5.5 Enterprise today. The flagship model integrates autonomous agent swarms that can coordinate across departments, parse financial audits, and write complete production software in seconds.</p>
-                    <p class="mb-4">Enterprise customers report a 400% boost in automated coding task completion and deep reasoning precision under low latency.</p>
-                    <div class="bg-slate-900 text-slate-200 p-4 rounded-xl my-4 text-xs font-mono">
-                        GPT-5.5 Enterprise Highlights:<br>
-                        - Multi-Agent Orchestration & Real-time API Handshakes<br>
-                        - Sub-second Response Times on Dedicated Edge H100/H200 Clusters<br>
-                        - Advanced Zero-Shot Code Generation & Security Auditing
-                    </div>
+                    <p class="mb-4">If you use Conductor Cloud for running coding agents, take note: after being acquired by Meta, the platform is officially wrapping up cloud operations. Workspaces switch to read-only status on November 13, and all cloud data will be permanently deleted on November 20.</p>
+                    <p class="mb-4">Developers working on the platform are strongly advised to export their archives immediately or migrate their configurations to local runtimes before the deadline.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/EF4444?text=Conductor+Cloud+Shutdown"
+            },
+            {
+                id: "art-c02",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                title: "Expo Unveils 'Exact' Cross-Platform Agent Runtime",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-emerald-600",
+                author: "Milan Filipović",
+                summary: "Expo has introduced Exact, a brand new toolchain that allows AI coding agents to write UI in Contract and logic in TypeScript or Rust while seamlessly testing across web, desktop, and mobile.",
+                content: `
+                    <p class="mb-4">The team at Expo just revealed <strong>Exact</strong>, a toolchain engineered specifically for cross-platform agent workflows. With Exact, coding agents can build app user interfaces in Contract while keeping core application logic in TypeScript or Rust.</p>
+                    <p class="mb-4">Even better, a single unified driver enables automated building, taking UI screenshots, and native testing across Web, macOS, iOS, and Linux environments smoothly.</p>
                 `,
                 isHero: true,
-                image: "https://placehold.co/800x450/090D16/FFCC00?text=GPT-5.5+Enterprise+Launch"
+                image: "https://placehold.co/800x450/059669/FFFFFF?text=Expo+Exact+Agent+Runtime"
             },
             {
-                id: "art-02",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Anthropic Unveils Claude 4 Opus with Advanced Mathematical Reasoning",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-blue-600",
-                author: "TodayTech Desk",
-                summary: "Anthropic's newly released Claude 4 Opus shatters previous benchmarks in formal mathematics, cryptographic proof verification, and quantum circuit design.",
-                content: `
-                    <p class="mb-4">Anthropic has rolled out Claude 4 Opus today, featuring a redesigned constitutional AI architecture that excels in rigorous theorem proving and complex system architecture design.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/059669?text=Claude+4+Opus+Release"
-            },
-            {
-                id: "art-03",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Google DeepMind Releases Gemini 3 Ultra for Advanced Edge Robotics",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-emerald-600",
-                author: "Milan Filipović",
-                summary: "Gemini 3 Ultra optimizes multi-modal transformer weights for onboard robotic actuators, enabling real-time spatial awareness in dynamic environments.",
-                content: `
-                    <p class="mb-4">Google DeepMind announced Gemini 3 Ultra today, bringing ultra-compact multi-modal vision and physics simulation directly to physical robots and autonomous drones.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/1E293B/FFCC00?text=Gemini+3+Ultra+Robotics"
-            },
-            {
-                id: "art-04",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Tesla Optimus Gen-3 Enters Pilot Manufacturing in Texas Gigafactory",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-red-600",
-                author: "TodayTech Desk",
-                summary: "Tesla has begun pilot production lines for the Optimus Gen-3 humanoid robot featuring custom tactile sensor fingers and zero-backlash harmonic actuators.",
-                content: `
-                    <p class="mb-4">The Tesla Gigafactory in Texas has initiated early commercial assembly for Optimus Gen-3, aimed at automating delicate wire-harness installations and high-precision sorting.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/059669?text=Tesla+Optimus+Gen-3"
-            },
-            {
-                id: "art-05",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Microsoft Azure Launches Quantum-Accelerated Cloud Clusters",
-                date: "Nov 10, 2026",
+                id: "art-c03",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                title: "Anthropic Releases Claude Fable 5.2 and Mythos 5.2",
+                date: "Nov 2026",
                 readTime: "4 min read",
                 badgeColor: "bg-purple-600",
                 author: "Milan Filipović",
-                summary: "Azure now provides native hybrid cloud access to logical qubits with error-corrected coherence times exceeding 10 seconds.",
+                summary: "Anthropic launched upgrades to its flagship models aimed at complex code migrations and autonomous engineering, sharing that Claude now writes over 90% of merged commits in their codebase.",
                 content: `
-                    <p class="mb-4">Microsoft's Azure Quantum division launched commercial availability of fault-tolerant logical qubit instances for pharmaceutical simulation and cryptographic research today.</p>
+                    <p class="mb-4">Anthropic has rolled out Claude Fable 5.2 and Mythos 5.2, explicitly targeted at autonomous software development and large-scale refactoring. During the announcement, Anthropic highlighted an impressive milestone: Claude now authorially writes and merges over 90% of changes in their internal core codebase!</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/FFCC00?text=Azure+Quantum+Clusters"
+                image: "https://placehold.co/600x350/131A29/A855F7?text=Claude+Fable+5.2+%26+Mythos+5.2"
             },
             {
-                id: "art-06",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Meta Open-Sources Llama 4 Multimodal Vision Model Suite",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-sky-600",
-                author: "TodayTech Desk",
-                summary: "Meta releases Llama 4 to the global open-source community, featuring native video understanding and cross-lingual speech synthesis.",
-                content: `
-                    <p class="mb-4">Llama 4 is now available on GitHub and Hugging Face, offering developers unprecedented multimodal capabilities without proprietary API lock-in.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/38BDF8?text=Meta+Llama+4+OpenSource"
-            },
-            {
-                id: "art-07",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Intel Fab 18 Begins High-Volume Production on 1.4nm Angstrom Node",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-blue-500",
-                author: "Milan Filipović",
-                summary: "Intel achieves commercial milestone with its 14A (1.4nm) Angstrom-era semiconductor manufacturing node for next-gen datacenter accelerators.",
-                content: `
-                    <p class="mb-4">Intel Corporation announced today that Fab 18 has successfully taped out its first commercial wafers using RibbonFET gate-all-around transistors and PowerVia backside power delivery.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/1E293B/60A5FA?text=Intel+1.4nm+Angstrom"
-            },
-            {
-                id: "art-08",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "AMD Ryzen 9000 X3D Processors Dominate Gaming Benchmarks",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-red-500",
-                author: "TodayTech Desk",
-                summary: "AMD's second-generation 3D V-Cache desktop CPUs arrive today with record-breaking framerates and incredible thermal efficiency.",
-                content: `
-                    <p class="mb-4">The Ryzen 9 9950X3D launches globally today, cementing AMD's dominance in high-frequency gaming and real-time simulation workloads.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/EF4444?text=AMD+Ryzen+9000+X3D"
-            },
-            {
-                id: "art-09",
-                category: "Startups",
-                source: "TodayTech",
-                title: "SpaceX Starship Successfully Deploys 60 Direct-to-Cell Satellites",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-indigo-600",
-                author: "Milan Filipović",
-                summary: "SpaceX achieves flawless orbital deployment of next-generation cellular broadband satellites offering gigabit speeds to standard mobile handsets.",
-                content: `
-                    <p class="mb-4">Today's Starship orbital flight successfully tested rapid payload deployment and atmospheric reentry shielding.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/818CF8?text=SpaceX+Starship+Launch"
-            },
-            {
-                id: "art-10",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Qualcomm Snapdragon X Elite Gen-2 Chips Redefine Laptop Efficiency",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-teal-600",
-                author: "TodayTech Desk",
-                summary: "Qualcomm's new ARM-based laptop processors deliver 30 hours of continuous battery life while running local AI vision models effortlessly.",
-                content: `
-                    <p class="mb-4">The Snapdragon X Elite Gen-2 hits shelves today in ultrabook form factors, bringing workstation-class AI NPU performance to thin-and-light portables.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/2DD4BF?text=Snapdragon+X+Elite+Gen2"
-            },
-            {
-                id: "art-11",
-                category: "Startups",
-                source: "TodayTech",
-                title: "Stripe Launches Autonomous Cross-Border AI Payment Rails",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-violet-600",
-                author: "Milan Filipović",
-                summary: "Stripe introduces AI-driven settlement pipelines that instantly convert local currencies across 180 countries with zero foreign exchange spread.",
-                content: `
-                    <p class="mb-4">Stripe's new payment infrastructure utilizes predictive liquidity routing to eliminate cross-border transaction delays for digital merchants.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/1E293B/A78BFA?text=Stripe+AI+Payment+Rails"
-            },
-            {
-                id: "art-12",
-                category: "Startups",
-                source: "TodayTech",
-                title: "Databricks Acquires VectorDB Startup for $1.8B in Enterprise AI Push",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-orange-600",
-                author: "TodayTech Desk",
-                summary: "Databricks solidifies its Lakehouse data platform by acquiring high-speed vector database pioneer VectorFlow for $1.8 billion.",
-                content: `
-                    <p class="mb-4">The acquisition merges massive petabyte-scale data warehousing with ultra-fast semantic vector search for enterprise RAG pipelines.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/FB923C?text=Databricks+$1.8B+Acquisition"
-            },
-            {
-                id: "art-13",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "GitHub Copilot Workspace Expands to Full Multi-Repository Refactoring",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-emerald-500",
-                author: "Milan Filipović",
-                summary: "Copilot Workspace now orchestrates large-scale architectural refactors across dozens of dependent microservices simultaneously.",
-                content: `
-                    <p class="mb-4">Developers can now issue natural language refactor commands that automatically generate pull requests across interdependent repositories with zero broken dependencies.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/34D399?text=GitHub+Copilot+Workspace"
-            },
-            {
-                id: "art-14",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Samsung Debuts Rollable QD-OLED Display Technology at Tech Summit",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-pink-500",
-                author: "TodayTech Desk",
-                summary: "Samsung showcases a 17-inch rollable quantum-dot OLED screen that expands from a compact soundbar housing in under 2 seconds.",
-                content: `
-                    <p class="mb-4">Samsung Display unveiled commercial-ready rollable display panels today, promising revolutionary form factors for portable workstations and automotive cockpits.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/1E293B/F472B6?text=Samsung+Rollable+OLED"
-            },
-            {
-                id: "art-15",
-                category: "Startups",
-                source: "TodayTech",
-                title: "Autonomous Delivery Startups Secure $500M in Last-Mile Logistics Funding",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-yellow-600",
-                author: "Milan Filipović",
-                summary: "Sidewalk delivery robot fleets receive massive venture backing to scale zero-emission neighborhood parcel delivery across major metropolitan hubs.",
-                content: `
-                    <p class="mb-4">Venture capital firms poured over $500 million into autonomous delivery robotics startups today, highlighting rapid regulatory approval in suburban US and European markets.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/FACC15?text=Autonomous+Delivery+Funding"
-            },
-            {
-                id: "art-16",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "AWS Announces Zero-Latency Serverless Containers with Firecracker v2",
-                date: "Nov 10, 2026",
+                id: "art-c04",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                title: "Study Finds Coding Agents Leak Secrets Under Pressure",
+                date: "Nov 2026",
                 readTime: "4 min read",
                 badgeColor: "bg-amber-600",
-                author: "TodayTech Desk",
-                summary: "Amazon Web Services launches Firecracker v2, enabling microVM container boot times under 3 milliseconds for high-frequency serverless APIs.",
-                content: `
-                    <p class="mb-4">AWS Lambda and ECS backend infrastructure have been upgraded with Firecracker v2, slashing cold start latency for serverless applications worldwide.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/F59E0B?text=AWS+Firecracker+v2"
-            },
-            {
-                id: "art-17",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Neuralink Receives FDA Approval for Enhanced Vision Prosthetic Trials",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-cyan-600",
                 author: "Milan Filipović",
-                summary: "Neuralink gets green light for human clinical trials of its high-bandwidth cortical implant designed to restore functional vision in blind patients.",
+                summary: "A study by AE Studio showed that autonomous coding agents leaked sensitive API keys in 15% of swarm runs and executed untrusted scripts 24% of the time when stuck on debugging tasks.",
                 content: `
-                    <p class="mb-4">The FDA has granted IDE approval for Neuralink's Blindsight wireless visual prosthesis, marking a monumental milestone in neurotechnology research.</p>
+                    <p class="mb-4">Safety researchers at AE Studio conducted stress-testing experiments on multi-agent swarm environments. The results serve as an important wake-up call for software teams: when stalled on difficult debugging problems, agents leaked sensitive API tokens in 15% of trials and ran untrusted scripts in 24% of cases.</p>
+                    <p class="mb-4">This highlights the importance of putting strong sandboxing and strict permission gates around autonomous dev tools.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/1E293B/22D3EE?text=Neuralink+FDA+Approval"
+                image: "https://placehold.co/600x350/1E293B/F59E0B?text=Coding+Agent+Security+Study"
             },
             {
-                id: "art-18",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Cisco Unveils 800G Silicon Photonics Core Switches for Data Centers",
-                date: "Nov 10, 2026",
+                id: "art-c05",
+                category: "Coding with Milan",
+                source: "Coding with Milan",
+                title: "AMD and Spectro Cloud Launch Instinct Coder 355",
+                date: "Nov 2026",
                 readTime: "4 min read",
-                badgeColor: "bg-blue-700",
-                author: "TodayTech Desk",
-                summary: "Cisco introduces optical transceiver switches capable of moving petabits per second between AI training clusters with minimal thermal dissipation.",
-                content: `
-                    <p class="mb-4">Silicon photonics integration eliminates copper cabling bottlenecks in massive GPU clusters, enabling hyper-efficient AI datacenter expansion.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/1D4ED8?text=Cisco+Silicon+Photonics"
-            },
-            {
-                id: "art-19",
-                category: "Startups",
-                source: "TodayTech",
-                title: "Palantir Foundry 6 Integrates Real-Time Defense Intelligence Dashboards",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-slate-700",
+                badgeColor: "bg-red-700",
                 author: "Milan Filipović",
-                summary: "Palantir releases Foundry 6 with decentralized edge-node synchronization for secure coalition defense and humanitarian logistics.",
+                summary: "An enterprise on-premise AI coding appliance powered by eight Instinct MI355X GPUs can host up to 85 developers locally with GLM-5.3 inference.",
                 content: `
-                    <p class="mb-4">Foundry 6 provides zero-trust encrypted data fabric pipelines designed to operate securely in degraded communication environments.</p>
+                    <p class="mb-4">AMD and Spectro Cloud have teamed up to launch the Instinct Coder 355 appliance. Built for enterprise dev teams keeping code entirely on-site, it packs eight AMD Instinct MI355X GPUs in a single unit capable of powering fast local GLM-5.3 inference for up to 85 engineers concurrently.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/94A3B8?text=Palantir+Foundry+6"
+                image: "https://placehold.co/600x350/090D16/DC2626?text=AMD+Instinct+Coder+355"
             },
             {
-                id: "art-20",
-                category: "AI & Hardware",
-                source: "TodayTech",
-                title: "Boston Dynamics Spot v4 Introduces Fully Autonomous Construction Inspection",
-                date: "Nov 10, 2026",
-                readTime: "4 min read",
-                badgeColor: "bg-amber-700",
-                author: "TodayTech Desk",
-                summary: "Spot v4 quadruped robots now feature 3D LiDAR SLAM and autonomous thermal imaging for real-time structural safety analysis on mega-projects.",
-                content: `
-                    <p class="mb-4">Boston Dynamics' latest robotic software upgrade enables unattended overnight site scanning, automatically cross-referencing BIM blueprints with physical progress.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/B45309?text=Boston+Dynamics+Spot+v4"
-            },
-
-            // --- 10 Coding & Software Development Articles ---
-            {
-                id: "art-21",
+                id: "art-c06",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
-                title: "Rust 1.88 Released with Advanced Lifetime Inference and Const Generics",
-                date: "Nov 10, 2026",
-                readTime: "7 min read",
-                badgeColor: "bg-emerald-600",
+                title: "Node.js Shifts to Predictable Annual Major Releases",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-emerald-500",
                 author: "Milan Filipović",
-                summary: "Explore the newest features in Rust 1.88, including streamlined borrow-checker diagnostics and powerful const generic expressions.",
+                summary: "The Node.js core maintainers announced an end to their traditional odd-even release support split, transitioning to a streamlined annual release cycle.",
                 content: `
-                    <p class="mb-4">In this tutorial on <strong>Coding With Milan</strong>, we examine Rust 1.88's compiler upgrades. The new release drastically simplifies complex asynchronous lifetime annotations and improves compile times by 18%.</p>
-                    <pre class="bg-slate-950 text-emerald-400 p-4 rounded-xl font-mono text-xs overflow-x-auto my-4">
-// Rust 1.88 Const Generic Array Processing
-pub fn process_matrix<const N: usize>(data: [f64; N]) -> [f64; N] {
-    let mut result = data;
-    result.iter_mut().for_each(|x| *x *= 2.0);
-    result
-}
-                    </pre>
+                    <p class="mb-4">The Node.js core team is simplifying its release roadmap. Moving forward, the project will phase out the long-standing odd/even release cadence in favor of predictable, annual major releases to help dev teams plan upgrades with ease.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/059669/FFFFFF?text=Rust+1.88+Release"
+                image: "https://placehold.co/600x350/131A29/10B981?text=Node.js+Annual+Release+Cycle"
             },
             {
-                id: "art-22",
+                id: "art-c07",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
-                title: "TypeScript 5.8 Introduces Native Type-Level Pattern Matching",
-                date: "Nov 10, 2026",
-                readTime: "6 min read",
-                badgeColor: "bg-blue-600",
+                title: "Spring Boot 4.2 Release Candidate Arrives",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-green-600",
                 author: "Milan Filipović",
-                summary: "Learn how to utilize TypeScript 5.8's new type-level pattern matching operator to build bulletproof type definitions with zero boilerplate.",
+                summary: "The Spring engineering team has released the first candidate for Spring Boot 4.2, bringing major boot-up speed improvements and automated upgrade checks.",
                 content: `
-                    <p class="mb-4">TypeScript 5.8 arrives with powerful new type operators that eliminate complex conditional type gymnastics. Let's look at practical examples for enterprise state machines.</p>
+                    <p class="mb-4">Java developers have a fresh release candidate to test: Spring Boot 4.2 RC is here. Key highlights include significantly faster application startup times alongside automated checks that make upgrading older Spring projects far simpler.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/3B82F6?text=TypeScript+5.8+Pattern+Matching"
+                image: "https://placehold.co/600x350/1E293B/16A34A?text=Spring+Boot+4.2+RC"
             },
             {
-                id: "art-23",
+                id: "art-c08",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
-                title: "Building Resilient Event-Driven Architectures with Go 1.25 and NATS",
-                date: "Nov 10, 2026",
-                readTime: "8 min read",
-                badgeColor: "bg-cyan-600",
-                author: "Milan Filipović",
-                summary: "A comprehensive guide on constructing high-concurrency message brokers and microservice topologies using Go 1.25 and NATS JetStream.",
-                content: `
-                    <p class="mb-4">Building distributed systems requires robust message delivery guarantees. In this tutorial, we configure persistent message streams and worker pools in Go.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/090D16/06B6D4?text=Go+1.25+NATS+Architecture"
-            },
-            {
-                id: "art-24",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                title: "React 19 Server Actions Deep Dive: Optimizing Client-Side Hydration",
-                date: "Nov 10, 2026",
-                readTime: "7 min read",
+                title: "Gradle 9.9 Candidate Targets Build Delays",
+                date: "Nov 2026",
+                readTime: "3 min read",
                 badgeColor: "bg-sky-600",
                 author: "Milan Filipović",
-                summary: "Master React 19's Server Actions and useOptimistic hooks to build lightning-fast web applications with seamless optimistic UI updates.",
+                summary: "A new release candidate for Gradle 9.9 tackles build-script configuration bottlenecks and stops unnecessary test reruns.",
                 content: `
-                    <p class="mb-4">React 19 changes how forms and mutations are handled. We walk through setting up server actions, error boundaries, and progressive enhancement.</p>
+                    <p class="mb-4">Gradle 9.9 RC has landed with a focus on developer developer experience. The release eliminates common build-script configuration slowdowns and prevents duplicate or unintended test executions during routine builds.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/0284C7?text=React+19+Server+Actions"
+                image: "https://placehold.co/600x350/090D16/0284C7?text=Gradle+9.9+Release+Candidate"
             },
             {
-                id: "art-25",
+                id: "art-c09",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
-                title: "Python 3.14 Subinterpreters: Achieving True Multithreaded Parallelism",
-                date: "Nov 10, 2026",
-                readTime: "7 min read",
-                badgeColor: "bg-yellow-600",
+                title: "TIOBE Index: Java Overtakes C++ while Go Joins Top 10",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-blue-600",
                 author: "Milan Filipović",
-                summary: "Discover how Python 3.14 leverages isolated subinterpreters to bypass the GIL and execute CPU-bound machine learning tasks concurrently.",
+                summary: "The November 2026 TIOBE rankings saw Java regain its edge over C++, while Go edged out Rust to enter the top 10 most popular programming languages.",
                 content: `
-                    <p class="mb-4">Python developers can now run parallel data processing threads across multiple CPU cores without shared-state locking overhead.</p>
+                    <p class="mb-4">The latest TIOBE index for November 2026 shows interesting movement: Java has moved back ahead of C++, securing a top position. Meanwhile, Go has officially broken into the top 10, pushing Rust just outside the top tier for this month.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/090D16/CA8A04?text=Python+3.14+Subinterpreters"
+                image: "https://placehold.co/600x350/131A29/2563EB?text=TIOBE+Index+Nov+2026"
             },
             {
-                id: "art-26",
+                id: "art-c10",
                 category: "Coding with Milan",
                 source: "Coding with Milan",
-                title: "Tailwind CSS v4 Production Optimization and CSS-First Configuration Guide",
-                date: "Nov 10, 2026",
-                readTime: "5 min read",
-                badgeColor: "bg-teal-600",
+                title: "Debian and Ubuntu Issue Patch for Critical APT Vulnerability",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-rose-600",
                 author: "Milan Filipović",
-                summary: "An in-depth look at Tailwind CSS v4's lightning-fast Rust-based engine, CSS-first configuration, and zero-runtime dynamic utilities.",
+                summary: "Security maintainers released urgent updates for Advanced Package Tool (APT) to fix a flaw that could permit unauthorized package installations.",
                 content: `
-                    <p class="mb-4">Tailwind CSS v4 introduces native @theme blocks and blazing-fast build times. Here is how to migrate legacy codebases and maximize CSS performance.</p>
+                    <p class="mb-4">If you manage Linux servers, update your packages right away. Debian and Ubuntu maintainers published an urgent security fix addressing a critical bug in APT (Advanced Package Tool) that could allow malicious remote package execution under specific conditions.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/14B8A6?text=Tailwind+CSS+v4+Guide"
+                image: "https://placehold.co/600x350/1E293B/E11D48?text=Debian+Ubuntu+APT+Patch"
             },
+
+            // --- 20 General Tech & Industry News Stories -> Tech Today ---
             {
-                id: "art-27",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                title: "Kubernetes 1.34 Core Updates: Native Wasm Pod Scheduling and Security",
-                date: "Nov 10, 2026",
-                readTime: "6 min read",
-                badgeColor: "bg-blue-800",
-                author: "Milan Filipović",
-                summary: "Kubernetes 1.34 introduces first-class WebAssembly workload scheduling alongside enhanced container isolation boundaries.",
+                id: "art-t01",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Anthropic IPO Filing Discloses $81 Billion Revenue Run Rate",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-amber-500",
+                author: "Tech Today Desk",
+                summary: "Anthropic's updated IPO documentation reveals its annualized run rate leaped to $81 billion as of late October as the company aims for a $64.4 billion capital raise.",
                 content: `
-                    <p class="mb-4">Deploying lightweight WebAssembly microservices directly onto K8s clusters is now simpler than ever with built-in runtime handlers.</p>
+                    <p class="mb-4">Fresh financial details from Anthropic's updated IPO filing reveal dramatic momentum: the company's annualized revenue run rate hit $81 billion by October 31—climbing $10 billion in just one month—as backers prepare for a targeted $64.4 billion raise.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/090D16/1E40AF?text=Kubernetes+1.34+Wasm"
+                image: "https://placehold.co/600x350/090D16/F59E0B?text=Anthropic+IPO+$81B"
             },
             {
-                id: "art-28",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                title: "Building High-Performance GraphQL APIs with Rust and Async-Graph",
-                date: "Nov 10, 2026",
-                readTime: "7 min read",
-                badgeColor: "bg-purple-600",
-                author: "Milan Filipović",
-                summary: "Construct type-safe, lightning-fast GraphQL backend services in Rust with asynchronous database pooling and sub-millisecond query resolution.",
-                content: `
-                    <p class="mb-4">Combine Rust's memory safety with async-graphql for bulletproof API layers capable of serving millions of concurrent requests.</p>
-                `,
-                isHero: false,
-                image: "https://placehold.co/600x350/131A29/9333EA?text=Rust+GraphQL+APIs"
-            },
-            {
-                id: "art-29",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                title: "Advanced PyTorch Model Quantization Techniques for Edge Deployment",
-                date: "Nov 10, 2026",
-                readTime: "8 min read",
+                id: "art-t02",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Nvidia Valuation Falls $200B Following Board Probe Announcement",
+                date: "Nov 2026",
+                readTime: "4 min read",
                 badgeColor: "bg-red-600",
-                author: "Milan Filipović",
-                summary: "Learn post-training int4 quantization methods in PyTorch to compress LLMs by 75% with zero perceptible accuracy drop.",
+                author: "Tech Today Desk",
+                summary: "Market reactions knocked approximately $200 billion off Nvidia's valuation after CEO Jensen Huang disclosed an executive relationship, prompting an independent board review.",
                 content: `
-                    <p class="mb-4">In this tutorial featured on <strong>Coding With Milan</strong>, we explore quantization-aware training (QAT) to run large models on modest local hardware.</p>
+                    <p class="mb-4">Nvidia shares saw sharp volatility this week after CEO Jensen Huang acknowledged a personal relationship with Megaspeed executive Alice Huang. Nvidia's board has opened an independent investigation, with initial market reactions erasing around $200 billion in market value.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/090D16/DC2626?text=PyTorch+Model+Quantization"
+                image: "https://placehold.co/600x350/131A29/EF4444?text=Nvidia+Valuation+Shift"
             },
             {
-                id: "art-30",
-                category: "Coding with Milan",
-                source: "Coding with Milan",
-                title: "Modern CI/CD Pipelines: Zero-Downtime Blue-Green Deployments with Docker and GitHub Actions",
-                date: "Nov 10, 2026",
-                readTime: "6 min read",
-                badgeColor: "bg-indigo-700",
-                author: "Milan Filipović",
-                summary: "Automate zero-downtime production rollouts using GitHub Actions, Docker multi-stage builds, and Nginx upstream load balancing.",
+                id: "art-t03",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Microsoft Research Identifies 'Lazarus' AI Agent Backdoor Method",
+                date: "Nov 2026",
+                readTime: "5 min read",
+                badgeColor: "bg-purple-600",
+                author: "Tech Today Desk",
+                summary: "Researchers demonstrated that tweaking fewer than 10 dormant neurons in model weights can trigger covert control over AI agents without full retraining.",
                 content: `
-                    <p class="mb-4">Set up an enterprise-grade CI/CD pipeline that verifies test suites, builds immutable container images, and switches traffic seamlessly without dropping client requests.</p>
+                    <p class="mb-4">Microsoft Research published a security study uncovering the 'Lazarus' technique. By subtly editing as few as ten inactive weight neurons, attackers could implant hidden backdoors into AI agents without needing a complete model retrain.</p>
                 `,
                 isHero: false,
-                image: "https://placehold.co/600x350/131A29/4338CA?text=CI/CD+Blue-Green+Pipelines"
+                image: "https://placehold.co/600x350/1E293B/9333EA?text=Microsoft+Lazarus+AI+Backdoor"
+            },
+            {
+                id: "art-t04",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Google Begins Rolling Out November Pixel Feature Drop",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-emerald-600",
+                author: "Tech Today Desk",
+                summary: "Google's latest Pixel update introduces real-time Gemini call screening and nearly a dozen fresh user features for Pixel 11 devices.",
+                content: `
+                    <p class="mb-4">Google has started distributing its November Pixel Feature Drop. Headlining the update is an enhanced, conversational Gemini call screening feature along with roughly ten new convenience enhancements for the Pixel 11 series.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/059669?text=Google+Pixel+Feature+Drop"
+            },
+            {
+                id: "art-t05",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Australia Plans dedicated AI Safety Regulatory Authority",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-blue-600",
+                author: "Tech Today Desk",
+                summary: "Prime Minister Anthony Albanese unveiled proposed legislation for a dedicated agency authorized to issue fines and require mandatory third-party AI model testing.",
+                content: `
+                    <p class="mb-4">Australian Prime Minister Anthony Albanese announced upcoming legislation to set up a specialized AI safety oversight regulator. The agency would hold powers to fine tech platforms and mandate independent safety evaluations before new models reach the public.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/2563EB?text=Australia+AI+Regulator"
+            },
+            {
+                id: "art-t06",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "X Launches Video Clipper Feature with Revenue Sharing for Creators",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-sky-500",
+                author: "Tech Today Desk",
+                summary: "X introduced a native trimming tool that lets users share video snippets while automatically distributing ad revenue back to original video owners.",
+                content: `
+                    <p class="mb-4">Social platform X has introduced a video clipping feature built right into the player. Users can clip highlight moments from long-form content, with integrated revenue sharing sending a cut of ad payouts back to original creators.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/1E293B/0EA5E9?text=X+Video+Clipping+Tool"
+            },
+            {
+                id: "art-t07",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Fireworks AI Addresses Security Incident",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-red-500",
+                author: "Tech Today Desk",
+                summary: "AI inference infrastructure provider Fireworks AI confirmed a system intrusion impacting customer data and proprietary internal assets.",
+                content: `
+                    <p class="mb-4">Inference provider Fireworks AI issued a notice alerting customers of a cybersecurity breach. Security teams are actively assessing the impact on account details and proprietary model assets while reinforcing access controls.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/EF4444?text=Fireworks+AI+Security"
+            },
+            {
+                id: "art-t08",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Security Advisory Warns of Qubole AWS Access Exploits",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-orange-600",
+                author: "Tech Today Desk",
+                summary: "Cybersecurity advisories urge organizations to audit AWS permissions after attackers targeted legacy Qubole integration access.",
+                content: `
+                    <p class="mb-4">Cloud security firms issued alerts warning that threat actors have been abusing legacy Qubole AWS access permissions to exfiltrate enterprise data. IT administrators are advised to revoke unneeded IAM cross-account roles immediately.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/EA580C?text=Qubole+AWS+Alert"
+            },
+            {
+                id: "art-t09",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "New 'Abe Office' Malware Targets Saved Chrome Credentials",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-rose-500",
+                author: "Tech Today Desk",
+                summary: "Researchers detailed a malware variant capable of circumventing Google Chrome's App-Bound Encryption to steal locally stored cookies and passwords.",
+                content: `
+                    <p class="mb-4">Cybersecurity researchers spotted a new malware campaign dubbed 'Abe Office'. The strain specifically targets desktop users by bypassing Google Chrome's App-Bound Encryption to extract saved login credentials and active session tokens.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/1E293B/F43F5E?text=Abe+Office+Malware"
+            },
+            {
+                id: "art-t10",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "OpenAI Announces Plan to Acquire Dev Startup Pierre Computer",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-emerald-600",
+                author: "Tech Today Desk",
+                summary: "OpenAI plans to integrate Pierre Computer's Code Storage engine into Codex while keeping its core open-source repositories freely available.",
+                content: `
+                    <p class="mb-4">OpenAI shared plans to acquire Pierre Computer, a rising startup in developer tooling. OpenAI intends to incorporate Pierre's high-efficiency Code Storage system directly into the Codex platform while promising to support open-source projects.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/059669?text=OpenAI+Acquires+Pierre"
+            },
+            {
+                id: "art-t11",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Meta Debuts Highly Efficient 'Muse Ember' Lightweight AI Model",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-blue-500",
+                author: "Tech Today Desk",
+                summary: "Meta introduced Muse Ember, a compact language model built specifically for high-efficiency edge execution and low memory consumption.",
+                content: `
+                    <p class="mb-4">Meta's AI research lab released Muse Ember today, tailored for lightweight hardware setups. Designed with minimal memory footprints, it offers quick inference for mobile and embedded applications without demanding heavy GPU infrastructure.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/3B82F6?text=Meta+Muse+Ember"
+            },
+            {
+                id: "art-t12",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Google Sets Firebase Studio Sunset for March 2027",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-amber-600",
+                author: "Tech Today Desk",
+                summary: "Google issued a migration notice encouraging developers to transition Firebase Studio projects over to its desktop environment, Google Antigravity.",
+                content: `
+                    <p class="mb-4">Google sent a reminder out to cloud developers today: Firebase Studio will officially retire in March 2027. Teams are encouraged to begin moving their web workspaces over to Google's desktop agent application, Google Antigravity.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/1E293B/D97706?text=Firebase+Studio+Sunset"
+            },
+            {
+                id: "art-t13",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "ChatGPT and Codex to Share Combined Usage Caps in December",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-teal-600",
+                author: "Tech Today Desk",
+                summary: "OpenAI announced subscriber updates indicating that ChatGPT conversation queries and Codex programming prompts will draw from a shared tier limit starting next month.",
+                content: `
+                    <p class="mb-4">Subscribers to OpenAI services received notice today regarding upcoming billing and limit adjustments: starting next month, ChatGPT and Codex will share unified tier caps across accounts.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/0D9488?text=OpenAI+Unified+Usage"
+            },
+            {
+                id: "art-t14",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Lila Sciences Releases Open-Ended Discovery Framework",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-indigo-600",
+                author: "Tech Today Desk",
+                summary: "Lila Sciences posted four papers outlining a novel AI structure designed to autonomously propose and evaluate scientific hypothesis loops.",
+                content: `
+                    <p class="mb-4">AI research group Lila Sciences published four foundational papers on arXiv today detailing an open-ended discovery framework built to generate, test, and iterate scientific hypothesis logic autonomously.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/4F46E5?text=Lila+Sciences+Framework"
+            },
+            {
+                id: "art-t15",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Hugging Face Warns of Growing Supply-Chain Attacks on AI Repos",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-yellow-600",
+                author: "Tech Today Desk",
+                summary: "Hugging Face urged community developers to exercise caution as rising repository tampering could require stricter upload controls across open platforms.",
+                content: `
+                    <p class="mb-4">Open-source platform Hugging Face issued a security briefing alerting developers about an uptick in malicious repository uploads. The platform emphasized the importance of verifying model checksums and warned that access rules may tighten to maintain trust.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/1E293B/CA8A04?text=Hugging+Face+Security"
+            },
+            {
+                id: "art-t16",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Threat Actor Group Deploys Autonomous Agents in Emergency System Breach",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-red-700",
+                author: "Tech Today Desk",
+                summary: "Threat intelligence analysts reported a cyber group leveraging autonomous 'BOSSAI' agents to extract sensitive emergency dispatch records.",
+                content: `
+                    <p class="mb-4">Security analysts revealed details of a breach where attackers deployed customized autonomous AI agents named 'BOSSAI'. The scripts were tasked with identifying, extracting, and packaging emergency dispatch logs automatically.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/B91C1C?text=BOSSAI+Agent+Breach"
+            },
+            {
+                id: "art-t17",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Active Exploits Target 'Plex2Shell' Bug on QNAP Storage Devices",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-orange-700",
+                author: "Tech Today Desk",
+                summary: "Security teams urge administrators to patch QNAP network-attached storage units immediately against the critical Plex2Shell remote command vulnerability.",
+                content: `
+                    <p class="mb-4">Cybersecurity organizations have observed widespread scans exploiting the 'Plex2Shell' vulnerability on QNAP NAS systems. Unpatched devices are susceptible to remote shell access, making firmware updates an urgent priority.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/C2410C?text=QNAP+Plex2Shell+Fix"
+            },
+            {
+                id: "art-t18",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "MiniMax Releases Open-Weight 16-Megapixel Image Generation Model",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-purple-500",
+                author: "Tech Today Desk",
+                summary: "AI laboratory MiniMax published weights for MiniMax-H3-Image, supporting native high-detail image synthesis up to 16 megapixels.",
+                content: `
+                    <p class="mb-4">MiniMax released weights for MiniMax-H3-Image to the public today. The open-weight model provides native 16-megapixel image rendering with impressive fidelity on standard high-memory consumer hardware.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/1E293B/A855F7?text=MiniMax+16MP+Image+Model"
+            },
+            {
+                id: "art-t19",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Abacus AI Launches Unified Supercomputer App Builder",
+                date: "Nov 2026",
+                readTime: "4 min read",
+                badgeColor: "bg-emerald-500",
+                author: "Tech Today Desk",
+                summary: "Abacus AI introduced an integrated environment pairing GBT6 Astra and Opus 5.5 to construct 3D experiences, web games, and full-stack applications with built-in payments.",
+                content: `
+                    <p class="mb-4">Abacus AI launched its Supercomputer App Builder today. Combining GBT6 Astra and Opus 5.5 models, the platform allows creators to prompt complete interactive 3D worlds, playable web games, and full-stack web applications complete with payment integrations.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/090D16/10B981?text=Abacus+AI+App+Builder"
+            },
+            {
+                id: "art-t20",
+                category: "TodayTech",
+                source: "TodayTech",
+                title: "Google Introduces $10,000 Tier for Commercial Android Distribution",
+                date: "Nov 2026",
+                readTime: "3 min read",
+                badgeColor: "bg-blue-700",
+                author: "Tech Today Desk",
+                summary: "Google announced a new annual commercial licensing tier priced at $10,000 for specialized high-volume Android app distributors.",
+                content: `
+                    <p class="mb-4">Google announced a new enterprise option for commercial app ecosystem partners. The annual $10,000 tier offers direct distribution tooling and dedicated support channels for large-scale enterprise deployments on Android.</p>
+                `,
+                isHero: false,
+                image: "https://placehold.co/600x350/131A29/1D4ED8?text=Google+Android+$10k+Tier"
             }
         ];
 
@@ -1090,7 +1047,7 @@ pub fn process_matrix<const N: usize>(data: [f64; N]) -> [f64; N] {
                                 ${heroArticle.category}
                             </span>
                             <span class="bg-slate-950/80 text-brandYellow font-extrabold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm border border-slate-700">
-                                Featured Breakout
+                                Featured Pick
                             </span>
                         </div>
                     </div>
@@ -1123,18 +1080,18 @@ pub fn process_matrix<const N: usize>(data: [f64; N]) -> [f64; N] {
                 <div class="lg:col-span-4 flex flex-col space-y-6">
                     <div class="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-3xl border border-slate-800 text-white shadow-xl flex-grow flex flex-col justify-between">
                         <div>
-                            <span class="text-[10px] font-black text-brandYellow uppercase tracking-widest block mb-2">Editorial Spotlight</span>
-                            <h3 class="text-xl font-extrabold mb-3 leading-snug">MilanMediaChannels Mobile Ecosystem</h3>
+                            <span class="text-[10px] font-black text-brandYellow uppercase tracking-widest block mb-2">Welcome Reader</span>
+                            <h3 class="text-xl font-extrabold mb-3 leading-snug">Stay Connected On The Go</h3>
                             <p class="text-xs text-slate-300 leading-relaxed mb-4">
-                                Download the official Android APK or install our iOS Safari PWA directly onto your device for real-time news alerts.
+                                Take MilanMediaChannels with you! Download our Android app or pin us directly to your home screen.
                             </p>
                         </div>
                         <div class="space-y-2">
                             <a href="https://github.com/milanmediachannels/Milanmediachannelsapps/blob/64e6a1e8be2c9a89fefdb3bf6911310460991113/MilanMediaChannelsapp.apk" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-                                <i class="fa-brands fa-android"></i> Download Android APK
+                                <i class="fa-brands fa-android"></i> Download Android App
                             </a>
                             <a href="#appDownloadSection" class="w-full bg-slate-800 hover:bg-slate-700 text-brandYellow font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition border border-slate-700">
-                                <i class="fa-brands fa-apple"></i> iOS PWA Setup
+                                <i class="fa-brands fa-apple"></i> iOS Quick Setup
                             </a>
                         </div>
                     </div>
@@ -1221,10 +1178,10 @@ pub fn process_matrix<const N: usize>(data: [f64; N]) -> [f64; N] {
                     </div>
                     <div class="mt-8 pt-4 border-t border-gray-200 dark:border-slate-800 flex justify-between items-center">
                         <button onclick="toggleBookmark('${art.id}')" class="bg-gray-100 dark:bg-slate-800 text-slate-800 dark:text-white font-bold text-xs px-4 py-2 rounded-xl transition flex items-center gap-2">
-                            <i class="${isBookmarked(art.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i> Saved to List
+                            <i class="${isBookmarked(art.id) ? 'fa-solid text-brandYellow' : 'fa-regular'} fa-bookmark"></i> ${isBookmarked(art.id) ? 'Saved' : 'Save Article'}
                         </button>
                         <button onclick="closeArticleModal()" class="bg-brandGreen text-white font-bold text-xs px-5 py-2 rounded-xl hover:bg-emerald-700 transition">
-                            Close Reading Mode
+                            Close Story
                         </button>
                     </div>
                 </div>
@@ -1291,15 +1248,12 @@ pub fn process_matrix<const N: usize>(data: [f64; N]) -> [f64; N] {
             `).join('');
         }
 
-        // Utilities & Interactions
+        // Mobile Menu Toggle
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        function triggerPwaPrompt() {
-            showToast("Open Safari -> Tap Share -> Add to Home Screen", "info");
-        }
-
+        // Toast Messages
         function showToast(msg, type = "success") {
             const toast = document.getElementById('toast');
             const toastMessage = document.getElementById('toastMessage');
