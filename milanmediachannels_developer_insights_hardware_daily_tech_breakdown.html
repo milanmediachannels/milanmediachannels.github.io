@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="7aae530d-745c-4b8c-a911-440fb4f7d76e"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilanMediaChannels - Developer Insights, Hardware & Daily Tech Breakdown</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FFCC00',
+                        brandYellowDark: '#E6B800',
+                        brandGreen: '#059669',
+                        brandGreenDark: '#047857',
+                        darkBg: '#090D16',
+                        darkCard: '#131A29',
+                        darkBorder: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .media-shadow-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .media-shadow-hover:hover { box-shadow: 0 16px 35px -6px rgba(0, 0, 0, 0.25); transform: translateY(-3px); }
+        .dark .media-shadow-hover:hover { box-shadow: 0 16px 35px -6px rgba(0, 0, 0, 0.8); }
+        
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #059669; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFCC00; }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen flex flex-col antialiased relative">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-slate-950 text-slate-300 text-[11px] py-2 px-4 border-b border-slate-800 font-medium">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 overflow-hidden">
+                <span class="bg-brandGreen text-white text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider shrink-0 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> <span id="topBarDate">DAILY JOURNAL • NOV 13, 2026</span>
+                </span>
+                <p class="truncate text-slate-300">
+                    <span class="text-brandYellow font-semibold">Today's Headlines (Nov 13):</span> Automattic unveils Spacefast hosting for AI-built apps, Anthropic turns calls into dev tasks with Claude Meetings, Meta adds live phone calling for paid Muse subscribers, plus Outlook outage &amp; foldable iPhone Duo apps.
+                </p>
+            </div>
+            <!-- Social Quick Links -->
+            <div class="hidden md:flex items-center space-x-4 shrink-0 text-xs font-semibold">
+                <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="hover:text-red-400 transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-youtube text-red-500"></i> Coding With Milan
+                </a>
+                <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="hover:text-red-400 transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-youtube text-red-500"></i> TodayTech
+                </a>
+                <a href="https://x.com/milanmediachann" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-x-twitter"></i> @milanmediachann
+                </a>
+                <a href="https://www.instagram.com/milanmediachannels/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-instagram text-pink-500"></i> @milanmediachannels
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="bg-white dark:bg-darkCard border-b border-gray-200 dark:border-darkBorder sticky top-0 z-40 transition-colors shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Main Brand Logo -->
+                <a href="#" onclick="filterCategory('all'); return false;" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brandYellow via-amber-400 to-brandGreen flex items-center justify-center shadow-md p-0.5">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-brandYellow font-black text-xl">
+                            M
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white uppercase">Milan<span class="text-brandGreen">Media</span></span>
+                            <span class="bg-slate-900 text-brandYellow text-[10px] font-extrabold px-1.5 py-0.5 rounded tracking-widest uppercase">CHANNELS</span>
+                        </div>
+                        <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 tracking-wider uppercase">
+                            Handcrafted Developer Stories & Tech Digest
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Category Navigation -->
+                <nav class="hidden lg:flex items-center space-x-1 font-bold text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                    <button onclick="filterCategory('all')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition text-brandGreen font-black">
+                        All Stories (<span class="total-article-count">0</span>)
+                    </button>
+                    <button onclick="filterCategory('Coding with Milan')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandGreen inline-block"></span> Coding with Milan (<span class="coding-article-count">0</span>)
+                    </button>
+                    <button onclick="filterCategory('TodayTech')" class="nav-btn px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5 text-slate-900 dark:text-white">
+                        <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span> Tech Today (<span class="techtoday-article-count">0</span>)
+                    </button>
+                </nav>
+
+                <!-- Utility Actions -->
+                <div class="flex items-center space-x-3">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search Spacefast, Claude, Muse, iPhone Duo..." 
+                            class="w-56 lg:w-72 pl-9 pr-4 py-2 text-xs font-medium bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-brandGreen dark:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <a href="#appDownloadSection" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-brandGreen hover:text-brandYellow transition text-xs font-semibold relative flex items-center gap-1" title="Get Mobile App">
+                        <i class="fa-solid fa-mobile-screen-button text-sm"></i>
+                        <span class="hidden xl:inline text-[11px] font-bold">App</span>
+                    </a>
+
+                    <button onclick="toggleBookmarkDrawer()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:text-brandYellow transition text-xs font-semibold relative" title="Saved Reading List">
+                        <i class="fa-solid fa-bookmark text-brandYellow text-sm"></i>
+                        <span id="bookmarkBadge" class="absolute -top-1 -right-1 bg-brandGreen text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+
+                    <button id="themeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brandYellow transition text-sm" title="Toggle Theme">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-brandYellow"></i>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-darkCard border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-2 text-xs uppercase font-bold">
+            <div class="relative my-2">
+                <input type="text" id="mobileSearchInput" oninput="handleSearch(true)" placeholder="Search articles & code..." 
+                    class="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400"></i>
+            </div>
+            <button onclick="filterCategory('all'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-800">All Stories (<span class="total-article-count">0</span>)</button>
+            <button onclick="filterCategory('Coding with Milan'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandGreen hover:bg-gray-100 dark:hover:bg-slate-800">Coding with Milan (<span class="coding-article-count">0</span>)</button>
+            <button onclick="filterCategory('TodayTech'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded text-brandYellowDark dark:text-brandYellow hover:bg-gray-100 dark:hover:bg-slate-800">Tech Today (<span class="techtoday-article-count">0</span>)</button>
+            
+            <div class="pt-3 border-t border-gray-200 dark:border-slate-800 space-y-2 normal-case font-medium">
+                <div class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Connect With Us</div>
+                <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:text-red-500 py-1">
+                    <i class="fa-brands fa-youtube text-red-500 text-sm"></i> YouTube: @CodingWithMilan-r1x
+                </a>
+                <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-800 dark:text-slate-200 hover:text-red-500 py-1">
+                    <i class="fa-brands fa-youtube text-red-500 text-sm"></i> YouTube: @TodayTech-l9z
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Creator Welcome Banner -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 border-b border-slate-800 py-6 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brandYellow to-brandGreen p-0.5 shrink-0 shadow-xl">
+                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center font-black text-brandYellow text-xl">
+                        MF
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-lg font-black text-white tracking-tight">Milan Filipović</h2>
+                        <span class="bg-brandGreen text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full">CREATOR & TECH EDITOR</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-0.5 max-w-xl leading-relaxed">
+                        Hey there! Welcome to MilanMediaChannels. Today's edition (<span id="bannerDateText" class="text-brandYellow font-semibold">November 13, 2026</span>) breaks down the biggest app, developer, and AI shifts into easy-to-read stories—from vibe-coding deployment platforms and automated dev tasks to voice AI agents and foldable apps.
+                    </p>
+                </div>
+            </div>
+
+            <!-- YouTube Channel Badges -->
+            <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" 
+                   class="bg-red-600 hover:bg-red-700 text-white font-black text-xs px-4 py-2 rounded-xl transition flex items-center gap-2 shadow-lg hover:shadow-red-900/40">
+                    <i class="fa-brands fa-youtube text-base"></i> Coding With Milan
+                </a>
+                <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" 
+                   class="bg-slate-800 hover:bg-slate-700 text-brandYellow border border-slate-700 font-black text-xs px-4 py-2 rounded-xl transition flex items-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-youtube text-red-500 text-base"></i> Tech Today Channel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Editorial News Body -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- Category Filter Pills & Stats Header -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-4 border-b border-gray-200 dark:border-slate-800 gap-4">
+            <div class="flex items-center space-x-2 overflow-x-auto shrink-0 pb-1 md:pb-0">
+                <button onclick="filterCategory('all')" class="cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900">
+                    All Stories (<span class="total-article-count">0</span>)
+                </button>
+                <button onclick="filterCategory('Coding with Milan')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all">
+                    Coding with Milan (<span class="coding-article-count">0</span>)
+                </button>
+                <button onclick="filterCategory('TodayTech')" class="cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandYellow transition-all">
+                    Tech Today (<span class="techtoday-article-count">0</span>)
+                </button>
+            </div>
+            
+            <div id="articleCounter" class="text-xs font-bold text-gray-500 dark:text-slate-400">
+                Edition: <span id="headerDateBadge" class="text-slate-800 dark:text-slate-200">Nov 13, 2026</span> • Showing <span id="countNum" class="text-brandGreen font-extrabold">0</span> curated stories by <span class="text-slate-800 dark:text-slate-200">Milan Filipović</span>
+            </div>
+        </div>
+
+        <!-- Featured Story & Sidebar Grid -->
+        <div id="featuredHeroContainer" class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+            <!-- Dynamic Main Hero Injected Here -->
+        </div>
+
+        <!-- Official YouTube Media Hub Showcase -->
+        <section class="mb-12 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 pb-4 border-b border-slate-800 gap-4">
+                <div>
+                    <span class="bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">Video Corner</span>
+                    <h3 class="text-2xl font-black text-white tracking-tight mt-1">Catch Up on Video Breakdowns</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Prefer watching over reading? Check out our latest videos on both channels.</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-brands fa-youtube"></i> Coding Channel
+                    </a>
+                    <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-2 border border-slate-700">
+                        <i class="fa-brands fa-youtube text-red-500"></i> Tech Today
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Channel Card 1 -->
+                <div class="bg-slate-900/90 rounded-2xl p-5 border border-slate-800 flex flex-col justify-between hover:border-red-500/50 transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-extrabold text-red-500 flex items-center gap-1.5"><i class="fa-brands fa-youtube"></i> Coding With Milan</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">@CodingWithMilan-r1x</span>
+                        </div>
+                        <h4 class="text-base font-bold text-white mb-2">Hands-on Developer Guides & Code Walkthroughs</h4>
+                        <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                            Practical insights on vibe-coding deployment platforms, agent task pipelines, developer APIs, and modern app architectures.
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/@CodingWithMilan-r1x" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-red-600 text-white font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-2">
+                        Visit Channel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Channel Card 2 -->
+                <div class="bg-slate-900/90 rounded-2xl p-5 border border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-extrabold text-brandYellow flex items-center gap-1.5"><i class="fa-brands fa-youtube text-red-500"></i> Tech Today</span>
+                            <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">@TodayTech-l9z</span>
+                        </div>
+                        <h4 class="text-base font-bold text-white mb-2">Everyday Tech News & App Economy Analysis</h4>
+                        <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                            Stay up-to-date with consumer app releases, AI voice assistants, mobile OS updates, and major digital platform shifts.
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/@TodayTech-l9z" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-800 hover:bg-brandYellow hover:text-slate-950 font-bold py-2.5 rounded-xl text-xs text-center transition flex items-center justify-center gap-2">
+                        Visit Channel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Header for Editorial Feeds -->
+        <div class="flex items-center justify-between mb-6 pt-4 border-t border-gray-200 dark:border-slate-800">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Latest Stories & News Reads</h3>
+                <p class="text-xs text-gray-500 dark:text-slate-400 mt-1 font-medium">Updated for <span id="feedDateSubtitle">Friday, November 13, 2026</span> • Written by <span class="font-bold text-slate-700 dark:text-slate-200">Milan Filipović</span></p>
+            </div>
+        </div>
+
+        <!-- News Cards Grid -->
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Cards Injected Here via JavaScript -->
+        </div>
+
+        <!-- Empty State Search Handler -->
+        <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-darkCard rounded-2xl border border-dashed border-gray-300 dark:border-slate-800 my-8">
+            <i class="fa-solid fa-magnifying-glass text-4xl text-gray-400 mb-3"></i>
+            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-200">No Stories Match Your Search</h3>
+            <p class="text-xs text-gray-500 mt-1">Try searching for key terms like "Spacefast", "Claude", "Muse", "Outlook", or "Duo".</p>
+            <button onclick="filterCategory('all')" class="mt-4 bg-brandGreen text-white font-bold px-5 py-2 rounded-xl text-xs hover:bg-emerald-700 transition">
+                Show All Stories
+            </button>
+        </div>
+
+        <!-- App Downloads & Mobile Setup -->
+        <section id="appDownloadSection" class="mt-16 bg-slate-950 rounded-3xl p-6 sm:p-10 border border-slate-800 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-brandGreen/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-brandYellow/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10">
+                <div class="max-w-3xl mb-8">
+                    <span class="bg-brandYellow text-slate-950 font-black text-[10px] px-3 py-1 rounded uppercase tracking-wider">
+                        Take Us With You
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 tracking-tight">Read MilanMedia Channels on Mobile</h2>
+                    <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                        Stay connected on the move with offline reading support and crisp rendering on any smartphone.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                    
+                    <!-- Android Native App Card -->
+                    <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                                        <i class="fa-brands fa-android"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-base text-white">Android App</h3>
+                                        <span class="text-[11px] text-slate-400 font-mono">Package: MilanMediaChannels.apk</span>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-500/20 text-emerald-400 text-[9px] font-black px-2.5 py-1 rounded uppercase">
+                                    Official APK
+                                </span>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                                Grab the official Android app directly from our GitHub release page for smooth reading and quick navigation.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800">
+                            <a href="https://github.com/milanmediachannels/Milanmediachannelsapps/blob/64e6a1e8be2c9a89fefdb3bf6911310460991113/MilanMediaChannelsapp.apk" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-lg hover:shadow-emerald-900/40">
+                                <i class="fa-solid fa-download text-sm"></i> Download Android APK
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- iOS PWA Tutorial Card -->
+                    <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-800 flex flex-col justify-between hover:border-brandYellow/50 transition">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-brandYellow flex items-center justify-center text-xl">
+                                        <i class="fa-brands fa-apple"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-extrabold text-base text-white">iPhone & iPad Quick Setup</h3>
+                                        <span class="text-[11px] text-slate-400 font-mono">Web App Setup</span>
+                                    </div>
+                                </div>
+                                <span class="bg-brandYellow/20 text-brandYellow text-[9px] font-black px-2.5 py-1 rounded uppercase">
+                                    Fast & Easy
+                                </span>
+                            </div>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+                                You can save this website directly to your iPhone home screen in a few taps:
+                            </p>
+
+                            <ol class="space-y-2 text-xs text-slate-300 mb-4 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800 font-medium">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                    <span>Open this site in <strong>Safari</strong> on your device.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                    <span>Tap the <strong>Share</strong> button <i class="fa-solid fa-share-nodes text-brandYellow"></i> in your browser menu.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="bg-brandYellow text-slate-950 font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                    <span>Choose <strong>"Add to Home Screen"</strong> and you're good to go!</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-darkCard border-t border-gray-200 dark:border-darkBorder py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-slate-400">
+            <div class="flex items-center gap-2 font-bold text-slate-800 dark:text-slate-200">
+                <span class="w-2.5 h-2.5 rounded-full bg-brandGreen"></span>
+                <span>MilanMediaChannels &bull; Edition: November 13, 2026</span>
+            </div>
+            <div>
+                All articles written &amp; edited by <strong class="text-slate-900 dark:text-white">Milan Filipović</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Detailed Article Reading Mode -->
+    <div id="articleModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-darkCard rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-slate-800 shadow-2xl transition-all">
+            <div id="modalContent">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide-over Bookmark Drawer -->
+    <div id="bookmarkDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white dark:bg-darkCard border-l border-gray-200 dark:border-slate-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col">
+        <div class="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-slate-800">
+            <h3 class="font-black text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-bookmark text-brandYellow"></i> Saved Reading List
+            </h3>
+            <button onclick="toggleBookmarkDrawer()" class="text-gray-400 hover:text-slate-900 dark:hover:text-white p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div id="bookmarkList" class="flex-grow overflow-y-auto py-4 space-y-4">
+            <!-- Bookmarked items injected dynamically -->
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-slate-700 text-xs font-semibold hidden z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-brandGreen"></i>
+        <span id="toastMessage">Action completed</span>
+    </div>
+
+    <script>
+        const EDITION_DATE = "November 13, 2026";
+        const AUTHOR_NAME = "Milan Filipović";
+
+        // Curated Editorial Articles Written by Milan Filipović
+        // Coding & Developer Tooling -> "Coding with Milan"
+        // Consumer Apps, AI Assistants & Tech News -> "TodayTech"
+        const articles = [
+            // --- CODING WITH MILAN ---
+            {
+                id: "cwm-1",
+                channel: "Coding with Milan",
+                tag: "Vibe-Coding & Deployment",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "5 min read",
+                featured: true,
+                title: "Automattic Launches Spacefast to Simplify Hosting for AI-Generated Web Apps",
+                summary: "Automattic has unveiled Spacefast, a zero-configuration edge hosting platform built specifically for developers shipping apps created through natural-language coding workflows.",
+                content: [
+                    "Prompt-driven development makes it remarkably fast to assemble a working web prototype, yet moving that code onto reliable production servers still trips up plenty of builders. Automattic's new Spacefast service strips away container manifests, IAM boilerplate, and manual database wiring so projects can go live in seconds.",
+                    "Developers can push single-file prototypes or multi-service repositories straight from their terminal or AI editor and immediately get a globally cached HTTPS endpoint backed by serverless storage.",
+                    "Milan's Take: Having operated WordPress.com, Tumblr, and WooCommerce at massive scale for years, Automattic understands edge caching better than almost anyone. While Vercel, Netlify, and Cloudflare Pages already fight hard for Git-based deployments, Spacefast is clearly aimed at solo builders who generate apps via prompt and never want to touch a YAML pipeline."
+                ],
+                codeSnippet: "npx spacefast deploy --project vibe-app --edge-cache true",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80"
+            },
+            {
+                id: "cwm-2",
+                channel: "Coding with Milan",
+                tag: "AI Developer Workflows",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: false,
+                title: "Anthropic's New Claude Meetings Tool Converts Team Calls Into Actionable Engineering Tasks",
+                summary: "Anthropic has expanded its workplace lineup with Claude Meetings, a feature that transforms live team discussions into structured project plans and tracked engineering tasks.",
+                content: [
+                    "Software teams lose hours every week translating sprint planning sessions and architecture calls into actionable backlog tickets. With Claude Meetings, Anthropic aims to bridge the gap between live team conversations and structured project execution.",
+                    "Instead of stopping at a passive wall of transcribed text, the tool extracts technical decisions, assigns follow-up owners, and organizes action items so engineers can jump straight into building.",
+                    "Milan's Take: Basic meeting transcription is now built into Zoom, Google Meet, and Microsoft Teams. Where Anthropic can genuinely stand out for developers is repository-aware context—mapping a spoken API change directly to the right GitHub issue or pull request without manual copy-pasting."
+                ],
+                codeSnippet: "claude meetings export --sync github-issues --repo core-service",
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "cwm-3",
+                channel: "Coding with Milan",
+                tag: "iOS & Dual-Screen Dev",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: false,
+                title: "Apple Prepares Developers for Foldable iPhone Duo With Multi-Pane App Support",
+                summary: "Apple is gearing up for a wave of dual-screen mobile software as iOS developers adapt their interfaces for expandable hardware layouts.",
+                content: [
+                    "Designing responsive layouts for foldable screens requires rethinking navigation rails, drag-and-drop panes, and live state preservation across screen transitions. Apple is now spotlighting upcoming Duo-ready applications engineered specifically for dual-screen workflows.",
+                    "By leveraging modern SwiftUI adaptive split-view containers, iOS developers can present full master-detail workspaces when a device opens up while keeping compact quick actions accessible on an outer cover display.",
+                    "Milan's Take: Android developers spent several years refining WindowManager and Jetpack Compose fold-posture APIs before dual-pane layouts felt second nature. Apple's big advantage is that teams who already adopted NavigationSplitView for iPadOS multitasking will find much of their layout code carries over cleanly."
+                ],
+                codeSnippet: "NavigationSplitView { SidebarView() } detail: { AdaptiveCanvasView() }",
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "cwm-4",
+                channel: "Coding with Milan",
+                tag: "Generative Audio APIs",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "ElevenLabs Adds Direct SoundCloud Distribution for AI-Generated Music Tracks",
+                summary: "Creators working with ElevenLabs can now publish AI-composed music straight onto SoundCloud, connecting audio generation directly to streaming distribution.",
+                content: [
+                    "ElevenLabs has expanded its audio suite by letting creators push AI-generated music tracks directly to SoundCloud, eliminating the repetitive cycle of downloading WAV files, tagging metadata, and uploading manually.",
+                    "For developers building media pipelines and interactive experiences, the release demonstrates how generative audio platforms are wiring themselves directly into established consumer streaming networks.",
+                    "Milan's Take: Direct platform publishing removes a real workflow headache for indie game developers and podcasters, though it also turns up the heat on the ongoing industry debate over AI audio labeling, royalty pools, and metadata transparency."
+                ],
+                codeSnippet: "await elevenlabs.music.publish({ trackId: 'trk_902', target: 'soundcloud' });",
+                image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=80"
+            },
+
+            // --- TECH TODAY (TodayTech) ---
+            {
+                id: "tt-1",
+                channel: "TodayTech",
+                tag: "AI Voice Agents",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: true,
+                title: "Meta Adds Live Phone Calling for Paid Muse Subscribers",
+                summary: "Paying users of Meta's Muse assistant can now have the AI place real outbound phone calls to U.S. businesses on their behalf.",
+                content: [
+                    "Meta has rolled out a hands-on real-world upgrade for its Muse digital assistant: placing live outbound telephone calls to businesses across the United States for paying subscribers.",
+                    "Users can ask Muse to handle everyday errands like checking local store stock or booking a dinner reservation, letting the assistant navigate automated phone menus and report back with the result.",
+                    "Milan's Take: Real-time voice synthesis and telephony minutes carry real per-call compute costs, so placing live phone calling behind a paid tier makes business sense—signaling that consumer AI assistants are steadily shifting from free chatboxes to paid utility tiers."
+                ],
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-2",
+                channel: "TodayTech",
+                tag: "Cloud & Productivity",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Widespread Microsoft Outlook Outage Disrupts Email Access Across Devices",
+                summary: "A fresh disruption hit Microsoft's Outlook service, leaving web, desktop, and mobile users temporarily locked out of their inboxes.",
+                content: [
+                    "Microsoft's Outlook email platform suffered a widespread service interruption that prevented both workplace and personal account holders from loading messages or syncing their inboxes.",
+                    "Affected users ran into connection failures across desktop clients, webmail, and smartphone apps while Microsoft engineers worked to stabilize routing and authentication services.",
+                    "Milan's Take: Whenever a major cloud mail provider stumbles, it serves as a practical reminder to keep local offline copies of critical travel confirmations, invoices, and recovery codes rather than relying solely on live cloud search."
+                ],
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-3",
+                channel: "TodayTech",
+                tag: "Mobile Photography",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Phota Labs Launches AI Photo Editor Designed to Upgrade Casual Snapshots",
+                summary: "A new mobile app from Phota Labs uses intelligent relighting and framing refinements to give everyday smartphone photos a polished look.",
+                content: [
+                    "Phota Labs has launched a mobile photography app engineered to transform casual everyday snapshots into clean, studio-style portraits.",
+                    "Instead of relying solely on heavy cosmetic filters, the app analyzes scene lighting and depth to bring balanced exposure, natural skin tones, and sharper clarity to ordinary phone shots.",
+                    "Milan's Take: Smartphone camera sensors are already remarkably capable, so the real battleground in mobile photography is computational post-processing that enhances lighting without making portraits look overly synthetic."
+                ],
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-4",
+                channel: "TodayTech",
+                tag: "Privacy & Family Apps",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: false,
+                title: "Sundrop Organizes Baby Photos Into Milestone Time Lapses Without Using AI",
+                summary: "Bucking the generative AI wave, the new Sundrop app builds family recaps and milestone time lapses locally without cloud AI models.",
+                content: [
+                    "While nearly every new consumer app advertises cloud-powered AI features, Sundrop is taking the opposite approach by deliberately leaving AI out of its product.",
+                    "The app helps parents turn sprawling camera rolls of baby photos into organized milestone recaps and growth time lapses using fast, predictable on-device tools.",
+                    "Milan's Take: 'No AI' is rapidly becoming a genuine privacy selling point—especially for family and parenting apps where users strongly prefer keeping sensitive children's photos completely off third-party cloud pipelines."
+                ],
+                image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-5",
+                channel: "TodayTech",
+                tag: "Wearables",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Meta Brings Its Muse AI Assistant to Apple Watch and Wear OS Smartwatches",
+                summary: "Smartwatch owners can now access Meta's Muse assistant directly from their wrists on both Apple Watch and Android Wear OS.",
+                content: [
+                    "Meta has expanded its Muse AI assistant onto both Apple Watch and Android Wear OS devices, letting users interact with the agent without pulling out their phone.",
+                    "Tailored for quick wrist interactions, the wearable release brings fast voice queries and glanceable responses straight to smartwatch displays.",
+                    "Milan's Take: Smartwatches have always struggled with tiny on-screen keyboards, making natural voice assistants the most logical input method for wearables—provided response latency stays low over Bluetooth and LTE."
+                ],
+                image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-6",
+                channel: "TodayTech",
+                tag: "Messaging",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: false,
+                title: "WhatsApp's New Leadership Aims to Simplify the App While Expanding AI Capabilities",
+                summary: "WhatsApp's incoming leadership plans to streamline everyday usability while deepening built-in AI features across the messaging platform.",
+                content: [
+                    "WhatsApp's new leadership is prioritizing a cleaner, easier-to-navigate user experience alongside stronger built-in AI tools across the messaging app.",
+                    "As WhatsApp has grown beyond one-on-one texting into Communities, Channels, and business messaging, balancing interface simplicity with intelligent features has become a top product challenge.",
+                    "Milan's Take: WhatsApp's greatest strength has always been speed and low friction on entry-level phones. Keeping the core chat list uncluttered while tucking AI tools into helpful contextual shortcuts will be essential to keeping longtime users happy."
+                ],
+                image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-7",
+                channel: "TodayTech",
+                tag: "Streaming & Audio",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Spotify Upgrades AI DJ With Fresh Voices, Custom Personalities, and a Low-Chatter Mode",
+                summary: "Spotify's AI DJ now offers multiple presenter styles plus an option to dial back spoken commentary between songs.",
+                content: [
+                    "Spotify has refreshed its AI DJ feature with new voices, distinct presenter personalities, and a dedicated setting for less spoken chatter.",
+                    "Listeners can now tailor how much commentary they hear between tracks, making it easier to keep music flowing uninterrupted during deep work or workout sessions.",
+                    "Milan's Take: Giving users a 'less chatter' dial is a smart acknowledgment that while algorithmic music curation is great, listeners don't always want a virtual host interrupting every third song."
+                ],
+                image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-8",
+                channel: "TodayTech",
+                tag: "Publishing & Writing",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Medium Launches TK, a Dedicated Writing App With Built-In AI Editorial Assistance",
+                summary: "Medium's new TK app integrates AI helpers directly into the drafting workflow to assist authors as they structure and polish stories.",
+                content: [
+                    "Medium has unveiled TK, a dedicated writing application that embeds AI assistance directly into the drafting and editing workflow.",
+                    "Named after the classic journalism shorthand 'to come,' the app aims to support writers while they outline, revise, and prepare articles for publication.",
+                    "Milan's Take: Medium has long walked a fine line between welcoming tech-forward creators and protecting human storytelling from generic AI filler. Positioning TK as a drafting assistant rather than a one-click article generator helps reinforce that boundary."
+                ],
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-9",
+                channel: "TodayTech",
+                tag: "Social & Safety",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Instagram Rolls Out Automated AI Age-Estimation Technology Worldwide",
+                summary: "Meta is expanding Instagram's AI age-estimation system globally to identify teen users and apply stricter account protections.",
+                content: [
+                    "Meta is expanding Instagram's AI-powered age-estimation technology to users around the globe in an effort to strengthen teen safety defaults.",
+                    "The automated system looks at account signals and activity patterns to spot teenagers who may have entered an adult birth date, placing those profiles into stricter privacy settings.",
+                    "Milan's Take: Regulators across Europe, the UK, and North America have steadily tightened online youth safety rules, pushing major social networks toward proactive behavioral age checks rather than relying purely on self-reported birth years."
+                ],
+                image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-10",
+                channel: "TodayTech",
+                tag: "Personal Finance AI",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "4 min read",
+                featured: false,
+                title: "Anthropic Introduces a Personal Finance Tool Inside Claude to Track Spending",
+                summary: "Users can now review budgets and analyze monthly spending patterns with Claude's new Personal Finance capability.",
+                content: [
+                    "Anthropic has introduced a Personal Finance tool inside Claude that helps users review expenses and analyze their day-to-day spending habits.",
+                    "By organizing transaction breakdowns and highlighting recurring subscriptions, the feature turns Claude into an interactive budgeting companion.",
+                    "Milan's Take: Ever since Mint shut down, personal finance tracking has felt scattered across pricey subscription apps. Conversational analysis works remarkably well for spotting spending anomalies—as long as users review privacy controls before uploading raw statements."
+                ],
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-11",
+                channel: "TodayTech",
+                tag: "Social & Commerce",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "TikTok Debuts Standalone Shopping App While Instagram Brings Edits to Desktop",
+                summary: "TikTok has quietly rolled out a dedicated TikTok Shop app, while Instagram expanded its Edits video suite to desktop browsers.",
+                content: [
+                    "Social platforms are unbundling key utilities into standalone experiences: TikTok has quietly launched a dedicated TikTok Shop app, while Instagram has brought its Edits video editor to desktop.",
+                    "Separating e-commerce browsing from short-form video feeds gives shoppers a focused storefront, while desktop support makes Edits far more practical for multi-track creator workflows.",
+                    "Milan's Take: Unbundling heavy features keeps flagship mobile apps from collapsing under their own weight—and gives Instagram a direct desktop rival to ByteDance's CapCut."
+                ],
+                image: "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                id: "tt-12",
+                channel: "TodayTech",
+                tag: "Digital Reading",
+                date: EDITION_DATE,
+                author: AUTHOR_NAME,
+                readTime: "3 min read",
+                featured: false,
+                title: "Readwise Challenges Kindle and Goodreads With a Unified App for Book Lovers",
+                summary: "Readwise has launched a new reading and book-discovery app aimed at competing directly with Amazon's Kindle and Goodreads ecosystem.",
+                content: [
+                    "Readwise is stepping into the mainstream digital reading market with a new app built to rival both Amazon's Kindle reader and Goodreads.",
+                    "Known for its highlight-syncing and spaced-repetition tools, Readwise is combining e-book reading and social book tracking inside one modern interface.",
+                    "Milan's Take: Goodreads has seen remarkably little interface modernization since Amazon acquired it over a decade ago, leaving a clear opening for an independent, highlight-centric reading platform."
+                ],
+                image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80"
+            }
+        ];
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let bookmarks = [];
+
+        function updateCounters() {
+            const total = articles.length;
+            const codingCount = articles.filter(a => a.channel === 'Coding with Milan').length;
+            const techTodayCount = articles.filter(a => a.channel === 'TodayTech').length;
+
+            document.querySelectorAll('.total-article-count').forEach(el => el.textContent = total);
+            document.querySelectorAll('.coding-article-count').forEach(el => el.textContent = codingCount);
+            document.querySelectorAll('.techtoday-article-count').forEach(el => el.textContent = techTodayCount);
+            
+            const countNum = document.getElementById('countNum');
+            if (countNum) countNum.textContent = total;
+        }
+
+        function handleSearch(isMobile = false) {
+            const input = document.getElementById(isMobile ? 'mobileSearchInput' : 'searchInput');
+            searchQuery = input.value.toLowerCase().trim();
+            renderNewsGrid();
+        }
+
+        function getFilteredArticles() {
+            return articles.filter(article => {
+                const matchesCategory = currentCategory === 'all' || article.channel === currentCategory;
+                const matchesSearch = !searchQuery || 
+                    article.title.toLowerCase().includes(searchQuery) || 
+                    article.summary.toLowerCase().includes(searchQuery) ||
+                    article.tag.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+        }
+
+        function renderFeaturedHero() {
+            const container = document.getElementById('featuredHeroContainer');
+            if (!container) return;
+
+            const filtered = getFilteredArticles();
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                document.getElementById('emptyState').classList.remove('hidden');
+                return;
+            } else {
+                document.getElementById('emptyState').classList.add('hidden');
+            }
+
+            const mainStory = filtered.find(a => a.featured) || filtered[0];
+            const sideStories = filtered.filter(a => a.id !== mainStory.id).slice(0, 3);
+
+            const isCodingMain = mainStory.channel === 'Coding with Milan';
+
+            container.innerHTML = `
+                <!-- Main Featured Story Left -->
+                <div class="lg:col-span-7 bg-white dark:bg-darkCard rounded-3xl border border-gray-200 dark:border-darkBorder shadow-md overflow-hidden flex flex-col justify-between media-shadow-hover">
+                    <div>
+                        <div class="relative h-64 sm:h-80 overflow-hidden bg-slate-900">
+                            <img src="${mainStory.image}" alt="${mainStory.title}" class="w-full h-full object-cover opacity-90 transform hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/900x500/090D16/FFCC00?text=MilanMediaChannels'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+                            <div class="absolute top-4 left-4 flex items-center gap-2">
+                                <span class="bg-brandGreen text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">Featured Story</span>
+                                <span class="bg-slate-900/80 backdrop-blur-md text-brandYellow text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-slate-700">
+                                    ${mainStory.channel}
+                                </span>
+                            </div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="text-[11px] font-bold text-slate-300 mb-1 flex items-center gap-2">
+                                    <span>${mainStory.tag}</span> &bull; <span>${mainStory.date}</span>
+                                </div>
+                                <h2 onclick="openArticleModal('${mainStory.id}')" class="text-xl sm:text-2xl font-black text-white leading-tight cursor-pointer hover:text-brandYellow transition line-clamp-2">
+                                    ${mainStory.title}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-gray-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3">
+                                ${mainStory.summary}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-gray-50 dark:bg-slate-900/60 border-t border-gray-200 dark:border-slate-800 flex items-center justify-between">
+                        <button onclick="openArticleModal('${mainStory.id}')" class="bg-slate-900 dark:bg-brandGreen hover:opacity-90 text-white font-bold text-xs px-4 py-2 rounded-xl transition flex items-center gap-2">
+                            Read Full Breakdown <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                        <button onclick="toggleBookmark('${mainStory.id}')" class="text-xs font-bold text-gray-500 dark:text-slate-400 hover:text-brandYellow transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-bookmark ${bookmarks.includes(mainStory.id) ? 'text-brandYellow' : ''}"></i>
+                            ${bookmarks.includes(mainStory.id) ? 'Saved' : 'Save Story'}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column Top Stories -->
+                <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brandGreen"></span> Top Edition Highlights
+                        </span>
+                        <span class="text-[11px] font-bold text-brandGreen">${EDITION_DATE}</span>
+                    </div>
+                    ${sideStories.map(story => {
+                        const isCoding = story.channel === 'Coding with Milan';
+                        return `
+                            <div class="bg-white dark:bg-darkCard rounded-2xl p-4 border border-gray-200 dark:border-darkBorder shadow-sm media-shadow-hover flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                                        <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${isCoding ? 'bg-emerald-500/15 text-brandGreen' : 'bg-amber-500/15 text-brandYellowDark dark:text-brandYellow'}">
+                                            ${story.channel}
+                                        </span>
+                                        <span class="text-[11px] text-gray-400">${story.date}</span>
+                                    </div>
+                                    <h3 onclick="openArticleModal('${story.id}')" class="text-sm font-extrabold text-slate-900 dark:text-white leading-snug cursor-pointer hover:text-brandGreen transition line-clamp-2 mb-1.5">
+                                        ${story.title}
+                                    </h3>
+                                    <p class="text-xs text-gray-500 dark:text-slate-400 line-clamp-2">
+                                        ${story.summary}
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-2 border-t border-gray-100 dark:border-slate-800/80 flex items-center justify-between text-[11px]">
+                                    <span class="font-semibold text-slate-600 dark:text-slate-300">By ${story.author} &bull; ${story.readTime}</span>
+                                    <button onclick="openArticleModal('${story.id}')" class="font-bold text-brandGreen hover:underline">
+                                        Read &rarr;
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function renderNewsGrid() {
+            renderFeaturedHero();
+            const grid = document.getElementById('newsGrid');
+            if (!grid) return;
+
+            const filtered = getFilteredArticles();
+            const remainingStories = filtered.slice(3); // skip hero + side stories
+
+            if (remainingStories.length === 0) {
+                grid.innerHTML = '';
+                return;
+            }
+
+            grid.innerHTML = remainingStories.map(article => {
+                const isCoding = article.channel === 'Coding with Milan';
+                return `
+                    <article class="bg-white dark:bg-darkCard rounded-3xl border border-gray-200 dark:border-darkBorder overflow-hidden shadow-sm media-shadow-hover flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 overflow-hidden bg-slate-900">
+                                <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/090D16/FFCC00?text=MilanMediaChannels'">
+                                <div class="absolute top-3 left-3">
+                                    <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-md ${isCoding ? 'bg-brandGreen text-white' : 'bg-brandYellow text-slate-950'}">
+                                        ${article.channel}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between text-[11px] text-gray-400 mb-2 font-medium">
+                                    <span>${article.tag}</span>
+                                    <span>${article.readTime}</span>
+                                </div>
+                                <h3 onclick="openArticleModal('${article.id}')" class="text-base font-extrabold text-slate-900 dark:text-white leading-snug cursor-pointer hover:text-brandGreen transition line-clamp-2 mb-2">
+                                    ${article.title}
+                                </h3>
+                                <p class="text-xs text-gray-600 dark:text-slate-300 line-clamp-3 leading-relaxed">
+                                    ${article.summary}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-5 py-3.5 bg-gray-50 dark:bg-slate-900/50 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between">
+                            <div class="text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                                By ${article.author} <span class="text-gray-400 font-normal">&bull; ${article.date}</span>
+                            </div>
+                            <button onclick="openArticleModal('${article.id}')" class="text-xs font-extrabold text-brandGreen hover:underline flex items-center gap-1">
+                                Read <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Update desktop & pill active states
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                if (btn.textContent.includes(category) || (category === 'all' && btn.textContent.includes('All Stories'))) {
+                    btn.className = 'cat-pill active-pill px-4 py-1.5 rounded-full text-xs font-bold transition-all bg-slate-900 dark:bg-white text-white dark:text-slate-900';
+                } else {
+                    btn.className = 'cat-pill px-4 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 hover:border-brandGreen transition-all';
+                }
+            });
+
+            renderNewsGrid();
+        }
+
+        function openArticleModal(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            const isCoding = article.channel === 'Coding with Milan';
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = `
+                <div class="relative h-72 sm:h-96 bg-slate-950 overflow-hidden">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover opacity-85">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                    <button onclick="closeArticleModal()" class="absolute top-4 right-4 bg-slate-900/80 hover:bg-slate-900 text-white w-10 h-10 rounded-full flex items-center justify-center text-lg backdrop-blur-md transition shadow-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full ${isCoding ? 'bg-brandGreen text-white' : 'bg-brandYellow text-slate-950'}">
+                                ${article.channel}
+                            </span>
+                            <span class="text-xs font-bold text-slate-300 bg-slate-900/70 px-3 py-1 rounded-full backdrop-blur-md">
+                                ${article.tag}
+                            </span>
+                        </div>
+                        <h2 class="text-xl sm:text-3xl font-black text-white leading-tight">
+                            ${article.title}
+                        </h2>
+                    </div>
+                </div>
+                <div class="p-6 sm:p-8">
+                    <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-slate-400 pb-5 mb-6 border-b border-gray-200 dark:border-slate-800">
+                        <span>By <strong class="text-slate-900 dark:text-white">${article.author}</strong></span>
+                        <span>&bull;</span>
+                        <span>${article.date}</span>
+                        <span>&bull;</span>
+                        <span>${article.readTime}</span>
+                    </div>
+                    <div class="space-y-4 text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+                        ${article.content.map(p => `<p>${p}</p>`).join('')}
+                    </div>
+                    ${article.codeSnippet ? `
+                        <div class="mt-6 bg-slate-950 text-emerald-400 font-mono text-xs p-4 rounded-2xl border border-slate-800 overflow-x-auto">
+                            <div class="text-[10px] uppercase tracking-wider text-slate-400 mb-1.5">// Developer Command / Snippet</div>
+                            <span class="text-slate-500 select-none">$ </span>${article.codeSnippet}
+                        </div>
+                    ` : ''}
+                    <div class="mt-8 pt-4 border-t border-gray-200 dark:border-slate-800 flex items-center justify-between">
+                        <button onclick="toggleBookmark('${article.id}'); openArticleModal('${article.id}');" class="px-4 py-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-brandYellow transition flex items-center gap-2">
+                            <i class="fa-solid fa-bookmark ${bookmarks.includes(article.id) ? 'text-brandYellow' : ''}"></i>
+                            ${bookmarks.includes(article.id) ? 'Saved in Reading List' : 'Save to Reading List'}
+                        </button>
+                        <button onclick="closeArticleModal()" class="px-5 py-2 rounded-xl bg-brandGreen hover:bg-emerald-700 text-white text-xs font-bold transition">
+                            Done Reading
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function toggleBookmark(id) {
+            const idx = bookmarks.indexOf(id);
+            if (idx === -1) {
+                bookmarks.push(id);
+                showToast('Story added to your Saved Reading List');
+            } else {
+                bookmarks.splice(idx, 1);
+                showToast('Story removed from Reading List');
+            }
+            document.getElementById('bookmarkBadge').textContent = bookmarks.length;
+            renderBookmarks();
+            renderNewsGrid();
+        }
+
+        function renderBookmarks() {
+            const list = document.getElementById('bookmarkList');
+            if (bookmarks.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 text-xs">
+                        <i class="fa-regular fa-bookmark text-2xl mb-2 block"></i>
+                        No saved articles yet. Click the bookmark icon on any story to save it here.
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = bookmarks.map(id => {
+                const item = articles.find(a => a.id === id);
+                if (!item) return '';
+                return `
+                    <div class="p-3.5 rounded-xl bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800">
+                        <div class="flex items-center justify-between text-[10px] font-bold text-brandGreen mb-1">
+                            <span>${item.channel}</span>
+                            <button onclick="toggleBookmark('${item.id}')" class="text-gray-400 hover:text-red-400">Remove</button>
+                        </div>
+                        <h4 onclick="openArticleModal('${item.id}'); toggleBookmarkDrawer();" class="text-xs font-extrabold text-slate-900 dark:text-white cursor-pointer hover:text-brandGreen">
+                            ${item.title}
+                        </h4>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function toggleBookmarkDrawer() {
+            const drawer = document.getElementById('bookmarkDrawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 2600);
+        }
+
+        document.getElementById('articleModal').addEventListener('click', (e) => {
+            if (e.target.id === 'articleModal') closeArticleModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeArticleModal();
+        });
+
+        // Initialize Page
+        updateCounters();
+        renderBookmarks();
+        renderNewsGrid();
+    </script>
+</body>
+</html>
